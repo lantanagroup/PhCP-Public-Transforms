@@ -12,12 +12,26 @@
     exclude-result-prefixes="lcg xsl cda fhir xs xsi sdtc xhtml"
     version="2.0">
     
-   <xsl:template match="cda:custodian" mode="bundle-entry">
-      <xsl:call-template name="create-bundle-entry"/>
+    <xsl:template match="cda:custodian" mode="bundle-entry">
+        <xsl:for-each select="cda:assignedCustodian/cda:representedCustodianOrganization">
+            <xsl:apply-templates select="." mode="bundle-entry"></xsl:apply-templates>
+        </xsl:for-each>
    </xsl:template>
+    
+    <xsl:template match="cda:representedCustodianOrganization | cda:representedOrganization" mode="bundle-entry">
+        <xsl:call-template name="create-bundle-entry"/>
+    </xsl:template>
     
     <xsl:template
         match="cda:custodian"
+        mode="reference">
+        <xsl:for-each select="cda:assignedCustodian/cda:representedCustodianOrganization">
+            <xsl:apply-templates select="." mode="reference"></xsl:apply-templates>
+        </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template
+        match="cda:representedCustodianOrganization | cda:representedOrganization"
         mode="reference">
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param>
@@ -38,48 +52,51 @@
         </xsl:choose>
     </xsl:template>
     
+    
+    
     <xsl:template match="cda:custodian">
         <xsl:for-each select="cda:assignedCustodian/cda:representedCustodianOrganization">
-            <xsl:call-template name="create-organization"></xsl:call-template>
+            <xsl:apply-templates select="."/>
+            <!--
+            <xsl:call-template name="create-organization"/>
+            -->
         </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template match="cda:representedCustodianOrganization | cda:representedOrganization">
+        <xsl:call-template name="create-organization"/>
     </xsl:template>
     
     <xsl:template name="create-organization">
         <Organization>
-            <xsl:apply-templates select="cda:id"/>
-            <name>
-                <xsl:attribute name="value">
-                    <xsl:value-of select="cda:name"/>
-                </xsl:attribute>
-            </name>
+            <xsl:choose>
+                <xsl:when test="cda:id">
+                    <xsl:apply-templates select="cda:id"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <identifier>
+                        <system value="urn:ietf:rfc:3986"/>
+                        <value value="urn:uuid:{@lcg:uuid}"/>
+                    </identifier>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:apply-templates select="cda:code">
+                <xsl:with-param name="elementName">type</xsl:with-param>
+            </xsl:apply-templates>
+            <xsl:for-each select="cda:standardIndustryClassCode">
+                <xsl:call-template name="newCreateCodableConcept">
+                    <xsl:with-param name="elementName">type</xsl:with-param>
+                </xsl:call-template>
+            </xsl:for-each>
+            <xsl:if test="cda:name">
+                <name>
+                    <xsl:attribute name="value">
+                        <xsl:value-of select="cda:name"/>
+                    </xsl:attribute>
+                </name>
+            </xsl:if>
             <xsl:apply-templates select="cda:telecom"/>
-            <address>
-                <line>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:addr/cda:streetAddressLine"/>
-                    </xsl:attribute>
-                </line>
-                <city>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:addr/cda:city"/>
-                    </xsl:attribute>
-                </city>
-                <state>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:addr/cda:state"/>
-                    </xsl:attribute>
-                </state>
-                <postalCode>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:addr/cda:postalCode"/>
-                    </xsl:attribute>
-                </postalCode>
-                <country>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:addr/cda:country"/>
-                    </xsl:attribute>
-                </country>
-            </address>
+            <xsl:apply-templates select="cda:addr"/>
         </Organization>
     </xsl:template>
 </xsl:stylesheet>

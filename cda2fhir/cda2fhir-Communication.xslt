@@ -40,24 +40,26 @@
         <Communication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns="http://hl7.org/fhir">
             <xsl:call-template name="add-meta"/>
+            <xsl:apply-templates select="cda:id"/>
             <status value="{cda:statusCode/@code}"/>
             <xsl:call-template name="subject-reference"/>
+            <xsl:for-each select="cda:participant">
+                <recipient>
+                    <reference value="urn:uuid:{@lcg:uuid}"/>
+                </recipient>
+            </xsl:for-each>
             <xsl:apply-templates select="cda:effectiveTime" mode="communication"/>
             <xsl:call-template name="author-reference">
                 <xsl:with-param name="element-name">sender</xsl:with-param>
             </xsl:call-template>
+            
             <xsl:apply-templates select="cda:code">
                 <xsl:with-param name="elementName">reasonCode</xsl:with-param>
             </xsl:apply-templates>
         </Communication>
     </xsl:template>
     
-
-    
     <xsl:template match="cda:effectiveTime" mode="communication">
         <sent value="{lcg:cdaTS2date(@value)}"/>
-    </xsl:template>
-    
-    
-    
+    </xsl:template>    
 </xsl:stylesheet>

@@ -7,6 +7,7 @@
 	<map oid="2.16.840.1.113883.5.4" uri="http://hl7.org/fhir/v3/ActCode"/>
 	<map oid="2.16.840.1.113883.5.2" uri="http://hl7.org/fhir/v3/MaritalStatus"/>
 	<map oid="2.16.840.1.113883.5.1008" uri="http://hl7.org/fhir/v3/NullFlavor"/>
+	<map oid="2.16.840.1.113883.5.111" uri="http://hl7.org/fhir/v3/RoleCode"/>
 	
 	
 </mapping>

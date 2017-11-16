@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="urn:hl7-org:v3"
     xmlns:lcg="http://www.lantanagroup.com" xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
-    xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" xmlns:uuid="java:java.util.UUID"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+    xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    version="2.0"
     exclude-result-prefixes="lcg xsl cda fhir">
     
     <xsl:template match="fhir:Condition" mode="entry">
@@ -17,6 +18,9 @@
     </xsl:template>
     
     <xsl:template name="make-problemobservation">
+        <xsl:if test="fhir:category/@value='encounter-diagnosis'">
+            <xsl:comment> TODO: if category is encounter-diagnosis, wrap with encounter diagnosis template (root="2.16.840.1.113883.10.20.22.4.80" extension="2015-08-01")</xsl:comment>
+        </xsl:if>
         <act classCode="ACT" moodCode="EVN">
             <!-- [C-CDA R2.1] Health Concern Act (V2) -->
             <templateId root="2.16.840.1.113883.10.20.22.4.132" extension="2015-08-01" />

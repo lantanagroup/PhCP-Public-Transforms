@@ -88,7 +88,7 @@
             </xsl:if>
             
             <custodian>
-                <reference value="urn:uuid:{cda:custodian/@lcg:uuid}"/>
+                <xsl:apply-templates select="cda:custodian" mode="reference"/>
             </custodian>
             <relatesTo>
                 <code value="transforms"/>
@@ -139,25 +139,12 @@
                     <valueReference><reference value="urn:uuid:{@lcg:uuid}"/></valueReference>
                 </extension>
             </xsl:for-each>
-            
-            <period>
-                <start>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/cda:low/@value)"/>
-                    </xsl:attribute>
-                </start>
-                <end>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/cda:high/@value)"/>
-                    </xsl:attribute>
-                </end>
-            </period>
-            <!-- CarePlan resource not needed for ONC-HIP use case. Revisit later. -->
-            <!-- 
+            <xsl:apply-templates select="cda:effectiveTime" mode="period"/>
+            <!-- CarePlan resource not strictly needed for ONC-HIP use casem, but added at Clinician's on FHIR event.  -->
             <detail>
                 <xsl:apply-templates select="." mode="reference"/>
             </detail>
-            -->
+            
         </event>
     </xsl:template>
     

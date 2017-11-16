@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="urn:hl7-org:v3"
-   xmlns:lcg="http://www.lantanagroup.com" xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
-   xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" xmlns:uuid="java:java.util.UUID"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+   xmlns="urn:hl7-org:v3"
+   xmlns:lcg="http://www.lantanagroup.com" 
+   xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
+   xmlns:cda="urn:hl7-org:v3" 
+   xmlns:fhir="http://hl7.org/fhir" 
    version="2.0"
    exclude-result-prefixes="lcg xsl cda fhir">
 
@@ -15,6 +18,20 @@
                   </xsl:when>
                   <xsl:when test="starts-with(fhir:value/@value,'urn:uuid:')">
                      <xsl:attribute name="root" select="substring-after(fhir:value/@value,'urn:uuid:')"/>
+                  </xsl:when>
+                  <xsl:when test="starts-with(fhir:value/@value, 'urn:hl7ii:')">
+                     <xslt:variable name="val">
+                        <xslt:value-of select="substring-after(fhir:value/@value, 'urn:hl7ii:')"/>
+                     </xslt:variable>
+                     <xsl:choose>
+                        <xsl:when test="contains($val, ':')">
+                           <xsl:attribute name="root" select="substring-before($val, ':')"/>
+                           <xsl:attribute name="extension" select="substring-after($val, ':')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                           <xsl:attribute name="root" select="$val"/>
+                        </xsl:otherwise>
+                     </xsl:choose>
                   </xsl:when>
                   <xsl:otherwise>
                      <xsl:message>TODO: System is urn:ietf:rfc:3986 but did not start with urn:oid or urn:uuid. Need to handle other URI types.</xsl:message>

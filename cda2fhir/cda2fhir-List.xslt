@@ -87,6 +87,14 @@
                         <xsl:with-param name="listEntry">true</xsl:with-param>
                     </xsl:apply-templates>
                 </xsl:for-each>
+                <xsl:for-each select="cda:entryRelationship/cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.122']]">
+                    <xsl:variable name="id" select="./cda:id/@root"/>
+                    <xsl:for-each select="//cda:observation[cda:id[@root=$id]]">
+                        <xsl:apply-templates select="." mode="reference">
+                            <xsl:with-param name="listEntry">true</xsl:with-param>
+                        </xsl:apply-templates>
+                    </xsl:for-each>
+                </xsl:for-each>
             </xsl:for-each>
         </List>
     </xsl:template>

@@ -72,11 +72,10 @@
 		</xsl:for-each>
 		<xsl:comment>CDA templateId: <xsl:value-of select="$templateURI"/></xsl:comment>
 	</xsl:template>
-
-	<xsl:function name="lcg:cdaTS2date" as="xs:string">
-		<!-- the FHIR specification allows ignoring seconds, but the FHIR XSD does not -->
-		<!-- set seconds to 0 for simplicity -->
-		<xsl:param name="cdaTS" as="node()*"/>
+	
+	<xsl:function name="lcg:dateFromcdaTS" as="xs:string">
+		<!-- Just get the date part, ignoring any time data -->
+		<xsl:param name="cdaTS" as="xs:string"/>
 
 		<xsl:variable name="date" as="xs:string">
 			<xsl:choose>
@@ -95,7 +94,17 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		<xsl:value-of select="$date"/>
+	</xsl:function>
 
+	<xsl:function name="lcg:cdaTS2date" as="xs:string">
+		<!-- the FHIR specification allows ignoring seconds, but the FHIR XSD does not -->
+		<!-- set seconds to 0 for simplicity -->
+		<xsl:param name="cdaTS" as="xs:string"/>
+		<xsl:variable name="date" as="xs:string" select="lcg:dateFromcdaTS($cdaTS)"/>
+		<!--
+		<xsl:message>cdaTS=<xsl:value-of select="$cdaTS"/></xsl:message>
+		-->
 		<xsl:choose>
 			<xsl:when test="matches($cdaTS, '[-+]')">
 				<xsl:variable name="time"
@@ -344,7 +353,10 @@
 		</xsl:if>
 	</xsl:template>
 
-	<xsl:template match="cda:name">
+	<xsl:template match="cda:name[not(@nullFlavor)]">
+		<xsl:variable name="name-string">
+			<xsl:for-each select="text() | cda:*"><xsl:value-of select="normalize-space(.)"/></xsl:for-each>
+		</xsl:variable>
 		<xsl:variable name="use">
 			<xsl:choose>
 				<xsl:when test="@use = 'L'">usual</xsl:when>
@@ -352,61 +364,59 @@
 				<xsl:when test="descendant::*/@qualifier = 'BR'">maiden</xsl:when>
 			</xsl:choose>
 		</xsl:variable>
-		<name>
-			<xsl:if test="string-length($use) > 0">
-				<use value="{$use}"/>
-			</xsl:if>
-			<xsl:if test="string-length(normalize-space(.)) > 0">
-				<text>
-					<xsl:attribute name="value">
-						<xsl:value-of select="normalize-space(cda:family)"/>
-						<xsl:text>,</xsl:text>
-						<xsl:for-each select="cda:suffix">
-							<xsl:text> </xsl:text>
-							<xsl:value-of select="normalize-space(.)"/>
-							<xsl-text>,</xsl-text>
-						</xsl:for-each>
-						<xsl:for-each select="cda:prefix">
-							<xsl:text> </xsl:text>
-							<xsl:value-of select="normalize-space(.)"/>
-						</xsl:for-each>
-						<xsl:for-each select="cda:given">
-							<xsl:text> </xsl:text>
-							<xsl:value-of select="normalize-space(.)"/>
-						</xsl:for-each>
-						<xsl:if test="string-length($use) > 0">
-							<text> (</text>
-							<xsl:value-of select="$use"/>
-							<text> name)</text>
-						</xsl:if>
-					</xsl:attribute>
-				</text>
-			</xsl:if>
-			<xsl:for-each select="cda:family">
-				<family value="{.}"/>
-			</xsl:for-each>
-			<xsl:for-each select="cda:given">
-				<given>
-					<xsl:attribute name="value">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</given>
-			</xsl:for-each>
-			<xsl:for-each select="cda:prefix">
-				<prefix>
-					<xsl:attribute name="value">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</prefix>
-			</xsl:for-each>
-			<xsl:for-each select="cda:suffix">
-				<suffix>
-					<xsl:attribute name="value">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</suffix>
-			</xsl:for-each>
-		</name>
+		<xsl:if test="string-length(normalize-space($name-string)) > 0">
+			<name>
+				<xsl:if test="string-length($use) > 0">
+					<use value="{$use}"/>
+				</xsl:if>
+				<xsl:if test="string-length(normalize-space(.)) > 0">
+					<text>
+						<xsl:attribute name="value">
+							<xsl:value-of select="normalize-space(cda:family)"/>
+							<xsl:text>,</xsl:text>
+							<xsl:for-each select="cda:suffix">
+								<xsl:text> </xsl:text>
+								<xsl:value-of select="normalize-space(.)"/>
+								<xsl-text>,</xsl-text>
+							</xsl:for-each>
+							<xsl:for-each select="cda:prefix">
+								<xsl:text> </xsl:text>
+								<xsl:value-of select="normalize-space(.)"/>
+							</xsl:for-each>
+							<xsl:for-each select="cda:given">
+								<xsl:text> </xsl:text>
+								<xsl:value-of select="normalize-space(.)"/>
+							</xsl:for-each>
+							<xsl:if test="string-length($use) > 0">
+								<text> (</text>
+								<xsl:value-of select="$use"/>
+								<text> name)</text>
+							</xsl:if>
+						</xsl:attribute>
+					</text>
+				</xsl:if>
+				<xsl:for-each select="cda:family">
+					<xsl:if test="string-length(.) &gt; 0">
+						<family value="{.}"/>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="cda:given">
+					<xsl:if test="string-length(.) &gt; 0">
+						<given value="{.}"/>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="cda:prefix">
+					<xsl:if test="string-length(.) &gt; 0">
+						<prefix value="{.}"/>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="cda:suffix">
+					<xsl:if test="string-length(.) &gt; 0">
+						<suffix value="{.}"/>
+					</xsl:if>
+				</xsl:for-each>
+			</name>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="cda:telecom">
@@ -493,66 +503,52 @@
 	</xsl:template>
 
 	<xsl:template match="cda:addr[not(@nullFlavor)]">
-		<address>
-			<xsl:if test="@use">
-				<use>
-					<xsl:attribute name="value">
-						<xsl:choose>
-							<xsl:when test="@use = 'H' or @use = 'HP' or @use = 'HV'"
-								>home</xsl:when>
-							<xsl:when test="@use = 'WP' or @use = 'DIR' or @use = 'PUB'"
-								>work</xsl:when>
-							<!-- default to work -->
-							<xsl:otherwise>work</xsl:otherwise>
-						</xsl:choose>
-					</xsl:attribute>
-				</use>
-			</xsl:if>
-			<xsl:for-each select="cda:streetAddressLine[not(@nullFlavor)]">
-				<line>
-					<xsl:attribute name="value">
-						<xsl:value-of select="normalize-space(.)"/>
-					</xsl:attribute>
-				</line>
-			</xsl:for-each>
-
-			<!-- Camara requires that at least one line be present -->
-			<xsl:if test="count(cda:streetAddressLine[not(@nullFlavor)]) = 0">
-				<line/>
-			</xsl:if>
-
-			<xsl:for-each select="cda:city[not(@nullFlavor)]">
-
-				<city>
-					<xsl:attribute name="value">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</city>
-
-			</xsl:for-each>
-			<xsl:for-each select="cda:state[not(@nullFlavor)]">
-
-				<state>
-					<xsl:attribute name="value">
-						<xsl:value-of select="normalize-space(.)"/>
-					</xsl:attribute>
-				</state>
-			</xsl:for-each>
-			<xsl:for-each select="cda:postalCode[not(@nullFlavor)]">
-				<postalCode>
-					<xsl:attribute name="value">
-						<xsl:value-of select="normalize-space(.)"/>
-					</xsl:attribute>
-				</postalCode>
-			</xsl:for-each>
-			<xsl:for-each select="cda:country[not(@nullFlavor)]">
-				<country>
-					<xsl:attribute name="value">
-						<xsl:value-of select="normalize-space(.)"/>
-					</xsl:attribute>
-				</country>
-			</xsl:for-each>
-		</address>
+		<xsl:variable name="addr-string">
+			<xsl:for-each select="text() | cda:*"><xsl:value-of select="normalize-space(.)"/></xsl:for-each>
+		</xsl:variable>
+		<xsl:if test="string-length($addr-string) &gt; 0">
+			<address>
+				<xsl:if test="@use">
+					<use>
+						<xsl:attribute name="value">
+							<xsl:choose>
+								<xsl:when test="@use = 'H' or @use = 'HP' or @use = 'HV'"
+									>home</xsl:when>
+								<xsl:when test="@use = 'WP' or @use = 'DIR' or @use = 'PUB'"
+									>work</xsl:when>
+								<!-- default to work -->
+								<xsl:otherwise>work</xsl:otherwise>
+							</xsl:choose>
+						</xsl:attribute>
+					</use>
+				</xsl:if>
+				<xsl:for-each select="cda:streetAddressLine[not(@nullFlavor)]">
+					<xsl:if test="string-length(.) &gt; 0">
+						<line value="{normalize-space(.)}"/>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="cda:city[not(@nullFlavor)]">
+					<xsl:if test="string-length(.) &gt; 0">
+						<city value="{normalize-space(.)}"/>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="cda:state[not(@nullFlavor)]">
+					<xsl:if test="string-length(.) &gt; 0">
+						<state value="{normalize-space(.)}"/>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="cda:postalCode[not(@nullFlavor)]">
+					<xsl:if test="string-length(.) &gt; 0">
+						<postalCode value="{normalize-space(.)}"/>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="cda:country[not(@nullFlavor)]">
+					<xsl:if test="string-length(.) &gt; 0">
+						<country value="{normalize-space(.)}"/>
+					</xsl:if>
+				</xsl:for-each>
+			</address>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="cda:id | cda:setId">
@@ -563,8 +559,16 @@
 			</xsl:when>
 			<xsl:when test="@root and @extension">
 				<xsl:element name="{$elementName}">
-					<system value="urn:oid:{@root}"/>
-					<value value="{@extension}"/>
+				<xsl:choose>
+					<xsl:when test="contains('.', @root)">
+						<system value="urn:oid:{@root}"/>
+						<value value="{@extension}"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<system value="urn:ietf:rfc:3986"/>
+						<value value="urn:hl7ii:{@root}:{encode-for-uri(@extension)}"/>
+					</xsl:otherwise>
+				</xsl:choose>
 				</xsl:element>
 			</xsl:when>
 			<xsl:when test="@root and not(@extension)">
@@ -596,8 +600,35 @@
 			<xsl:with-param name="includeCoding" select="$includeCoding"/>
 		</xsl:call-template>
 	</xsl:template>
+	
+	<xsl:template match="cda:birthTime">
+		<xsl:param name="element-name">birthDate</xsl:param>
+		<xsl:if test="not(@nullFlavor)">
+			<xsl:element name="{$element-name}">
+				<xsl:attribute name="value" select="lcg:dateFromcdaTS(@value)"/>
+			</xsl:element>
+		</xsl:if>
+	</xsl:template>
 
 	<xsl:template match="cda:administrativeGenderCode">
+		<xsl:variable name="cda-gender" select="@code"/>
+		<gender>
+			<xsl:choose>
+				<xsl:when test="$cda-gender = 'M'">
+					<xsl:attribute name="value">male</xsl:attribute>
+				</xsl:when>
+				<xsl:when test="$cda-gender = 'F'">
+					<xsl:attribute name="value">female</xsl:attribute>
+				</xsl:when>
+				<xsl:when test="$cda-gender = 'UN'">
+					<xsl:attribute name="value">other</xsl:attribute>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:attribute name="value">unknown</xsl:attribute>
+				</xsl:otherwise>
+			</xsl:choose>
+		</gender>
+		<!--
 		<xsl:variable name="gendercode" select="@code"/>
 		<xsl:variable name="display">
 			<xsl:choose>
@@ -619,20 +650,19 @@
 			</xsl:choose>
 		</xsl:variable>
 		<gender>
-			<code>
-				<xsl:attribute name="value">
-					<xsl:choose>
-						<xsl:when test="$gendercode = 'F' or $gendercode = 'Female'">F</xsl:when>
-						<xsl:when test="$gendercode = 'M' or $gendercode = 'Male'">M</xsl:when>
-						<xsl:when test="$gendercode = 'UN' or $gendercode = 'Undifferentiated'"
-							>UN</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select="$gendercode"/>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:attribute>
-			</code>
+			<xsl:attribute name="value">
+				<xsl:choose>
+					<xsl:when test="$gendercode = 'F' or $gendercode = 'Female'">F</xsl:when>
+					<xsl:when test="$gendercode = 'M' or $gendercode = 'Male'">M</xsl:when>
+					<xsl:when test="$gendercode = 'UN' or $gendercode = 'Undifferentiated'"
+						>UN</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="$gendercode"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:attribute>
 		</gender>
+		-->
 	</xsl:template>
 
 
@@ -697,9 +727,9 @@
 						</xsl:when>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:otherwise>
+				<xsl:when test="cda:originalText">
 					<xsl:value-of select="cda:originalText"/>
-				</xsl:otherwise>
+				</xsl:when>
 			</xsl:choose>
 		</xsl:variable>
 		<xsl:variable name="isValue" select="false()"/>
@@ -713,13 +743,19 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		<xsl:variable name="nullFlavor">
+			<xsl:choose>
+				<xsl:when test="not(@nullFlavor) and not(@code) and not(@codeSystem)">NI</xsl:when>
+				<xsl:otherwise><xsl:value-of select="@nullFlavor"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
 		<xsl:variable name="content">
 			<xsl:call-template name="createCodableConceptContent">
 				<xsl:with-param name="codeSystem" select="@codeSystem"/>
 				<xsl:with-param name="code" select="@code"/>
 				<xsl:with-param name="displayName" select="$display"/>
 				<xsl:with-param name="isValue" select="$isValue"/>
-				<xsl:with-param name="nullFlavor" select="@nullFlavor"/>
+				<xsl:with-param name="nullFlavor" select="$nullFlavor"/>
 			</xsl:call-template>
 		</xsl:variable>
 
@@ -731,8 +767,14 @@
 							<xsl:value-of select="normalize-space(@displayName)"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="normalize-space($originalText)"/>
+							<xsl:value-of select="normalize-space(cda:originalText)"/>
 						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+				<xsl:variable name="nullFlavor">
+					<xsl:choose>
+						<xsl:when test="not(@nullFlavor) and not(@code) and not(@codeSystem)">NI</xsl:when>
+						<xsl:otherwise><xsl:value-of select="@nullFlavor"/></xsl:otherwise>
 					</xsl:choose>
 				</xsl:variable>
 				<xsl:variable name="this-translation">
@@ -741,6 +783,7 @@
 						<xsl:with-param name="code" select="@code"/>
 						<xsl:with-param name="displayName" select="$this-display"/>
 						<xsl:with-param name="isValue" select="$isValue"/>
+						<xsl:with-param name="nullFlavor" select="$nullFlavor"/>
 					</xsl:call-template>
 				</xsl:variable>
 				<xsl:choose>
@@ -756,7 +799,7 @@
 				</xsl:choose>
 			</xsl:for-each>
 		</xsl:variable>
-
+	
 		<xsl:element name="{$elementName}">
 			<xsl:choose>
 				<xsl:when test="$includeCoding = true()">
@@ -778,6 +821,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:element>
+		
 	</xsl:template>
 
 
@@ -792,10 +836,21 @@
 			</xsl:attribute>
 		</xsl:element>
 	</xsl:template>
+	
+	
+	<xsl:template match="cda:value[@xsi:type = 'INT']">
+		<xsl:param name="elementName" select="'valueInteger'"/>
+		<xsl:element name="{$elementName}">
+			<xsl:attribute name="value">
+				<xsl:value-of select="@value"/>
+			</xsl:attribute>
+		</xsl:element>
+	</xsl:template>
 
 	<!-- generic -->
 	<!-- This does not support translation elements. Try newCreateCodableConcept instead -->
 	<!-- Consider this deprecated for CD and CE datatypes, eventually refactor everything to use newCreateCodableConcept or a version of it that is applicable for II datatypes, then remove createCodableConcept -->
+	<!--
 	<xsl:template name="createCodableConcept">
 		<xsl:param name="source-element"/>
 		<xsl:param name="codeSystem"/>
@@ -819,11 +874,7 @@
 			<xsl:comment><xsl:value-of select="local-name($source-element)"/></xsl:comment>
 			<xsl:comment><xsl:value-of select="$source-element/@nullFlavor"/></xsl:comment>
 		</xsl:if>
-		<!--
-			<xsl:for-each select="$source-element/cda:translation">
-				<xsl:comment>add translation</xsl:comment>
-			</xsl:for-each>
-		-->
+
 		<xsl:element name="{$elementName}">
 			<xsl:choose>
 				<xsl:when test="$includeCoding">
@@ -844,12 +895,15 @@
 			</xsl:choose>
 		</xsl:element>
 	</xsl:template>
-
+	-->
+	
 	<xsl:template name="createCodableConceptContent">
 		<xsl:param name="codeSystem"/>
 		<xsl:param name="code"/>
 		<xsl:param name="displayName"/>
+		<!--
 		<xsl:param name="label"/>
+		-->
 		<xsl:param name="isValue" select="false()"/>
 		<xsl:param name="nullFlavor"/>
 		<xsl:variable name="codeOrValueElementName">
@@ -858,16 +912,7 @@
 				<xsl:otherwise>value</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<!-- label -->
-		<xsl:if test="$label and not($label = '')">
-			<label>
-				<xsl:attribute name="value">
-					<xsl:value-of select="$label"/>
-				</xsl:attribute>
-			</label>
-		</xsl:if>
-		<!-- system -->
-		<xsl:if test="$codeSystem and not($nullFlavor)">
+		<xsl:if test="$codeSystem and $nullFlavor = ''">
 			<system>
 				<xsl:attribute name="value">
 					<xsl:call-template name="convertOID">
@@ -876,7 +921,6 @@
 				</xsl:attribute>
 			</system>
 		</xsl:if>
-		<!-- code or value -->
 		<xsl:if test="$code">
 			<xsl:element name="{$codeOrValueElementName}">
 				<xsl:attribute name="value">
@@ -885,7 +929,7 @@
 			</xsl:element>
 		</xsl:if>
 
-		<xsl:if test="$nullFlavor and not($code)">
+		<xsl:if test="not($nullFlavor = '') and not($code)">
 			<system value="http://hl7.org/fhir/v3/NullFlavor"/>
 			<xsl:element name="{$codeOrValueElementName}">
 				<xsl:attribute name="value">
@@ -894,14 +938,14 @@
 			</xsl:element>
 		</xsl:if>
 		<xsl:choose>
-			<xsl:when test="$displayName and not($displayName = '') and not($nullFlavor)">
+			<xsl:when test="$displayName and not($displayName = '') and $nullFlavor = ''">
 				<display>
 					<xsl:attribute name="value">
 						<xsl:value-of select="$displayName"/>
 					</xsl:attribute>
 				</display>
 			</xsl:when>
-			<xsl:when test="$nullFlavor">
+			<xsl:when test="not($nullFlavor = '')">
 				<display>
 					<xsl:attribute name="value">
 						<xsl:choose>
@@ -926,12 +970,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-
-
-	<xsl:template match="cda:effectiveTime" mode="period">
-		<period>
+	<xsl:template match="cda:effectiveTime[@value or cda:low/@value or cda:high/@value]" mode="period">
+		<xsl:param name="element-name">period</xsl:param>
+		<xsl:element name="{$element-name}">
 			<xsl:call-template name="effectiveTimeInner"/>
-		</period>
+		</xsl:element>
 	</xsl:template>
 
 	<xsl:template match="cda:effectiveTime" mode="timingPeriod">
@@ -1010,43 +1053,20 @@
 	</xsl:template>
 
 	<xsl:template name="effectiveTimeInner">
-		<xsl:if test="cda:low/@value and not(@value)">
-			<start>
-				<xsl:attribute name="value">
-					<xsl:value-of select="lcg:cdaTS2date(cda:low/@value)"/>
-				</xsl:attribute>
-			</start>
+
+		<xsl:if test="cda:low[@value]">
+			<start value="{lcg:cdaTS2date(cda:low/@value)}"/>
 		</xsl:if>
-		<xsl:if test="cda:high/@value">
-			<end>
-				<xsl:attribute name="value">
-					<xsl:value-of select="lcg:cdaTS2date(cda:high/@value)"/>
-				</xsl:attribute>
-			</end>
+		<xsl:if test="cda:high[@value]">
+			<end value="{lcg:cdaTS2date(cda:high/@value)}"/>
 		</xsl:if>
 		<xsl:if test="@value and not(cda:low/@value)">
-			<start>
-				<xsl:attribute name="value">
-					<xsl:value-of select="lcg:cdaTS2date(@value)"/>
-				</xsl:attribute>
-			</start>
-			<end>
-				<xsl:attribute name="value">
-					<xsl:value-of select="lcg:cdaTS2date(@value)"/>
-				</xsl:attribute>
-			</end>
+			<start value="{lcg:cdaTS2date(@value)}"/>
+			<end value="{lcg:cdaTS2date(@value)}"/>
 		</xsl:if>
-		<xsl:if test="cda:center/@value">
-			<start>
-				<xsl:attribute name="value">
-					<xsl:value-of select="lcg:cdaTS2date(cda:center/@value)"/>
-				</xsl:attribute>
-			</start>
-			<end>
-				<xsl:attribute name="value">
-					<xsl:value-of select="lcg:cdaTS2date(cda:center/@value)"/>
-				</xsl:attribute>
-			</end>
+		<xsl:if test="cda:center/@value and not (cda:width/@value)">
+			<start value="{lcg:cdaTS2date(cda:center/@value)}"/>
+			<end value="{lcg:cdaTS2date(cda:center/@value)}"/>
 		</xsl:if>
 	</xsl:template>
 
@@ -1177,25 +1197,17 @@
 		<xsl:element name="{$element-name}">
 			<xsl:choose>
 				<xsl:when test="cda:subject">
-					
-					<xsl:comment>Pulling subject from entry</xsl:comment>
 					<reference value="urn:uuid:{cda:subject/@lcg:uuid}"/>
 				</xsl:when>
 				<xsl:when test="ancestor::cda:section/cda:subject">
-					
-					<xsl:comment>Pulling subject from section</xsl:comment>
-					<reference value="urn:uuid:{ancestor::cda:section/cda:subject/@lcg:uuid}"/>
+					<reference value="urn:uuid:{ancestor::cda:section[1]/cda:subject/@lcg:uuid}"/>
 				</xsl:when>
 				<xsl:otherwise>
-					
-					<xsl:comment>Pulling subject from document</xsl:comment>
 					<reference value="urn:uuid:{/cda:ClinicalDocument/cda:recordTarget/@lcg:uuid}"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:element>
 	</xsl:template>
-	
-	
 	
 	<xsl:template name="author-reference">
 		<xsl:param name="element-name">author</xsl:param>
@@ -1207,11 +1219,10 @@
 					<!-- TODO: test to see author.id is the same as an ancestor author, if so use that URN --> 
 					<reference value="urn:uuid:{cda:author/@lcg:uuid}"/>
 				</xsl:when>
-				<xsl:when test="ancestor::cda:section/cda:author">
+				<xsl:when test="ancestor::cda:section[1]/cda:author">
 					<reference value="urn:uuid:{ancestor::cda:section/cda:author/@lcg:uuid}"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:comment>Pulling author from document</xsl:comment>
 					<reference value="urn:uuid:{/cda:ClinicalDocument/cda:author/@lcg:uuid}"/>
 				</xsl:otherwise>
 			</xsl:choose>
@@ -1225,14 +1236,14 @@
 		<xsl:param name="listEntry">false</xsl:param>
 		<xsl:variable name="reference-id" select="cda:id"/>
 		<xsl:for-each select="key('referenced-acts',$reference-id/@root)">
-			<xsl:comment> - Referenced uuid: <xsl:value-of select="@lcg:uuid"/></xsl:comment>
 			<xsl:choose>
 				<xsl:when test="$reference-id/@extension = cda:id/@extension ">
 					<xsl:choose>
 						<xsl:when test="$sectionEntry='true'">
 							<entry>
 								<reference value="urn:uuid:{@lcg:uuid}"/>
-							</entry></xsl:when>
+							</entry>
+						</xsl:when>
 						<xsl:when test="$listEntry='true'">
 							<entry><item>
 								<reference value="urn:uuid:{@lcg:uuid}"/></item>
@@ -1247,11 +1258,13 @@
 						<xsl:when test="$sectionEntry='true'">
 							<entry>
 								<reference value="urn:uuid:{@lcg:uuid}"/>
-							</entry></xsl:when>
+							</entry>
+						</xsl:when>
 						<xsl:when test="$listEntry='true'">
 							<entry><item>
 								<reference value="urn:uuid:{@lcg:uuid}"/></item>
-							</entry></xsl:when>
+							</entry>
+						</xsl:when>
 						<xsl:otherwise>
 							<reference value="urn:uuid:{@lcg:uuid}"/>
 						</xsl:otherwise>
@@ -1261,5 +1274,23 @@
 		</xsl:for-each>
 	</xsl:template>
 	
+	<xsl:template
+		match="cda:*" mode="reference" priority="-1">
+		<xsl:param name="sectionEntry">false</xsl:param>
+		<xsl:param name="listEntry">false</xsl:param>
+		<xsl:choose>
+			<xsl:when test="$sectionEntry='true'">
+				<entry>
+					<reference value="urn:uuid:{@lcg:uuid}"/>
+				</entry></xsl:when>
+			<xsl:when test="$listEntry='true'">
+				<entry><item>
+					<reference value="urn:uuid:{@lcg:uuid}"/></item>
+				</entry></xsl:when>
+			<xsl:otherwise>
+				<reference value="urn:uuid:{@lcg:uuid}"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 
 </xsl:stylesheet>

@@ -15,6 +15,7 @@
    <xsl:include href="cda2fhir-RequestGroup.xslt"/>
    <xsl:include href="cda2fhir-MedicationRequest.xslt"/>
    <xsl:include href="cda2fhir-MedicationDispense.xslt"/>
+   <xsl:include href="cda2fhir-MedicationStatement.xslt"/>
    <xsl:include href="cda2fhir-Condition.xslt"/>
    <xsl:include href="cda2fhir-AllergyIntolerance.xslt"/>
    <xsl:include href="cda2fhir-Goal.xslt"/>
@@ -22,15 +23,18 @@
    <xsl:include href="cda2fhir-Coverage.xslt"/>
    <xsl:include href="cda2fhir-Encounter.xslt"/>
    <xsl:include href="cda2fhir-Communication.xslt"/>
-   <xsl:include href="cda2fhir-ReferralRequest.xslt"/>
+   <!--<xsl:include href="cda2fhir-ReferralRequest.xslt"/>-->
+   <xsl:include href="cda2fhir-ProcedureRequest.xslt"/>
    <xsl:include href="cda2fhir-RiskAssessment.xslt"/>
    <xsl:include href="cda2fhir-Narrative.xslt"/>
+   <xsl:include href="cda2fhir-Procedure.xslt"/>
+   <xsl:include href="cda2fhir-FamilyMemberHistory.xslt"/>
+   <!-- CarePlan resource not needed for ONC-HIP use case. Revisit later. -->
+   
+   <xsl:include href="cda2fhir-CarePlan.xslt"/>
    <xsl:include href="c-to-fhir-utility.xslt"/>
    <xsl:include href="cda2fhir-fallback-templates.xslt"/>
-   <!-- CarePlan resource not needed for ONC-HIP use case. Revisit later. -->
-   <!--
-   <xsl:include href="cda2fhir-CarePlan.xslt"/>
-   -->
+  
    
    
 </xsl:stylesheet>

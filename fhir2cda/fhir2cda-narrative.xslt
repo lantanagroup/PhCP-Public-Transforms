@@ -36,10 +36,7 @@
 	</xsl:template>
 	
 	<xsl:template match="xhtml:span"  mode="narrative">
-		<content>
-			<xsl:apply-templates select="@*" mode="narrative"/>
-			<xsl:apply-templates mode="narrative"/>
-		</content>
+		<content><xsl:apply-templates select="@*" mode="narrative"/><xsl:apply-templates mode="narrative"/></content>
 	</xsl:template>
 
 	<xsl:template match="@lang"  mode="narrative">

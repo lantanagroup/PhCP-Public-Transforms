@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="urn:hl7-org:v3"
     xmlns:lcg="http://www.lantanagroup.com" xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
-    xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" xmlns:uuid="java:java.util.UUID"
+    xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" 
     version="2.0"
     exclude-result-prefixes="lcg xsl cda fhir">
 
@@ -52,10 +52,25 @@
             <xsl:for-each select="fhir:description">
                 <xsl:call-template name="CodeableConcept2CD"/>
             </xsl:for-each>
-            <statusCode code="completed"/>
+            <xsl:apply-templates select="fhir:status" mode="goal"/>
+            <xsl:if test="fhir:outcomeReference">
+                <xslt:variable name="ref">
+                    <xslt:value-of select="fhir:outcomeReference/fhir:reference/@value"/>
+                </xslt:variable>
+                <effectiveTime>
+                    <low>
+                        <xsl:attribute name="value">
+                            <xsl:call-template name="Date2TS">
+                                <xsl:with-param name="date" select="//fhir:entry[fhir:fullUrl[@value=$ref]]/fhir:resource/fhir:Observation/fhir:effectiveDateTime/@value"/>
+                                <xsl:with-param name="includeTime" select="true()" />
+                            </xsl:call-template>
+                        </xsl:attribute>
+                    </low>
+                </effectiveTime>
+            </xsl:if>
             <xsl:apply-templates select="fhir:subject"/>
             <xsl:apply-templates select="fhir:expressedBy"/>
-            <xsl:comment>TODO: map effectiveTime</xsl:comment>
+            
             <xsl:for-each select="fhir:entry/fhir:item">
                 <xsl:for-each select="fhir:reference">
                     <xsl:variable name="referenceURI">
@@ -71,6 +86,19 @@
                 </xsl:for-each>
             </xsl:for-each>
         </observation>
+    </xsl:template>
+    
+    <xsl:template match="fhir:status" mode="goal">
+        <!-- TODO: actually map the status codes, not always the same between CDA and FHIR -->
+        <!-- TODO: the status might be better pulled from the outcome observation -->
+        <xsl:choose>
+            <xsl:when test="@value = 'in-progress'">
+                <statusCode code="active"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <statusCode code="{@value}"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="fhir:expressedBy[parent::fhir:Goal]">

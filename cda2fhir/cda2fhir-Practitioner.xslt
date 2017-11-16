@@ -10,12 +10,12 @@
     exclude-result-prefixes="lcg xsl cda fhir xs xsi sdtc xhtml"
     version="2.0">
 
-    <xsl:template match="cda:author | cda:legalAuthenticator | cda:performer" mode="bundle-entry">
+    <xsl:template match="cda:author | cda:legalAuthenticator | cda:performer | cda:participant" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
     <xsl:template
-        match="cda:author | cda:legalAuthenticator | cda:performer"
+        match="cda:author | cda:legalAuthenticator | cda:performer | cda:participant"
         mode="reference">
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param>
@@ -63,6 +63,15 @@
         </xsl:call-template>
     </xsl:template>
 
+    <xsl:template match="cda:participant">
+        <xsl:call-template name="make-practitioner">
+            <xsl:with-param name="id" select="cda:participantRole/cda:id"></xsl:with-param>
+            <xsl:with-param name="name" select="cda:participantRole/cda:playingEntity/cda:name"></xsl:with-param>
+            <xsl:with-param name="telecom" select="cda:participantRole/cda:telecom"></xsl:with-param>
+            <xsl:with-param name="address" select="cda:participantRole/cda:addr"></xsl:with-param>
+        </xsl:call-template>
+    </xsl:template>
+
     <xsl:template name="make-practitioner">
         <xsl:param name="id"></xsl:param>
         <xsl:param name="name"></xsl:param>
@@ -85,7 +94,9 @@
                 </div>
 
             </text>
-            <xsl:apply-templates select="$id"></xsl:apply-templates>
+            <xsl:apply-templates select="$id"/>
+            <xsl:apply-templates select="$name"/>
+            <!--
             <xsl:for-each select="$name">
                 <name>
                     <xsl:for-each select="cda:family">
@@ -118,8 +129,26 @@
                     </xsl:for-each>
                 </name>
             </xsl:for-each>
+            -->
             <xsl:apply-templates select="$telecom"/>
             <xsl:apply-templates select="$address"/>
+            <!-- Qualification -->
+            <xsl:choose>
+                <xsl:when test="cda:participantRole">
+                    <xsl:apply-templates select="cda:participantRole/cda:code" mode="practitioner"/>
+                </xsl:when>
+                <xsl:when test="cda:assignedAuthor">
+                    <xsl:apply-templates select="cda:assignedAuthor/cda:code" mode="practitioner"/>
+                </xsl:when>
+            </xsl:choose>
         </Practitioner>
+    </xsl:template>
+    
+    <xsl:template match="cda:code" mode="practitioner">
+        <qualification>
+            <xsl:call-template name="newCreateCodableConcept">
+                <xsl:with-param name="elementName">code</xsl:with-param>
+            </xsl:call-template>
+        </qualification>
     </xsl:template>
 </xsl:stylesheet>

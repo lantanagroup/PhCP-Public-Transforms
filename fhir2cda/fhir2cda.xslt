@@ -18,10 +18,14 @@ limitations under the License.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="urn:hl7-org:v3"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:lcg="http://www.lantanagroup.com" xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
-   xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" xmlns:uuid="java:java.util.UUID"
-   xmlns:xhtml="http://www.w3.org/1999/xhtml" version="2.0"
-   exclude-result-prefixes="lcg xsl cda fhir xhtml">
+   xmlns:lcg="http://www.lantanagroup.com" 
+   xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
+   xmlns:cda="urn:hl7-org:v3" 
+   xmlns:fhir="http://hl7.org/fhir" 
+   xmlns:uuid="http://www.uuid.org"
+   xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+   version="2.0"
+   exclude-result-prefixes="lcg xsl cda fhir xhtml uuid">
 
    <xsl:include href="fhir2cda-CD.xslt"/>
    <xsl:include href="fhir2cda-II.xslt"/>
@@ -41,6 +45,8 @@ limitations under the License.
    <xsl:include href="fhir2cda-ProblemObservation.xslt"/>
    <xsl:include href="fhir2cda-VitalSigns.xslt"/>
    <xsl:include href="fhir2cda-OutcomeObservation.xslt"/>
+   <xsl:include href="fhir2cda-EncompassingEncounter.xslt"/>
+   <xsl:include href="../native-xslt-uuid.xslt"/>
    
 
    <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
@@ -63,7 +69,7 @@ limitations under the License.
    </xsl:template>
 
    <xsl:template match="fhir:Composition">
-      <xsl:variable name="docId" select="uuid:randomUUID()"/>
+      <xsl:variable name="docId" select="lower-case(uuid:get-uuid())"/>
       <ClinicalDocument>
          <realmCode code="US"/>
          <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
@@ -114,7 +120,7 @@ limitations under the License.
          </xsl:choose>
          <xsl:apply-templates select="fhir:attester"/>
          <xsl:apply-templates select="fhir:event"/>
-         
+         <xsl:apply-templates select="fhir:encounter"/>
          <component>
             <structuredBody>
                <xsl:for-each select="fhir:section">
@@ -208,7 +214,7 @@ limitations under the License.
    
    <xsl:template match="fhir:*" mode="entry-relationship" priority="-10">
       <xsl:comment>
-         <xsl:text>TODO: unmapped entryRelationship</xsl:text>
+         <xsl:text>TODO: unmapped entryRelationship </xsl:text>
          <xsl:value-of select="local-name(.)"/>
          <xsl:text> </xsl:text>
          <xsl:if test="fhir:meta/fhir:profile/@value">

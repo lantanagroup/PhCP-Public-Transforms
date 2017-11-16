@@ -13,15 +13,15 @@
     version="2.0">
     
         
-   <xsl:template match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='INT']" mode="bundle-entry">
-        <xsl:call-template name="create-bundle-entry"/>
-        <xsl:for-each select="cda:entryRelationship/cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18']]">
-            <xsl:call-template name="create-bundle-entry"/>
-        </xsl:for-each>
+   <xsl:template match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='EVN']" mode="bundle-entry">
+       <xsl:call-template name="create-bundle-entry"/>
+       <xsl:for-each select="cda:entryRelationship/cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18']]">
+           <xsl:call-template name="create-bundle-entry"/>
+       </xsl:for-each>
    </xsl:template>
     
     <xsl:template
-        match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='INT']"
+        match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='EVN']"
         mode="reference">
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param>
@@ -42,47 +42,43 @@
     </xsl:template>
     
     
-    <xsl:template match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='INT']">
-        <MedicationRequest>
-            <meta>
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"/>
-            </meta>
+    <xsl:template match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='EVN']">
+        <MedicationStatement>
+            <xsl:call-template name="add-meta"/>
             <xsl:apply-templates select="cda:id"/>
+            <xsl:for-each select="cda:entryRelationship/cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18']]">
+                <partOf>
+                    <xsl:apply-templates select="." mode="reference"/>
+                </partOf>
+            </xsl:for-each>
             <status value="active"/>
-            <!-- This is an actual order in the Pharmacist's system -->
-            <intent value="order"/>
-            <xsl:apply-templates select="cda:consumable" mode="medication-request"/>
-            <xsl:call-template name="subject-reference"/>
+            <xsl:apply-templates select="cda:consumable" mode="medication-statement"/>
             <xsl:if test="cda:author[1]/cda:time/@value">
-                <authoredOn value="{lcg:cdaTS2date(cda:author/cda:time/@value)}"/>
+                <dateAsserted value="{lcg:cdaTS2date(cda:author/cda:time/@value)}"/>
             </xsl:if>
             <xsl:for-each select="cda:author">
-                <requester>
-                    <agent>
-                        <reference value="urn:uuid:{@lcg:uuid}"/>
-                    </agent>
-                </requester>
+                <informationSource>
+                      <reference value="urn:uuid:{@lcg:uuid}"/>
+                </informationSource>
             </xsl:for-each>
-            <dosageInstruction>
+            <xsl:call-template name="subject-reference"/>
+            <taken value="unk"/>
+            <dosage>
                 <timing>
                     <repeat>
-                        <xsl:apply-templates select="cda:effectiveTime[@xsi:type='IVL_TS']" mode="medication-request"/>
-                        <xsl:apply-templates select="cda:effectiveTime[@operator='A']" mode="medication-request"/>
+                        <xsl:apply-templates select="cda:effectiveTime[@xsi:type='IVL_TS']" mode="medication-statement"/>
+                        <xsl:apply-templates select="cda:effectiveTime[@operator='A']" mode="medication-statement"/>
                     </repeat>
                 </timing>
                 <xsl:apply-templates select="cda:routeCode">
                     <xsl:with-param name="elementName">route</xsl:with-param>
                 </xsl:apply-templates>
-                <xsl:apply-templates select="doseQuantity" mode="medication-request"/>
-
-            </dosageInstruction>
-            <dispenseRequest>
-                <numberOfRepeatsAllowed	value="3"/>
-            </dispenseRequest>
-        </MedicationRequest>
+                <xsl:apply-templates select="doseQuantity" mode="medication-statement"/>
+            </dosage>
+        </MedicationStatement>
     </xsl:template>
     
-    <xsl:template match="cda:effectiveTime[@xsi:type='IVL_TS']" mode="medication-request">
+    <xsl:template match="cda:effectiveTime[@xsi:type='IVL_TS']" mode="medication-statement">
         <boundsPeriod>
             <xsl:if test="cda:low[not(@nullFlavor)]">
                 <start value="{lcg:cdaTS2date(cda:low/@value)}"/>
@@ -93,7 +89,7 @@
         </boundsPeriod>
     </xsl:template>
     
-    <xsl:template match="cda:doseQuantity" mode="medication-request">
+    <xsl:template match="cda:doseQuantity" mode="medication-statement">
         <doseQuantity>
             <xsl:if test="@value">
                 <value value="{@value}"/>
@@ -108,14 +104,14 @@
         </doseQuantity>
     </xsl:template>
     
-    <xsl:template match="cda:effectiveTime[@operator='A'][@xsi:type='PIVL_TS']" mode="medication-request">
+    <xsl:template match="cda:effectiveTime[@operator='A'][@xsi:type='PIVL_TS']" mode="medication-statement">
         <xsl:if test="cda:period">
             <period value="{cda:period/@value}"/>
             <periodUnit value="{cda:period/@unit}"/>
         </xsl:if>
     </xsl:template>
     
-    <xsl:template match="cda:effectiveTime[@operator='A']" mode="medication-request" priority="-1">
+    <xsl:template match="cda:effectiveTime[@operator='A']" mode="medication-statement" priority="-1">
         <xsl:comment>Unknown effectiveTime pattern: 
             <cda:effectiveTime>
                 <xsl:copy></xsl:copy>
@@ -123,9 +119,10 @@
         </xsl:comment>
     </xsl:template>
     
-    <xsl:template match="cda:consumable" mode="medication-request">
+    <xsl:template match="cda:consumable" mode="medication-statement">
         <medicationCodeableConcept>
             <xsl:for-each select="cda:manufacturedProduct/cda:manufacturedMaterial/cda:code[@code][@codeSystem]">
+                <xsl:message>TODO: Replace with actual content, not placeholder data</xsl:message>
                 <coding>
                     <system>
                     	<xsl:attribute name="value">

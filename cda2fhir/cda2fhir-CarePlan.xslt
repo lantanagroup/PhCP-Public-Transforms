@@ -37,6 +37,7 @@
             <xsl:for-each select="//cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.4']]">
                 <addresses>
                     <xsl:apply-templates select="." mode="reference"/>
+                    <xsl:comment>Observation <xsl:value-of select="cda:id/@root"/></xsl:comment>
                 </addresses>
             </xsl:for-each>
             <xsl:for-each select="//cda:observation[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.121']]">

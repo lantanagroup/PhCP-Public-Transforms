@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="urn:hl7-org:v3"
     xmlns:lcg="http://www.lantanagroup.com" xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
-    xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" xmlns:uuid="java:java.util.UUID"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml" version="2.0"
-    exclude-result-prefixes="lcg xsl cda fhir">
+    xmlns:cda="urn:hl7-org:v3" 
+    xmlns:fhir="http://hl7.org/fhir" 
+    xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+    version="2.0"
+    exclude-result-prefixes="lcg xsl cda fhir xhtml">
     
     <xsl:template name="Date2TS">
         <xsl:param name="date"/>
@@ -62,7 +64,6 @@
                 <xsl:value-of select="$mapping/map[@uri = $uri][1]/@oid"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:message>Warning: Unmapped URI - <xsl:value-of select="$uri"/></xsl:message>
                 <xsl:choose>
                     <xsl:when test="starts-with($uri,'urn:oid')">
                         <xsl:value-of select="substring-after($uri,'urn:oid:')"/>
@@ -71,6 +72,7 @@
                         <xsl:value-of select="substring-after($uri,'urn:uuid:')"/>
                     </xsl:when>
                     <xsl:otherwise>
+                		<xsl:message>Warning: Unmapped URI - <xsl:value-of select="$uri"/></xsl:message>
                         <xsl:value-of select="$uri"/>
                     </xsl:otherwise>
                 </xsl:choose>

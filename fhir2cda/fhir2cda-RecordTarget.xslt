@@ -6,10 +6,9 @@
     xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
     xmlns:cda="urn:hl7-org:v3" 
     xmlns:fhir="http://hl7.org/fhir" 
-    xmlns:uuid="java:java.util.UUID"
     xmlns:sdtc="urn:hl7-org:sdtc"
     version="2.0"
-    exclude-result-prefixes="lcg xsl cda fhir">
+    exclude-result-prefixes="lcg xsl cda fhir sdtc">
     
     <xsl:template match="fhir:subject[parent::fhir:Composition]">
         <xsl:for-each select="fhir:reference">

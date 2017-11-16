@@ -126,12 +126,13 @@
                 <!-- TODO: check for overridden subject at section or entry level --> 
                 <reference value="urn:uuid:{//cda:recordTarget/@lcg:uuid}"/>
             </subject>
-            <xsl:if test="cda:effectiveTime/@value">
-                <effectiveDateTime>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/@value)"/>
-                    </xsl:attribute>
-                </effectiveDateTime>
+
+			<xsl:if test="cda:entryRelationship[@typeCode='SPRT']/cda:observation/cda:effectiveTime/@value">
+	            <effectiveDateTime>
+	                <xsl:attribute name="value">
+	                    <xsl:value-of select="lcg:cdaTS2date(cda:entryRelationship[@typeCode='SPRT']/cda:observation/cda:effectiveTime/@value)"/>
+	                </xsl:attribute>
+	            </effectiveDateTime>
             </xsl:if>
             <xsl:call-template name="author-reference">
                 <xsl:with-param name="element-name">performer</xsl:with-param>
@@ -188,10 +189,10 @@
                 <!-- TODO: check for overridden subject at section or entry level --> 
                 <reference value="urn:uuid:{//cda:recordTarget/@lcg:uuid}"/>
             </subject>
-            <xsl:if test="cda:effectiveTime/@value">
+            <xsl:if test="cda:effectiveTime/cda:low/@value">
                 <effectiveDateTime>
                     <xsl:attribute name="value">
-                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/@value)"/>
+                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/cda:low/@value)"/>
                     </xsl:attribute>
                 </effectiveDateTime>
             </xsl:if>
@@ -209,7 +210,6 @@
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.128']]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
-    
     
     <xsl:template
         match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.128']]"
@@ -264,5 +264,107 @@
         </Observation>
     </xsl:template>
     
+    <!-- ASSESSMENTS SCALE OBSERVATION -->
+    <!--
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]" mode="bundle-entry">
+        <xsl:call-template name="create-bundle-entry"/>
+    </xsl:template>
+    
+    <xsl:template
+        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]"
+        mode="reference">
+        <xsl:param name="sectionEntry">false</xsl:param>
+        <xsl:param name="listEntry">false</xsl:param>
+        <xsl:choose>
+            <xsl:when test="$sectionEntry='true'">
+                <entry>
+                    <reference value="urn:uuid:{@lcg:uuid}"/>
+                </entry></xsl:when>
+            <xsl:when test="$listEntry='true'">
+                <entry><item>
+                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
+                </entry></xsl:when>
+            <xsl:otherwise>
+                <reference value="urn:uuid:{@lcg:uuid}"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]">
+        <Observation>
+            <xsl:call-template name="add-meta"/>
+            
+            <xsl:for-each select="cda:id">
+                <xsl:apply-templates select="."/>            
+            </xsl:for-each>
+            <status value="final"/>
+            <xsl:apply-templates select="cda:code">
+                <xsl:with-param name="elementName">code</xsl:with-param>
+            </xsl:apply-templates>
+            
+            <xsl:if test="cda:effectiveTime/@value">
+                <effectiveDateTime>
+                    <xsl:attribute name="value">
+                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/@value)"/>
+                    </xsl:attribute>
+                </effectiveDateTime>
+            </xsl:if>
+            
+            <xsl:apply-templates select="cda:value"/>
+        </Observation>
+    </xsl:template>
+    -->
+
+    <!-- ASSESSMENTS SCALE OBSERVATION -->
+    <!--
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]" mode="bundle-entry">
+        <xsl:call-template name="create-bundle-entry"/>
+    </xsl:template>
+    
+    <xsl:template
+        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]"
+        mode="reference">
+        <xsl:param name="sectionEntry">false</xsl:param>
+        <xsl:param name="listEntry">false</xsl:param>
+        <xsl:choose>
+            <xsl:when test="$sectionEntry='true'">
+                <entry>
+                    <reference value="urn:uuid:{@lcg:uuid}"/>
+                </entry></xsl:when>
+            <xsl:when test="$listEntry='true'">
+                <entry><item>
+                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
+                </entry></xsl:when>
+            <xsl:otherwise>
+                <reference value="urn:uuid:{@lcg:uuid}"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]">
+        <Observation>
+            <xsl:call-template name="add-meta"/>
+            
+            <xsl:for-each select="cda:id">
+                <xsl:apply-templates select="."/>            
+            </xsl:for-each>
+            <status value="final"/>
+            <xsl:apply-templates select="cda:code">
+                <xsl:with-param name="elementName">code</xsl:with-param>
+            </xsl:apply-templates>
+            
+            <xsl:if test="cda:effectiveTime/@value">
+                <effectiveDateTime>
+                    <xsl:attribute name="value">
+                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/@value)"/>
+                    </xsl:attribute>
+                </effectiveDateTime>
+            </xsl:if>
+            <xsl:choose>
+                <xsl:apply-templates select="cda:value"/>
+            </xsl:choose>
+        </Observation>
+    </xsl:template>
+    -->
 
 </xsl:stylesheet>

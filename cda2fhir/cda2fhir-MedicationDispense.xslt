@@ -15,9 +15,9 @@
     <xsl:import href="c-to-fhir-utility.xslt"/>
         
     <xsl:template match="cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18']]" mode="bundle-entry">
-      <xsl:call-template name="create-bundle-entry"/>
+        <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
-    
+
     <xsl:template
         match="cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18']]"
         mode="reference">
@@ -59,6 +59,11 @@
                     <actor>
                         <xsl:apply-templates select="cda:performer" mode="reference"/>
                     </actor>
+                    <xsl:for-each select="cda:performer/cda:assignedEntity/cda:representedOrganization">
+                        <onBehalfOf>
+                            <xsl:apply-templates select="." mode="reference"/>
+                        </onBehalfOf>
+                    </xsl:for-each>
                 </performer>
             </xsl:if>
             <xsl:if test="ancestor::cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='INT']">
@@ -68,12 +73,22 @@
                 </authorizingPrescription>
             </xsl:if>
             <xsl:apply-templates select="cda:quantity" mode="medication-dispense"/>
+            <xsl:apply-templates select="ancestor::cda:substanceAdministration/cda:effectiveTime[@xsi:type='IVL_TS']" mode="medication-dispense"/>
             <xsl:if test="cda:effectiveTime/@value">
                 <whenHandedOver value="{lcg:cdaTS2date(cda:effectiveTime/@value)}"/>
             </xsl:if>
         </MedicationDispense>
     </xsl:template>
     
+    <xsl:template match="cda:effectiveTime[@xsi:type='IVL_TS'][cda:high/@value][cda:low/@value]" mode="medication-dispense">
+        <xsl:variable name="days">
+            <xsl:value-of select="days-from-duration(xs:date(lcg:cdaTS2date(cda:high/@value)) -
+                xs:date(lcg:cdaTS2date(cda:low/@value)))"/>
+        </xsl:variable>
+        <daysSupply>
+            <value value="{$days}"/>
+        </daysSupply> 
+    </xsl:template>
     
     <xsl:template match="cda:quantity" mode="medication-dispense">
         <quantity>
@@ -90,42 +105,12 @@
         </quantity>
     </xsl:template>
     
-
-    
-    <xsl:template match="cda:product" mode="medication-dispense">
-        <medicationCodeableConcept>
-            <xsl:for-each select="cda:manufacturedProduct/cda:manufacturedMaterial/cda:code[@code][@codeSystem]">
-                <xsl:message>TODO: Replace with actual content, not placeholder data</xsl:message>
-                <coding>
-                    <system>
-                    	<xsl:attribute name="value">
-                    		<xsl:call-template name="convertOID">
-                    			<xsl:with-param name="oid" select="@codeSystem"/>
-                    		</xsl:call-template>
-                    	</xsl:attribute>
-                    </system>
-                    <code value="{@code}"/>
-                    <xsl:if test="@displayName">
-                    	<display value="{@displayName}"/>
-                    </xsl:if>
-                </coding>
-            </xsl:for-each>
-            <xsl:for-each select="cda:manufacturedProduct/cda:manufacturedMaterial/cda:code/cda:translation[@code][@codeSystem]">
-                <coding>
-                    <system>
-                    	<xsl:attribute name="value">
-                    		<xsl:call-template name="convertOID">
-                    			<xsl:with-param name="oid" select="@codeSystem"/>
-                    		</xsl:call-template>
-                    	</xsl:attribute>
-                    </system>
-                    <code value="{@code}"/>
-                    <xsl:if test="@displayName">
-                    	<display value="{@displayName}"/>
-                    </xsl:if>
-                </coding>
-            </xsl:for-each>
-        </medicationCodeableConcept>
+    <xsl:template match="cda:product" mode="medication-dispense">            
+        <xsl:for-each select="cda:manufacturedProduct/cda:manufacturedMaterial/cda:code">
+            <xsl:call-template name="newCreateCodableConcept">
+                <xsl:with-param name="elementName">medicationCodeableConcept</xsl:with-param>
+            </xsl:call-template>
+        </xsl:for-each>
     </xsl:template>
     
 </xsl:stylesheet>

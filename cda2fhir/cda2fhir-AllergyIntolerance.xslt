@@ -47,18 +47,19 @@
             <xsl:apply-templates select="cda:id"/>
             <xsl:apply-templates select="ancestor::cda:entry/cda:act/cda:statusCode" mode="allergy"/>
             <verificationStatus value="confirmed"/>
+            <type>
+                <xsl:attribute name="value">
+                    <xsl:choose>
+                        <xsl:when test="cda:value/@code='419199007' and cda:value/@codeSystem='2.16.840.1.113883.6.96'">allergy</xsl:when>
+                        <xsl:otherwise>intolerance</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            </type>
+            <xsl:comment>Should be no category here</xsl:comment>
             <xsl:choose>
                 <xsl:when test="@negationInd='true'">
                     <code>
                         <xsl:comment>Original negated code: <xsl:value-of select="cda:value/@code"/></xsl:comment>
-                        <!--
-                        <extension url="http://hl7.org/fhir/StructureDefinition/cda-negated-code">
-                            <valueCoding>
-                                <system value="{cda:value/@codeSystem}"/>
-                                <code value="{cda:value/@code}"></code>
-                            </valueCoding>
-                        </extension>
-                        -->
                         <coding>
                             <system value="http://snomed.info/sct"/>
                             <code value="716186003"/>
@@ -84,7 +85,29 @@
                     <!-- TODO: navigate up the ancestry and find the nearest author -->
                 </xsl:otherwise>
             </xsl:choose>
+            <xsl:choose>
+                <xsl:when test="@negationInd='true'">
+                    <xsl:comment>Negated manifestation not currently supported</xsl:comment>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="cda:entryRelationship/cda:observation/cda:value" mode="reaction"/>                    
+                </xsl:otherwise>
+            </xsl:choose>
         </AllergyIntolerance>
+    </xsl:template>
+    
+    <xsl:template match="cda:value" mode="reaction">
+        <reaction>
+            <xsl:call-template name="newCreateCodableConcept">
+                <xsl:with-param name="elementName">manifestation</xsl:with-param>
+            </xsl:call-template>
+        </reaction>
+    </xsl:template>
+    
+    <xsl:template match="cda:value" mode="type">
+        <xsl:call-template name="newCreateCodableConcept">
+            <xsl:with-param name="elementName">type</xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
     
     <xsl:template match="cda:statusCode" mode="allergy">
@@ -95,9 +118,9 @@
     <xsl:template match="cda:effectiveTime" mode="allergy">
         <xsl:choose>
             <xsl:when test="cda:low and cda:high">
-                <onsetPeriod>
-                    <!-- TODO -->
-                </onsetPeriod> 
+                <xsl:apply-templates select="." mode="period">
+                    <xsl:with-param name="element-name">onsetPeriod</xsl:with-param>
+                </xsl:apply-templates>
             </xsl:when>
             <xsl:when test="cda:low/@value">
                 <onsetDateTime value="{lcg:cdaTS2date(cda:low/@value)}"/>
@@ -109,6 +132,7 @@
     </xsl:template>
     
     <xsl:template match="cda:value" mode="allergy">
+        <xsl:comment>Should be no category here</xsl:comment>
         <code>
             <coding>
                 <system>

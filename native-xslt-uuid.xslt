@@ -1,4 +1,9 @@
-<xsl:stylesheet xmlns:uuid="http://www.uuid.org" xmlns:math="http://exslt.org/math" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:stylesheet 
+    xmlns:uuid="http://www.uuid.org" 
+    xmlns:math="http://exslt.org/math" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+    version="2.0">
 
 <!-- 
      Source: The Public Contracts Ontology project. 
@@ -12,7 +17,7 @@
      https://creativecommons.org/licenses/by/3.0/
 -->
 
-
+<!--
         <xsl:template match="/">
                 <xsl:value-of select="
 concat('First random ID:', uuid:get-id()),
@@ -26,7 +31,8 @@ concat('Generated UUID: ' ,uuid:get-uuid()),
 concat('Generated UUID: ' ,uuid:get-uuid())
 " separator="&#10;"/>
         </xsl:template>
-
+-->
+    
     <!--
 Functions in the uuid: namespace are used to calculate a UUID
 The method used is a derived timestamp method, which is explained

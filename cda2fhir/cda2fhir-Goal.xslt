@@ -87,40 +87,18 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="cda:value" mode="allergy">
-        <category>
-            <coding>
-                <system>
-                    <xsl:attribute name="value">
-                        <xsl:call-template name="convertOID">
-                            <xsl:with-param name="oid" select="@codeSystem"/>
-                        </xsl:call-template>
-                    </xsl:attribute>
-                </system>
-                <code value="{@code}"/>
-                <xsl:if test="@displayName">
-                    <display value="{@displayName}"/>
-                </xsl:if>
-            </coding>
-        </category>
+    <xsl:template match="cda:value" mode="goal">
+        <xsl:call-template name="newCreateCodableConcept">
+            <xsl:with-param name="elementName">category</xsl:with-param>
+            <xsl:with-param name="includeCoding" select="true()"/>
+        </xsl:call-template>
     </xsl:template>
 
     <xsl:template match="cda:code" mode="goal">
-        <description>
-            <coding>
-                <system>
-                    <xsl:attribute name="value">
-                        <xsl:call-template name="convertOID">
-                            <xsl:with-param name="oid" select="@codeSystem"/>
-                        </xsl:call-template>
-                    </xsl:attribute>
-                </system>
-                <code value="{@code}"/>
-                <xsl:if test="@displayName">
-                    <display value="{@displayName}"/>
-                </xsl:if>
-            </coding>
-        </description>
+        <xsl:call-template name="newCreateCodableConcept">
+            <xsl:with-param name="elementName">description</xsl:with-param>
+            <xsl:with-param name="includeCoding" select="true()"/>
+        </xsl:call-template>
     </xsl:template>
     
     

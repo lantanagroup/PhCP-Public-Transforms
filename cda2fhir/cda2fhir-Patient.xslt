@@ -6,7 +6,6 @@
     xmlns:lcg="http://www.lantanagroup.com"
     exclude-result-prefixes="lcg xsl cda fhir xs xsi sdtc xhtml" version="2.0">
     
-    
     <xsl:import href="c-to-fhir-utility.xslt"/>
 
     <xsl:template match="cda:recordTarget" mode="bundle-entry">
@@ -24,7 +23,7 @@
             <text>
                 <status value="generated"/>
                 <div xmlns="http://www.w3.org/1999/xhtml">
-                    <xsl:for-each select="cda:patientRole/cda:patient/cda:name">
+                    <xsl:for-each select="cda:patientRole/cda:patient/cda:name[not(@nullFlavor)]">
                         <xsl:choose>
                             <xsl:when test="position() = 1">
                                 <h1><xsl:value-of select="cda:family"/>, <xsl:value-of
@@ -36,110 +35,67 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:for-each>
-                    <xsl:comment>TODO: finish Patient.text (add contact info, etc.)</xsl:comment>
-                    <xsl:message>TODO: finish Patient.text (add contact info, etc.)</xsl:message>
+                    <xsl:for-each select="cda:patientRole/cda:telecom[not(@nullFlavor)]">
+                        <p>Telecom: <xsl:value-of select="@value"/></p>
+                    </xsl:for-each>
+                    <xsl:for-each select="cda:patientRole/cda:addr[not(@nullFlavor)]">
+                        <p>
+                        <xsl:text>Address: </xsl:text>
+                        <xsl:for-each select="*|text()">
+                            <xsl:value-of select="."/>
+                            <xsl:if test="not(position()=last())"><br/></xsl:if>
+                        </xsl:for-each>
+                        </p>
+                    </xsl:for-each>
+                    <xsl:for-each select="cda:patientRole/cda:patient/cda:administrativeGenderCode[not(@nullFlavor)]">
+                        <p>Gender: <xsl:value-of select="@code"/></p>
+                    </xsl:for-each>
+                    <xsl:for-each select="cda:patientRole/cda:patient/cda:birthTime[not(@nullFlavor)]">
+                        <p>Birthdate: <xsl:value-of select="lcg:cdaTS2date(@value)"/></p>
+                    </xsl:for-each>
                 </div>
             </text>
             <xsl:call-template name="add-race-codes"/>
             <xsl:call-template name="add-ethnicity-codes"/>
-            <xsl:for-each select="cda:patientRole/cda:id | cda:patientRole/cda:patient/cda:id">
-                <identifier>
-                    <system value="urn:oid:{@root}"/>
-                    <value value="{@extension}"/>
-                </identifier>
-            </xsl:for-each>
-
+            <xsl:call-template name="add-birthtime-extension"/>
+            <xsl:apply-templates select="cda:patientRole/cda:id"/>
+            <xsl:apply-templates select="cda:patientRole/cda:patient/cda:id"/>
             <xsl:apply-templates select="cda:patientRole/cda:patient/cda:name"/>
             <xsl:apply-templates select="cda:patientRole/cda:telecom"/>
-            <!--
-            <xsl:for-each select="cda:patientRole/cda:patient/cda:name">
-                <name>
-                    <family>
-                        <xsl:attribute name="value">
-                            <xsl:value-of select="cda:family"/>
-                        </xsl:attribute>
-                    </family>
-                    <xsl:for-each select="cda:given">
-                        <given>
-                            <xsl:attribute name="value">
-                                <xsl:value-of select="."/>
-                            </xsl:attribute>
-                        </given>
-                    </xsl:for-each>
-                </name>
-            </xsl:for-each>
-            -->
-            <!--  
-            <telecom>
-                <value>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:patientRole/cda:telecom/@value"/>
-                    </xsl:attribute>
-                    <xsl:message>TODO: parse CDA telecom URL to populate system with phone, email, etc., then strip URI prefix off of value. </xsl:message>
-                </value>
-            </telecom>
-            -->
-            <gender>
-                <xsl:variable name="cda-gender"
-                    select="cda:patientRole/cda:patient/cda:administrativeGenderCode/@code"/>
-
-                <xsl:choose>
-                    <xsl:when test="$cda-gender = 'M'">
-                        <xsl:attribute name="value">male</xsl:attribute>
-                    </xsl:when>
-                    <xsl:when test="$cda-gender = 'F'">
-                        <xsl:attribute name="value">female</xsl:attribute>
-                    </xsl:when>
-                    <xsl:when test="$cda-gender = 'UN'">
-                        <xsl:attribute name="value">other</xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="value">unknown</xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
-
-            </gender>
-            <xsl:if test="cda:patientRole/cda:patient/cda:birthTime">
-                <birthDate value="{lcg:cdaTS2date(cda:patientRole/cda:patient/cda:birthTime/@value)}"/>
+            <xsl:apply-templates select="cda:patientRole/cda:patient/cda:administrativeGenderCode"/>
+            <xsl:apply-templates select="cda:patientRole/cda:patient/cda:birthTime"/>
+            <xsl:apply-templates select="cda:patientRole/cda:addr"/>
+            <xsl:if test="cda:patientRole/cda:patient/cda:guardian">
+                <contact>
+                    <xsl:apply-templates select="cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name"/>
+                    <xsl:apply-templates select="cda:patientRole/cda:patient/cda:guardian/cda:telecom"/>
+                    <xsl:apply-templates select="cda:patientRole/cda:patient/cda:guardian/cda:addr"/>
+                </contact>
             </xsl:if>
-            <address>
-                <line>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:patientRole/cda:addr/cda:streetAddressLine"/>
-                    </xsl:attribute>
-                </line>
-                <city>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:patientRole/cda:addr/cda:city"/>
-                    </xsl:attribute>
-                </city>
-                <state>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:patientRole/cda:addr/cda:state"/>
-                    </xsl:attribute>
-                </state>
-                <postalCode>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:patientRole/cda:addr/cda:postalCode"/>
-                    </xsl:attribute>
-                </postalCode>
-                <country>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="cda:patientRole/cda:addr/cda:country"/>
-                    </xsl:attribute>
-                </country>
-            </address>
         </Patient>
     </xsl:template>
 
     <xsl:template name="add-race-codes">
-        <xsl:if test="cda:patientRole/cda:patient/cda:raceCode or cda:patientRole/cda:patient/sdtc:raceCode">
+        <!-- Race -->
+        <xsl:if test="cda:patientRole/cda:patient/cda:raceCode[not(@nullFlavor)] or cda:patientRole/cda:patient/sdtc:raceCode[not(@nullFlavor)]">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race">
-                <xsl:for-each select="cda:patientRole/cda:patient/cda:raceCode[1]">
+                
+                <xsl:for-each select="cda:patientRole/cda:patient/cda:raceCode[not(@nullFlavor)]">
+                    <xsl:variable name="code">
+                        <xsl:choose>
+                            <xsl:when test="@code='1002-5' or @code='2028-9' 
+                                or @code='2054-5' or @code='2076-8' or @code='2106-3'">
+                                <xsl:value-of>1000-9</xsl:value-of>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="@code"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
                     <extension url="ombCategory">
                         <valueCoding>
-                            <system value="http://hl7.org/fhir/v3/Race"/>
-                            <code value="{@code}"/>
+                            <system value="urn:oid:2.16.840.1.113883.6.238"/>
+                            <code value="{$code}"/>
                             <display value="{@displayName}"/>
                         </valueCoding>
                     </extension>
@@ -147,11 +103,22 @@
                         <valueString value="{@displayName}"/>
                     </extension>
                 </xsl:for-each>
-                <xsl:for-each select="cda:patientRole/cda:patient/sdtc:raceCode">
+                <xsl:for-each select="cda:patientRole/cda:patient/sdtc:raceCode[not(@nullFlavor)]">
+                    <xsl:variable name="code">
+                        <xsl:choose>
+                            <xsl:when test="@code='1002-5' or @code='2028-9' 
+                                or @code='2054-5' or @code='2076-8' or @code='2106-3'">
+                                <xsl:value-of>1000-9</xsl:value-of>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="@code"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
                     <extension url="detailed">
                         <valueCoding>
-                            <system value="http://hl7.org/fhir/v3/Race"/>
-                            <code value="{@code}"/>
+                            <system value="urn:oid:2.16.840.1.113883.6.238"/>
+                            <code value="{$code}"/>
                             <display value="{@displayName}"/>
                         </valueCoding>
                     </extension>
@@ -161,13 +128,24 @@
     </xsl:template>
 
     <xsl:template name="add-ethnicity-codes">
-        <xsl:if test="cda:patientRole/cda:patient/cda:ethnicGroupCode or cda:patientRole/cda:patient/sdtc:ethnicGroupCode">
+        <!-- Ethnicity -->
+        <xsl:if test="cda:patientRole/cda:patient/cda:ethnicGroupCode[not(@nullFlavor)] or cda:patientRole/cda:patient/sdtc:ethnicGroupCode[not(@nullFlavor)]">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity">
-                <xsl:for-each select="cda:patientRole/cda:patient/cda:ethnicGroupCode[1]">
+                <xsl:for-each select="cda:patientRole/cda:patient/cda:ethnicGroupCode[not(@nullFlavor)]">
+                    <xsl:variable name="code">
+                        <xsl:choose>
+                            <xsl:when test="@code='2135-2' or @code='2186-5'">
+                                <xsl:value-of>2133-7</xsl:value-of>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="@code"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
                     <extension url="ombCategory">
                         <valueCoding>
-                            <system value="http://hl7.org/fhir/v3/Ethnicity"/>
-                            <code value="{@code}"/>
+                            <system value="urn:oid:2.16.840.1.113883.6.238"/>
+                            <code value="{$code}"/>
                             <display value="{@displayName}"/>
                         </valueCoding>
                     </extension>
@@ -175,11 +153,21 @@
                         <valueString value="{@displayName}"/>
                     </extension>
                 </xsl:for-each>
-                <xsl:for-each select="cda:patientRole/cda:patient/sdtc:ethnicGroupCode">
+                <xsl:for-each select="cda:patientRole/cda:patient/sdtc:ethnicGroupCode[not(@nullFlavor)]">
+                    <xsl:variable name="code">
+                        <xsl:choose>
+                            <xsl:when test="@code='2135-2' or @code='2186-5'">
+                                <xsl:value-of>2133-7</xsl:value-of>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="@code"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
                     <extension url="detailed">
                         <valueCoding>
-                            <system value="http://hl7.org/fhir/v3/Ethnicity"/>
-                            <code value="{@code}"/>
+                            <system value="urn:oid:2.16.840.1.113883.6.238"/>
+                            <code value="{$code}"/>
                             <display value="{@displayName}"/>
                         </valueCoding>
                     </extension>
@@ -187,5 +175,15 @@
             </extension>
         </xsl:if>
     </xsl:template>
+
+
+    <xsl:template name="add-birthtime-extension">
+        <xsl:for-each select="cda:patientRole/cda:patient/cda:birthTime[string-length(@value) > 8]">
+            <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime" >
+                <valueDateTime value="{lcg:cdaTS2date(@value)}"/>
+            </extension>
+        </xsl:for-each>
+    </xsl:template>
+    
 
 </xsl:stylesheet>

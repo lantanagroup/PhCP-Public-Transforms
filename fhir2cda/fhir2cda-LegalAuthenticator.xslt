@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="urn:hl7-org:v3"
-    xmlns:lcg="http://www.lantanagroup.com" xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
-    xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" xmlns:uuid="java:java.util.UUID"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+    xmlns="urn:hl7-org:v3"
+    xmlns:lcg="http://www.lantanagroup.com" 
+    xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
+    xmlns:cda="urn:hl7-org:v3" 
+    xmlns:fhir="http://hl7.org/fhir" 
     version="2.0"
     exclude-result-prefixes="lcg xsl cda fhir">
     

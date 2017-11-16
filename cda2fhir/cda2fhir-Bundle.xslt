@@ -22,12 +22,13 @@
             <xsl:apply-templates select="cda:ClinicalDocument" mode="bundle-entry"/>
             <xsl:apply-templates select="cda:ClinicalDocument/cda:recordTarget" mode="bundle-entry"/>
             <!-- CarePlan resource not needed for ONC-HIP use case. Revisit later. -->
-            <!--
+            
             <xsl:apply-templates select="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent" mode="bundle-entry"/>
-            -->
             <xsl:apply-templates select="cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter" mode="bundle-entry"/>
             <xsl:apply-templates select="//cda:author" mode="bundle-entry"/>
             <xsl:apply-templates select="//cda:performer" mode="bundle-entry"/>
+            <xsl:apply-templates select="//cda:participant[@typeCode='IRCP']" mode="bundle-entry"/>
+            <xsl:apply-templates select="//cda:performer/cda:assignedEntity/cda:representedOrganization" mode="bundle-entry"/>
             <xsl:apply-templates select="cda:ClinicalDocument/cda:custodian" mode="bundle-entry"/>
             <xsl:apply-templates select="cda:ClinicalDocument/cda:legalAuthenticator" mode="bundle-entry"/>
             <xsl:message>TODO: Add remaining header resources</xsl:message>
@@ -39,8 +40,8 @@
     
     <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']]" mode="reference">  
         <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param>
-        <xsl:comment>Removed concern wrapper</xsl:comment>      
+        <xsl:param name="listEntry">false</xsl:param> 
+        <!-- Remove Concern wrappers --> 
         <xsl:for-each select="cda:entryRelationship/cda:*">
             <xsl:apply-templates select="." mode="reference">
                 <xsl:with-param name="sectionEntry" select="$sectionEntry"/>
@@ -50,8 +51,27 @@
     </xsl:template>
     
     <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']]" mode="bundle-entry">
-        <xsl:comment>Removed concern wrapper</xsl:comment>
-        <!-- Handle Concern act wrappers --> 
+        <!-- Remove Concern wrappers --> 
+        <xsl:for-each select="cda:entryRelationship/cda:*">
+            <xsl:apply-templates select="." mode="bundle-entry"/>
+        </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.80']]" mode="reference">  
+        <xsl:param name="sectionEntry">false</xsl:param>
+        <xsl:param name="listEntry">false</xsl:param> 
+        <!-- Remove Encounter Diagnosis wrappers, since maps to Condition.category -->  
+        <xsl:for-each select="cda:entryRelationship/cda:*">
+            <xsl:apply-templates select="." mode="reference">
+                <xsl:with-param name="sectionEntry" select="$sectionEntry"/>
+                <xsl:with-param name="listEntry" select="$listEntry"/>
+            </xsl:apply-templates>
+        </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.80']]" mode="bundle-entry">
+        <!-- Remove Encounter Diagnosis wrappers, since maps to Condition.category --> 
+        <xsl:comment>Removed Encounter diagnosis wrapper</xsl:comment>
         <xsl:for-each select="cda:entryRelationship/cda:*">
             <xsl:apply-templates select="." mode="bundle-entry"/>
         </xsl:for-each>

@@ -7,7 +7,6 @@
     xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
     xmlns:cda="urn:hl7-org:v3" 
     xmlns:fhir="http://hl7.org/fhir" 
-    xmlns:uuid="java:java.util.UUID"
     exclude-result-prefixes="lcg xsl cda fhir"
     version="2.0">
     

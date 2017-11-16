@@ -14,7 +14,31 @@
     <xsl:template
         match="cda:encompassingEncounter"
         mode="bundle-entry">
+        <xsl:if test="cda:location">
+            <xsl:call-template name="create-location-entry"/>
+        </xsl:if>
+        <xsl:if test="cda:responsibleParty/cda:assignedEntity">
+            <xsl:call-template name="create-service-performer-entry"/>
+        </xsl:if>
         <xsl:call-template name="create-bundle-entry"/>
+    </xsl:template>
+    
+    <xsl:template name="create-location-entry">
+        <entry>
+            <fullUrl value="urn:uuid:{cda:location/@lcg:uuid}"/>
+            <resource>
+                <xsl:apply-templates select="cda:location"/>
+            </resource>
+        </entry>
+    </xsl:template>
+    
+    <xsl:template name="create-service-performer-entry">
+        <entry>
+            <fullUrl value="urn:uuid:{cda:responsibleParty/cda:assignedEntity/@lcg:uuid}"/>
+            <resource>
+                <xsl:apply-templates select="cda:responsibleParty/cda:assignedEntity"/>
+            </resource>
+        </entry>
     </xsl:template>
     
     <xsl:template
@@ -22,8 +46,6 @@
         mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
-    
-
     
     <xsl:template
         match="cda:encompassingEncounter"
@@ -68,7 +90,9 @@
                     <status value="unknown"/>
                 </xsl:otherwise>
             </xsl:choose>
-            <xsl:apply-templates select="cda:code" mode="encounter"/>
+            <xsl:apply-templates select="cda:code">
+                <xsl:with-param name="elementName">type</xsl:with-param>
+            </xsl:apply-templates>
             <xsl:call-template name="subject-reference"/>
             <xsl:for-each select="cda:performer">
                 <participant>
@@ -83,10 +107,46 @@
                     </individual>
                 </participant>
             </xsl:for-each>
+            <xsl:if test="cda:responsibleParty/cda:assignedEntity">
+                <participant>
+                    <xsl:apply-templates select="cda:responsibleParty/cda:assignedEntity/cda:code">
+                        <xsl:with-param name="elementName">type</xsl:with-param>
+                    </xsl:apply-templates>
+                    <individual>
+                        <reference value="urn:uuid:{cda:responsibleParty/cda:assignedEntity/@lcg:uuid}"/>
+                    </individual>
+                </participant>
+            </xsl:if>
             <xsl:apply-templates select="cda:effectiveTime" mode="period"/>
+            <xsl:apply-templates select="/cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent/cda:code">
+                <xsl:with-param name="elementName">reason</xsl:with-param>
+            </xsl:apply-templates>
+            <xsl:if test="cda:location">
+                <location>
+                    <location>
+                        <reference value="urn:uuid:{cda:location/@lcg:uuid}"/>
+                    </location>
+                </location>
+            </xsl:if>
         </Encounter>
     </xsl:template>
     
+    <xsl:template match="cda:location">
+        <Location>
+            <xsl:apply-templates select="cda:healthCareFacility/cda:id"/>
+        </Location>
+    </xsl:template>
+    
+    <xsl:template match="cda:assignedEntity">
+        <Practitioner>
+            <xsl:apply-templates select="cda:id"/>
+            <xsl:apply-templates select="cda:assignedPerson/cda:name"/>
+            <xsl:for-each select="cda:telecom">
+                <xsl:apply-templates select="."/>
+            </xsl:for-each>
+            <xsl:apply-templates select="cda:addr"/>
+        </Practitioner>
+    </xsl:template>
 
     <xsl:template match="cda:code" mode="encounter">
         <xsl:call-template name="newCreateCodableConcept">
