@@ -14,47 +14,10 @@
 
     <xsl:template match="cda:recordTarget">
         <Patient>
-            <!--
-            <id value="{@lcg:uuid}"/>
-            -->
             <meta>
                 <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
             </meta>
-            <text>
-                <status value="generated"/>
-                <div xmlns="http://www.w3.org/1999/xhtml">
-                    <xsl:for-each select="cda:patientRole/cda:patient/cda:name[not(@nullFlavor)]">
-                        <xsl:choose>
-                            <xsl:when test="position() = 1">
-                                <h1><xsl:value-of select="cda:family"/>, <xsl:value-of
-                                        select="cda:given"/></h1>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <p>Alternate name: <xsl:value-of select="cda:family"/>,
-                                        <xsl:value-of select="cda:given"/></p>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:for-each>
-                    <xsl:for-each select="cda:patientRole/cda:telecom[not(@nullFlavor)]">
-                        <p>Telecom: <xsl:value-of select="@value"/></p>
-                    </xsl:for-each>
-                    <xsl:for-each select="cda:patientRole/cda:addr[not(@nullFlavor)]">
-                        <p>
-                        <xsl:text>Address: </xsl:text>
-                        <xsl:for-each select="*|text()">
-                            <xsl:value-of select="."/>
-                            <xsl:if test="not(position()=last())"><br/></xsl:if>
-                        </xsl:for-each>
-                        </p>
-                    </xsl:for-each>
-                    <xsl:for-each select="cda:patientRole/cda:patient/cda:administrativeGenderCode[not(@nullFlavor)]">
-                        <p>Gender: <xsl:value-of select="@code"/></p>
-                    </xsl:for-each>
-                    <xsl:for-each select="cda:patientRole/cda:patient/cda:birthTime[not(@nullFlavor)]">
-                        <p>Birthdate: <xsl:value-of select="lcg:cdaTS2date(@value)"/></p>
-                    </xsl:for-each>
-                </div>
-            </text>
+            <xsl:call-template name="generate-text-patient"/>
             <xsl:call-template name="add-race-codes"/>
             <xsl:call-template name="add-ethnicity-codes"/>
             <xsl:call-template name="add-birthtime-extension"/>
@@ -183,6 +146,44 @@
                 <valueDateTime value="{lcg:cdaTS2date(@value)}"/>
             </extension>
         </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template name="generate-text-patient">
+                <text>
+                <status value="generated"/>
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    <xsl:for-each select="cda:patientRole/cda:patient/cda:name[not(@nullFlavor)]">
+                        <xsl:choose>
+                            <xsl:when test="position() = 1">
+                                <h1><xsl:value-of select="cda:family"/>, <xsl:value-of
+                                        select="cda:given"/></h1>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <p>Alternate name: <xsl:value-of select="cda:family"/>,
+                                        <xsl:value-of select="cda:given"/></p>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:for-each>
+                    <xsl:for-each select="cda:patientRole/cda:telecom[not(@nullFlavor)]">
+                        <p>Telecom: <xsl:value-of select="@value"/></p>
+                    </xsl:for-each>
+                    <xsl:for-each select="cda:patientRole/cda:addr[not(@nullFlavor)]">
+                        <p>
+                        <xsl:text>Address: </xsl:text>
+                        <xsl:for-each select="*|text()">
+                            <xsl:value-of select="."/>
+                            <xsl:if test="not(position()=last())"><br/></xsl:if>
+                        </xsl:for-each>
+                        </p>
+                    </xsl:for-each>
+                    <xsl:for-each select="cda:patientRole/cda:patient/cda:administrativeGenderCode[not(@nullFlavor)]">
+                        <p>Gender: <xsl:value-of select="@code"/></p>
+                    </xsl:for-each>
+                    <xsl:for-each select="cda:patientRole/cda:patient/cda:birthTime[not(@nullFlavor)]">
+                        <p>Birthdate: <xsl:value-of select="lcg:cdaTS2date(@value)"/></p>
+                    </xsl:for-each>
+                </div>
+            </text>
     </xsl:template>
     
 

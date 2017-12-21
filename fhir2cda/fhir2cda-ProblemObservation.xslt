@@ -26,7 +26,6 @@
             <templateId root="2.16.840.1.113883.10.20.22.4.132" extension="2015-08-01" />
             <!-- [PCP R1 STU1] Health Concern Act (Pharmacist Care Plan) -->
             <templateId root="2.16.840.1.113883.10.20.37.3.8" extension="2017-08-01" />
-            <xsl:comment>TODO: map declared profiles to templates</xsl:comment>
             <id nullFlavor="NI" />
             <code code="75310-3" codeSystem="2.16.840.1.113883.6.1" displayName="Health Concern" codeSystemName="LOINC" />
             <statusCode code="active"/>

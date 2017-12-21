@@ -39,7 +39,6 @@
         <substanceAdministration classCode="SBADM" moodCode="{$moodCode}">
             <templateId root="2.16.840.1.113883.10.20.37.3.10" extension="2017-08-01" />
             <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09" />
-            <xsl:comment>TODO: map declared profile ids to templates</xsl:comment>
             <xsl:choose>
                 <xsl:when test="fhir:identifer">
                     <xsl:apply-templates select="fhir:identifier"/>
@@ -94,16 +93,16 @@
     <xsl:template match="fhir:status" mode="medication-activity">
         <statusCode>
             <xsl:choose>
-                <xsl:when test="status/@value='active'">
+                <xsl:when test="@value='active'">
                     <xsl:attribute name="code">active</xsl:attribute> 
                 </xsl:when>
-                <xsl:when test="status/@value='completed'">
+                <xsl:when test="@value='completed'">
                     <xsl:attribute name="code">completed</xsl:attribute> 
                 </xsl:when>
-                <xsl:when test="status/@value='cancelled'">
+                <xsl:when test="@value='cancelled'">
                     <xsl:attribute name="code">cancelled</xsl:attribute> 
                 </xsl:when>
-                <xsl:when test="status/@value='unknown'">
+                <xsl:when test="@value='unknown'">
                     <xsl:attribute name="nullFlavor">UNK</xsl:attribute> 
                 </xsl:when>
                 <xsl:otherwise>
@@ -114,6 +113,7 @@
     </xsl:template>
     
     <xsl:template match="fhir:timing" mode="medication-activity">
+        
         <xsl:for-each select="fhir:event">
             <effectiveTime>
                 <xsl:attribute name="value">
@@ -125,26 +125,36 @@
             </effectiveTime>
         </xsl:for-each>
         <xsl:for-each select="fhir:repeat">
-            <xsl:for-each select="fhir:boundsPeriod">
-                <effectiveTime xsi:type="IVL_TS">
-                    <low>
-                        <xsl:attribute name="value">
-                            <xsl:call-template name="Date2TS">
-                                <xsl:with-param name="date" select="fhir:start/@value"/>
-                                <xsl:with-param name="includeTime" select="true()" />
-                            </xsl:call-template>
-                        </xsl:attribute>
-                    </low>
-                    <high>
-                        <xsl:attribute name="value">
-                            <xsl:call-template name="Date2TS">
-                                <xsl:with-param name="date" select="fhir:end/@value"/>
-                                <xsl:with-param name="includeTime" select="true()" />
-                            </xsl:call-template>
-                        </xsl:attribute>
-                    </high>
-                </effectiveTime>
-            </xsl:for-each>
+            <xsl:choose>
+                <xsl:when test="fhir:boundsPeriod">
+                    <xsl:for-each select="fhir:boundsPeriod">
+                        <effectiveTime xsi:type="IVL_TS">
+                            <low>
+                                <xsl:attribute name="value">
+                                    <xsl:call-template name="Date2TS">
+                                        <xsl:with-param name="date" select="fhir:start/@value"/>
+                                        <xsl:with-param name="includeTime" select="true()" />
+                                    </xsl:call-template>
+                                </xsl:attribute>
+                            </low>
+                            <high>
+                                <xsl:attribute name="value">
+                                    <xsl:call-template name="Date2TS">
+                                        <xsl:with-param name="date" select="fhir:end/@value"/>
+                                        <xsl:with-param name="includeTime" select="true()" />
+                                    </xsl:call-template>
+                                </xsl:attribute>
+                            </high>
+                        </effectiveTime>
+                    </xsl:for-each>
+                    
+                </xsl:when>
+                <xsl:otherwise>
+                    <effectiveTime xsi:type="IVL_TS">
+                        <low nullFlavor="NI"/>
+                    </effectiveTime>
+                </xsl:otherwise>
+            </xsl:choose>
             <xsl:if test="fhir:period and fhir:periodUnit">
                 <effectiveTime xsi:type="PIVL_TS" operator="A">
                     <period xsi:type="PQ" value="{fhir:period/@value}" unit="{fhir:periodUnit/@value}" />

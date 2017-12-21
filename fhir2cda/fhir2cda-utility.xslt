@@ -155,8 +155,14 @@
             <templateId root="2.16.840.1.113883.10.20.22.4.119" />
             <time value="{$author-time}"/>
             <assignedAuthor>
-                <xsl:apply-templates select="fhir:identifier"/>
-                
+                <xsl:choose>
+                    <xsl:when test="fhir:identifier">
+                        <xsl:apply-templates select="fhir:identifier"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <id nullFlavor="NI"/>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:choose>
                     <xsl:when test="fhir:address">
                         <xsl:apply-templates select="fhir:address"/>
@@ -186,13 +192,21 @@
         <xsl:param name="element-name">performer</xsl:param>
         <xsl:param name="type-code">PRF</xsl:param>
         <xsl:param name="performer-time"/>
+        <xsl:param name="organization"/>
         <xsl:element name="{$element-name}">
             <xsl:attribute name="typeCode" select="$type-code"/>
             <xsl:if test="$performer-time">
                 <time value="{performer-time}"/>
             </xsl:if>
             <assignedEntity>
-                <xsl:apply-templates select="fhir:identifier"/>
+                <xsl:choose>
+                    <xsl:when test="fhir:identifier">
+                        <xsl:apply-templates select="fhir:identifier"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <id nullFlavor="NI"/>
+                    </xsl:otherwise>
+                </xsl:choose>
                 
                 <xsl:choose>
                     <xsl:when test="fhir:address">
@@ -214,6 +228,7 @@
                         <suffix><xsl:value-of select="fhir:name/fhir:suffix/@value"/></suffix>
                     </name>
                 </assignedPerson>
+                <xsl:comment>TODO: Add represented organization</xsl:comment>
             </assignedEntity>
         </xsl:element>
     </xsl:template>

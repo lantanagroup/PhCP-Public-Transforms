@@ -38,9 +38,7 @@
         mode="reference">
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param>
-        <xsl:comment>Found Coverage Activity</xsl:comment>
         <xsl:for-each select="cda:entryRelationship/cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.61']]">
-            <xsl:comment>Found Policy Activity</xsl:comment>
             <xsl:choose>
                 <xsl:when test="$sectionEntry='true'">
                     <entry>

@@ -49,7 +49,13 @@
                 <xsl:choose>
                     <xsl:when test="fhir:telecom">
                         <xsl:for-each select="fhir:telecom">
-                            <telecom value="{fhir:value/@value}">
+                            <xsl:variable name="uri-prefix">
+                                <xsl:choose>
+                                    <xsl:when test="fhir:system/@value='phone'">tel:</xsl:when>
+                                    <xsl:when test="fhir:system/@value='email'">mailto:</xsl:when>
+                                </xsl:choose>
+                            </xsl:variable>
+                            <telecom value="{$uri-prefix}{fhir:value/@value}">
                                 <xsl:call-template name="telecomUse"/>
                             </telecom>
                         </xsl:for-each>

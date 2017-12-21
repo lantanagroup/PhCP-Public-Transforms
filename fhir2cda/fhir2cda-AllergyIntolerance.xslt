@@ -38,7 +38,6 @@
             <templateId root="2.16.840.1.113883.10.20.22.4.132" extension="2015-08-01" />
             <!-- [PCP R1 STU1] Health Concern Act (Pharmacist Care Plan) -->
             <templateId root="2.16.840.1.113883.10.20.37.3.8" extension="2017-08-01" />
-            <xsl:comment>TODO: map declared profiles to templates</xsl:comment>
             <id nullFlavor="NI" />
             <code code="75310-3" codeSystem="2.16.840.1.113883.6.1" displayName="Health Concern" codeSystemName="LOINC" />
             <statusCode code="active"/>
@@ -47,23 +46,6 @@
                     <xsl:if test="$no-known-allergy='true'">
                         <xsl:attribute name="negationInd">true</xsl:attribute>
                     </xsl:if>
-                    <!--
-                    <xsl:for-each select="fhir:code/fhir:coding">
-                        <xsl:choose>
-                            <xsl:when test="fhir:system/@value='http://snomed.info/sct' and (
-                                fhir:code/@value='716186003' or
-                                fhir:code/@value='716220001' or
-                                fhir:code/@value='428197003' or
-                                fhir:code/@value='409137002' or
-                                fhir:code/@value='428607008' or
-                                fhir:code/@value='429625007' or
-                                fhir:code/@value='716184000' 
-                                )">
-                                <xsl:attribute name="negationInd">true</xsl:attribute>
-                            </xsl:when>
-                        </xsl:choose>   
-                    </xsl:for-each>  
-                    -->
                     <!-- [C-CDA R2.0] Allergy - Intolerance Observation (V2) -->
                     <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09" />
                     <xsl:choose>
@@ -76,18 +58,48 @@
                     </xsl:choose>
                     <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
                     <statusCode code="completed"></statusCode>
-                    <xsl:if test="fhir:onsetDateTime">
+                    
+                    <xsl:if test="fhir:assertedDate">
                         <effectiveTime>
-                            <low>
                                 <xsl:attribute name="value">
                                     <xsl:call-template name="Date2TS">
-                                        <xsl:with-param name="date" select="fhir:onsetDateTime/@value"/>
+                                        <xsl:with-param name="date" select="fhir:assertedDate/@value"/>
                                         <xsl:with-param name="includeTime" select="true()" />
                                     </xsl:call-template>
                                 </xsl:attribute>
-                            </low>
                         </effectiveTime>
                     </xsl:if>
+                    <xsl:choose>
+                        <xsl:when test="fhir:onsetDateTime">
+                            <effectiveTime>
+                                <low>
+                                    <xsl:attribute name="value">
+                                        <xsl:call-template name="Date2TS">
+                                            <xsl:with-param name="date" select="fhir:onsetDateTime/@value"/>
+                                            <xsl:with-param name="includeTime" select="true()" />
+                                        </xsl:call-template>
+                                    </xsl:attribute>
+                                </low>
+                            </effectiveTime>
+                        </xsl:when>
+                        <xsl:when test="fhir:assertedDate">
+                            <effectiveTime>
+                                <low>
+                                    <xsl:attribute name="value">
+                                        <xsl:call-template name="Date2TS">
+                                            <xsl:with-param name="date" select="fhir:assertedDate/@value"/>
+                                            <xsl:with-param name="includeTime" select="true()" />
+                                        </xsl:call-template>
+                                    </xsl:attribute>
+                                </low>
+                            </effectiveTime>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <effectiveTime>
+                                <low nullFlavor="NI"/>
+                            </effectiveTime>
+                        </xsl:otherwise>
+                    </xsl:choose>
                     <xsl:choose>
                         <xsl:when test="fhir:code/fhir:extension/@url='http://hl7.org/fhir/StructureDefinition/cda-negated-code'">
                             <xsl:comment>TODO: Replace line below with code from extension http://hl7.org/fhir/StructureDefinition/cda-negated-code</xsl:comment>

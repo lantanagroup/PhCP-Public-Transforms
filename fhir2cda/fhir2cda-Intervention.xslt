@@ -36,9 +36,8 @@
             </xsl:call-template>
         </xsl:param>
         <act classCode="ACT" moodCode="INT">
-            <templateId extension="2015-08-01" root="2.16.840.1.113883.10.20.22.4.131" />
-            <templateId extension="2017-08-01" root="2.16.840.1.113883.10.20.37.3.15" />
-            <xsl:comment>TODO: map declared profiles to templates</xsl:comment>
+            <templateId extension="2015-08-01" root="2.16.840.1.113883.10.20.22.4.146" />
+            <templateId extension="2017-08-01" root="2.16.840.1.113883.10.20.37.3.12" />
             <xsl:choose>
                 <xsl:when test="fhir:identifier">
                     <xsl:apply-templates select="fhir:identifier"/>
@@ -52,16 +51,28 @@
             <xsl:if test="fhir:authoredOn">
                 <effectiveTime value="{$time}"/>
             </xsl:if>
-            <xsl:if test="fhir:reasonReference">
-                <xsl:variable name="referenceURI">
-                    <xsl:call-template name="resolve-to-full-url">
-                        <xslt:with-param name="referenceURI" select="fhir:reasonReference/fhir:reference/@value"></xslt:with-param>
-                    </xsl:call-template>
-                </xsl:variable>
-                <xsl:for-each select="//fhir:entry[fhir:fullUrl/@value=$referenceURI]">
-                    <xsl:apply-templates select="fhir:resource/fhir:*" mode="entry-relationship"/>
-                </xsl:for-each>
-            </xsl:if>
+            <xsl:choose>
+                <xsl:when test="fhir:reasonReference">
+                    <xsl:variable name="referenceURI">
+                        <xsl:call-template name="resolve-to-full-url">
+                            <xslt:with-param name="referenceURI" select="fhir:reasonReference/fhir:reference/@value"></xslt:with-param>
+                        </xsl:call-template>
+                    </xsl:variable>
+                    <xsl:for-each select="//fhir:entry[fhir:fullUrl/@value=$referenceURI]">
+                        <xsl:apply-templates select="fhir:resource/fhir:*" mode="entry-relationship"/>
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <entryRelationship typeCode="RSON">
+                        <act classCode="ACT" moodCode="EVN" nullFlavor="RSON">
+                            <templateId root="2.16.840.1.113883.10.20.22.4.122" />
+                            <id nullFlavor="NI"/>
+                            <code nullFlavor="NI"/>
+                            <statusCode code="completed"/>
+                        </act>
+                    </entryRelationship>
+                </xsl:otherwise>
+            </xsl:choose>
             <xsl:for-each select="fhir:action/fhir:resource">
                 <xsl:if test="fhir:reference">
                     <xsl:for-each select="fhir:reference">
@@ -91,7 +102,6 @@
         <act classCode="ACT" moodCode="EVN">
             <templateId extension="2015-08-01" root="2.16.840.1.113883.10.20.22.4.131" />
             <templateId extension="2017-08-01" root="2.16.840.1.113883.10.20.37.3.15" />
-            <xsl:comment>TODO: map declared profiles to templates</xsl:comment>
             <xsl:choose>
                 <xsl:when test="fhir:identifier">
                     <xsl:apply-templates select="fhir:identifier"/>

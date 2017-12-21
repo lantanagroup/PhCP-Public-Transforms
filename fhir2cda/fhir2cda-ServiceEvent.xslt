@@ -28,17 +28,29 @@
                         </high>
                     </xsl:if>
                 </effectiveTime>
-                <xsl:for-each select="fhir:extension[@url='http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer']/fhir:valueReference">
-                   
-                        <xsl:variable name="referenceURI">
-                            <xsl:call-template name="resolve-to-full-url">
-                                <xslt:with-param name="referenceURI" select="fhir:reference/@value"></xslt:with-param>
-                            </xsl:call-template>
-                        </xsl:variable>
-                        <xsl:for-each select="//fhir:entry[fhir:fullUrl/@value=$referenceURI]">
-                            <xsl:apply-templates select="fhir:resource/fhir:*" mode="event-performer"/>
+                <xsl:choose>
+                    <xsl:when test="fhir:extension[@url='http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer']/fhir:valueReference">
+                        <xsl:for-each select="fhir:extension[@url='http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer']/fhir:valueReference">
+                            <xsl:variable name="referenceURI">
+                                <xsl:call-template name="resolve-to-full-url">
+                                    <xslt:with-param name="referenceURI" select="fhir:reference/@value"></xslt:with-param>
+                                </xsl:call-template>
+                            </xsl:variable>
+                            <xsl:for-each select="//fhir:entry[fhir:fullUrl/@value=$referenceURI]">
+                                <xsl:apply-templates select="fhir:resource/fhir:*" mode="event-performer"/>
+                            </xsl:for-each>
                         </xsl:for-each>
-                </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <performer typeCode="PRF" nullFlavor="NI">
+                            <assignedEntity nullFlavor="NI">
+                                <id nullFlavor="NI"/>
+                                <assignedPerson nullFlavor="NI"/>
+                            </assignedEntity>
+                        </performer>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
             </serviceEvent>
         </documentationOf>
     </xsl:template>

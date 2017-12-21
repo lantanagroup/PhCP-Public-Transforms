@@ -141,9 +141,11 @@
             </xsl:for-each>
             <xsl:apply-templates select="cda:effectiveTime" mode="period"/>
             <!-- CarePlan resource not strictly needed for ONC-HIP use casem, but added at Clinician's on FHIR event.  -->
+            <!--
             <detail>
                 <xsl:apply-templates select="." mode="reference"/>
             </detail>
+            -->
             
         </event>
     </xsl:template>

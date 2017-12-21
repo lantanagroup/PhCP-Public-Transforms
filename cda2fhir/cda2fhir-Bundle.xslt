@@ -22,8 +22,9 @@
             <xsl:apply-templates select="cda:ClinicalDocument" mode="bundle-entry"/>
             <xsl:apply-templates select="cda:ClinicalDocument/cda:recordTarget" mode="bundle-entry"/>
             <!-- CarePlan resource not needed for ONC-HIP use case. Revisit later. -->
-            
+            <!--
             <xsl:apply-templates select="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent" mode="bundle-entry"/>
+            -->
             <xsl:apply-templates select="cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter" mode="bundle-entry"/>
             <xsl:apply-templates select="//cda:author" mode="bundle-entry"/>
             <xsl:apply-templates select="//cda:performer" mode="bundle-entry"/>
@@ -38,7 +39,11 @@
         </Bundle>
     </xsl:template>
     
-    <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']]" mode="reference">  
+    <xsl:template match="cda:act[
+        cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']
+        or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.3']
+        or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.30']
+        ]" mode="reference">  
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param> 
         <!-- Remove Concern wrappers --> 
@@ -50,8 +55,13 @@
         </xsl:for-each>
     </xsl:template>
     
-    <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']]" mode="bundle-entry">
+    <xsl:template match="cda:act[
+        cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']
+        or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.3']
+        or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.30']
+        ]" mode="bundle-entry">
         <!-- Remove Concern wrappers --> 
+        <xsl:comment>Processing concern wrapper: <xsl:value-of select="cda:templateId[1]/@root"/></xsl:comment>
         <xsl:for-each select="cda:entryRelationship/cda:*">
             <xsl:apply-templates select="." mode="bundle-entry"/>
         </xsl:for-each>

@@ -25,6 +25,14 @@
     <xsl:template name="make-encounter">
         <componentOf>
             <encompassingEncounter>
+                <xsl:choose>
+                    <xsl:when test="fhir:identifier">
+                        <xsl:apply-templates select="fhir:identifier"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <id nullFlavor="NI"/>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:for-each select="fhir:type">
                     <xsl:call-template name="CodeableConcept2CD"/>
                 </xsl:for-each>

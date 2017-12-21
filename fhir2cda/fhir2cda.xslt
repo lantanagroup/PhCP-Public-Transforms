@@ -31,6 +31,7 @@ limitations under the License.
    <xsl:include href="fhir2cda-II.xslt"/>
    <xsl:include href="fhir2cda-TEL.xslt"/>
    <xsl:include href="fhir2cda-ADDR.xslt"/>
+   <xsl:include href="fhir2cda-PQ.xslt"/>
    <xsl:include href="fhir2cda-RecordTarget.xslt"/>
    <xsl:include href="fhir2cda-utility.xslt"/>
    <xsl:include href="fhir2cda-narrative.xslt"/>
@@ -39,6 +40,7 @@ limitations under the License.
    <xsl:include href="fhir2cda-LegalAuthenticator.xslt"/>
    <xsl:include href="fhir2cda-Intervention.xslt"/>
    <xsl:include href="fhir2cda-MedicationActivity.xslt"/>
+   <xsl:include href="fhir2cda-MedicationDispense.xslt"/>
    <xsl:include href="fhir2cda-ServiceEvent.xslt"/>
    <xsl:include href="fhir2cda-Goal.xslt"/>
    <xsl:include href="fhir2cda-AllergyIntolerance.xslt"/>

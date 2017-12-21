@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://hl7.org/fhir" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:cda="urn:hl7-org:v3" 
-	xmlns:fhir="http://hl7.org/fhir" 
-	xmlns:sdtc="urn:hl7-org:sdtc"
+<xsl:stylesheet xmlns="http://hl7.org/fhir" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:cda="urn:hl7-org:v3" xmlns:fhir="http://hl7.org/fhir" xmlns:sdtc="urn:hl7-org:sdtc"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml"
 	xmlns:lcg="http://www.lantanagroup.com" version="2.0"
 	xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
 	exclude-result-prefixes="lcg xslt cda fhir xs xsi sdtc xhtml">
-	
+
 	<xsl:param name="template-profile-mapping-file">../template-profile-mapping.xml</xsl:param>
-	<xsl:variable name="template-profile-mapping" select="document($template-profile-mapping-file)/mapping"/>
-	<xsl:key name="referenced-acts" match="cda:*[not(cda:templateId/@root='2.16.840.1.113883.10.20.22.4.122')]" use="cda:id/@root"/>
+	<xsl:variable name="template-profile-mapping"
+		select="document($template-profile-mapping-file)/mapping"/>
+	<xsl:key name="referenced-acts"
+		match="cda:*[not(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.122')]"
+		use="cda:id/@root"/>
 
 	<xsl:template name="create-bundle-entry">
 		<entry>
@@ -46,7 +45,7 @@
 		</xsl:for-each>
 	</xsl:template>
 
-	
+
 	<xsl:template name="add-meta">
 		<xsl:variable name="profiles">
 			<xsl:apply-templates select="cda:templateId" mode="template2profile"/>
@@ -57,7 +56,7 @@
 			</meta>
 		</xsl:if>
 	</xsl:template>
-	
+
 	<xsl:template match="cda:templateId" mode="template2profile">
 		<xsl:variable name="templateURI">
 			<xsl:text>urn:hl7ii:</xsl:text>
@@ -67,12 +66,12 @@
 				<xsl:value-of select="@extension"/>
 			</xsl:if>
 		</xsl:variable>
-		<xsl:for-each select="$template-profile-mapping/map[@templateURI=$templateURI]">
+		<xsl:for-each select="$template-profile-mapping/map[@templateURI = $templateURI]">
 			<profile value="{@profileURI}"/>
 		</xsl:for-each>
 		<xsl:comment>CDA templateId: <xsl:value-of select="$templateURI"/></xsl:comment>
 	</xsl:template>
-	
+
 	<xsl:function name="lcg:dateFromcdaTS" as="xs:string">
 		<!-- Just get the date part, ignoring any time data -->
 		<xsl:param name="cdaTS" as="xs:string"/>
@@ -355,7 +354,9 @@
 
 	<xsl:template match="cda:name[not(@nullFlavor)]">
 		<xsl:variable name="name-string">
-			<xsl:for-each select="text() | cda:*"><xsl:value-of select="normalize-space(.)"/></xsl:for-each>
+			<xsl:for-each select="text() | cda:*">
+				<xsl:value-of select="normalize-space(.)"/>
+			</xsl:for-each>
 		</xsl:variable>
 		<xsl:variable name="use">
 			<xsl:choose>
@@ -440,16 +441,16 @@
 		</xsl:variable>
 		<xsl:choose>
 			<xsl:when test="@nullFlavor">
+				<xsl:comment>Omitting null telecom</xsl:comment>
+				<!-- Removing the following, in FHIR just leave out nulled elements like this -->
+				<!--
 				<telecom>
 					<system value="phone"/>
 					<value>
-						<!-- this appears to cause problems with the FHIR->JSON converter -->
-						<!--<extension url="http://hl7.org/fhir/v3/NullFlavor">
-							<valueCode><xsl:attribute name="value"><xsl:value-of select="@nullFlavor"/></xsl:attribute></valueCode> 
-						</extension>-->
 						<xsl:attribute name="value">Unknown</xsl:attribute>
 					</value>
 				</telecom>
+				-->
 			</xsl:when>
 			<xsl:otherwise>
 				<telecom>
@@ -496,15 +497,43 @@
 							</xsl:attribute>
 						</use>
 					</xsl:if>
+					<xsl:apply-templates select="cda:useablePeriod"/>
 				</telecom>
 			</xsl:otherwise>
 
 		</xsl:choose>
 	</xsl:template>
 
+
+	<xsl:template match="cda:useablePeriod[@value or cda:low/@value or cda:high/@value]">
+		<xsl:choose>
+			<xsl:when test="@value">
+				<period>
+					<start value="{lcg:cdaTS2date(@value)}"/>
+					<end value="{lcg:cdaTS2date(@value)}"/>
+				</period>
+			</xsl:when>
+			<xsl:when test="cda:low/@value or cda:high/@value">
+				<period>
+					<xsl:if test="cda:low/@value">
+						<start value="{lcg:cdaTS2date(cda:low/@value)}"/>
+					</xsl:if>
+					<xsl:if test="cda:high/@value">
+						<end value="{lcg:cdaTS2date(cda:high/@value)}"/>
+					</xsl:if>
+				</period>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:comment>Unable to map usablePeriod to a FHIR period</xsl:comment>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
 	<xsl:template match="cda:addr[not(@nullFlavor)]">
 		<xsl:variable name="addr-string">
-			<xsl:for-each select="text() | cda:*"><xsl:value-of select="normalize-space(.)"/></xsl:for-each>
+			<xsl:for-each select="text() | cda:*">
+				<xsl:value-of select="normalize-space(.)"/>
+			</xsl:for-each>
 		</xsl:variable>
 		<xsl:if test="string-length($addr-string) &gt; 0">
 			<address>
@@ -547,41 +576,43 @@
 						<country value="{normalize-space(.)}"/>
 					</xsl:if>
 				</xsl:for-each>
+				<xsl:apply-templates select="cda:useablePeriod"/>
 			</address>
 		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="cda:id | cda:setId">
 		<xsl:param name="elementName">identifier</xsl:param>
+		<xsl:variable name="mapping" select="document('../oid-uri-mapping.xml')/mapping"/>
+		<xsl:variable name="oid" select="@root"/>
+		<xsl:variable name="root-uri">
+			<xsl:choose>
+				<xsl:when test="$mapping/map[@oid = $oid]">
+					<xsl:value-of select="$mapping/map[@oid = $oid][1]/@uri"/>
+				</xsl:when>
+				<xsl:when test="contains(@root, '.')">
+					<xsl:text>urn:oid:</xsl:text><xsl:value-of select="@root"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:text>urn:uuid:</xsl:text><xsl:value-of select="@root"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+
 		<xsl:choose>
 			<xsl:when test="@nullFlavor">
 				<!-- TODO: ignore for now, add better handling later -->
 			</xsl:when>
 			<xsl:when test="@root and @extension">
 				<xsl:element name="{$elementName}">
-				<xsl:choose>
-					<xsl:when test="contains('.', @root)">
-						<system value="urn:oid:{@root}"/>
-						<value value="{@extension}"/>
-					</xsl:when>
-					<xsl:otherwise>
-						<system value="urn:ietf:rfc:3986"/>
-						<value value="urn:hl7ii:{@root}:{encode-for-uri(@extension)}"/>
-					</xsl:otherwise>
-				</xsl:choose>
+					<system value="{$root-uri}"/>
+					<value value="{@extension}"/>
 				</xsl:element>
 			</xsl:when>
 			<xsl:when test="@root and not(@extension)">
 				<xsl:element name="{$elementName}">
 					<system value="urn:ietf:rfc:3986"/>
-					<xsl:choose>
-						<xsl:when test="contains('.', @root)">
-							<value value="urn:oid:{@root}"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<value value="urn:uuid:{@root}"/>
-						</xsl:otherwise>
-					</xsl:choose>
+					<value value="{$root-uri}"/>
 				</xsl:element>
 			</xsl:when>
 		</xsl:choose>
@@ -600,7 +631,7 @@
 			<xsl:with-param name="includeCoding" select="$includeCoding"/>
 		</xsl:call-template>
 	</xsl:template>
-	
+
 	<xsl:template match="cda:birthTime">
 		<xsl:param name="element-name">birthDate</xsl:param>
 		<xsl:if test="not(@nullFlavor)">
@@ -746,7 +777,9 @@
 		<xsl:variable name="nullFlavor">
 			<xsl:choose>
 				<xsl:when test="not(@nullFlavor) and not(@code) and not(@codeSystem)">NI</xsl:when>
-				<xsl:otherwise><xsl:value-of select="@nullFlavor"/></xsl:otherwise>
+				<xsl:otherwise>
+					<xsl:value-of select="@nullFlavor"/>
+				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
 		<xsl:variable name="content">
@@ -773,8 +806,11 @@
 				</xsl:variable>
 				<xsl:variable name="nullFlavor">
 					<xsl:choose>
-						<xsl:when test="not(@nullFlavor) and not(@code) and not(@codeSystem)">NI</xsl:when>
-						<xsl:otherwise><xsl:value-of select="@nullFlavor"/></xsl:otherwise>
+						<xsl:when test="not(@nullFlavor) and not(@code) and not(@codeSystem)"
+							>NI</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="@nullFlavor"/>
+						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:variable>
 				<xsl:variable name="this-translation">
@@ -799,7 +835,7 @@
 				</xsl:choose>
 			</xsl:for-each>
 		</xsl:variable>
-	
+
 		<xsl:element name="{$elementName}">
 			<xsl:choose>
 				<xsl:when test="$includeCoding = true()">
@@ -821,7 +857,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:element>
-		
+
 	</xsl:template>
 
 
@@ -836,8 +872,8 @@
 			</xsl:attribute>
 		</xsl:element>
 	</xsl:template>
-	
-	
+
+
 	<xsl:template match="cda:value[@xsi:type = 'INT']">
 		<xsl:param name="elementName" select="'valueInteger'"/>
 		<xsl:element name="{$elementName}">
@@ -896,7 +932,7 @@
 		</xsl:element>
 	</xsl:template>
 	-->
-	
+
 	<xsl:template name="createCodableConceptContent">
 		<xsl:param name="codeSystem"/>
 		<xsl:param name="code"/>
@@ -970,7 +1006,8 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<xsl:template match="cda:effectiveTime[@value or cda:low/@value or cda:high/@value]" mode="period">
+	<xsl:template match="cda:effectiveTime[@value or cda:low/@value or cda:high/@value]"
+		mode="period">
 		<xsl:param name="element-name">period</xsl:param>
 		<xsl:element name="{$element-name}">
 			<xsl:call-template name="effectiveTimeInner"/>
@@ -1064,7 +1101,7 @@
 			<start value="{lcg:cdaTS2date(@value)}"/>
 			<end value="{lcg:cdaTS2date(@value)}"/>
 		</xsl:if>
-		<xsl:if test="cda:center/@value and not (cda:width/@value)">
+		<xsl:if test="cda:center/@value and not(cda:width/@value)">
 			<start value="{lcg:cdaTS2date(cda:center/@value)}"/>
 			<end value="{lcg:cdaTS2date(cda:center/@value)}"/>
 		</xsl:if>
@@ -1122,7 +1159,7 @@
 			</valuePeriod>
 		</extension>
 	</xsl:template>
-	
+
 	<xsl:template match="cda:effectiveTime" mode="applies">
 		<xsl:choose>
 			<xsl:when test="@value and @value != ''">
@@ -1160,7 +1197,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	
+
 	<xsl:template match="cda:effectiveTime" mode="appliesPeriod">
 		<appliesPeriod>
 			<xsl:choose>
@@ -1193,7 +1230,7 @@
 
 	<xsl:template name="subject-reference">
 		<xsl:param name="element-name">subject</xsl:param>
-		<!-- TODO: handle multiple subjects (record as a group where allowed) --> 
+		<!-- TODO: handle multiple subjects (record as a group where allowed) -->
 		<xsl:element name="{$element-name}">
 			<xsl:choose>
 				<xsl:when test="cda:subject">
@@ -1208,15 +1245,15 @@
 			</xsl:choose>
 		</xsl:element>
 	</xsl:template>
-	
+
 	<xsl:template name="author-reference">
 		<xsl:param name="element-name">author</xsl:param>
-		
-		<!-- TODO: handle multiple authors. May not be legal for all resources.  --> 
+
+		<!-- TODO: handle multiple authors. May not be legal for all resources.  -->
 		<xsl:element name="{$element-name}">
 			<xsl:choose>
 				<xsl:when test="cda:author">
-					<!-- TODO: test to see author.id is the same as an ancestor author, if so use that URN --> 
+					<!-- TODO: test to see author.id is the same as an ancestor author, if so use that URN -->
 					<reference value="urn:uuid:{cda:author/@lcg:uuid}"/>
 				</xsl:when>
 				<xsl:when test="ancestor::cda:section[1]/cda:author">
@@ -1228,26 +1265,28 @@
 			</xsl:choose>
 		</xsl:element>
 	</xsl:template>
-	
-	<xsl:template
-		match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.122']]"
+
+	<xsl:template match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.122']]"
 		mode="reference">
 		<xsl:param name="sectionEntry">false</xsl:param>
 		<xsl:param name="listEntry">false</xsl:param>
 		<xsl:variable name="reference-id" select="cda:id"/>
-		<xsl:for-each select="key('referenced-acts',$reference-id/@root)">
+		<xsl:for-each select="key('referenced-acts', $reference-id/@root)">
 			<xsl:choose>
-				<xsl:when test="$reference-id/@extension = cda:id/@extension ">
+				<xsl:when test="$reference-id/@extension = cda:id/@extension">
 					<xsl:choose>
-						<xsl:when test="$sectionEntry='true'">
+						<xsl:when test="$sectionEntry = 'true'">
 							<entry>
 								<reference value="urn:uuid:{@lcg:uuid}"/>
 							</entry>
 						</xsl:when>
-						<xsl:when test="$listEntry='true'">
-							<entry><item>
-								<reference value="urn:uuid:{@lcg:uuid}"/></item>
-							</entry></xsl:when>
+						<xsl:when test="$listEntry = 'true'">
+							<entry>
+								<item>
+									<reference value="urn:uuid:{@lcg:uuid}"/>
+								</item>
+							</entry>
+						</xsl:when>
 						<xsl:otherwise>
 							<reference value="urn:uuid:{@lcg:uuid}"/>
 						</xsl:otherwise>
@@ -1255,14 +1294,16 @@
 				</xsl:when>
 				<xsl:when test="$reference-id[not(@extension)] and cda:id[not(@extension)]">
 					<xsl:choose>
-						<xsl:when test="$sectionEntry='true'">
+						<xsl:when test="$sectionEntry = 'true'">
 							<entry>
 								<reference value="urn:uuid:{@lcg:uuid}"/>
 							</entry>
 						</xsl:when>
-						<xsl:when test="$listEntry='true'">
-							<entry><item>
-								<reference value="urn:uuid:{@lcg:uuid}"/></item>
+						<xsl:when test="$listEntry = 'true'">
+							<entry>
+								<item>
+									<reference value="urn:uuid:{@lcg:uuid}"/>
+								</item>
 							</entry>
 						</xsl:when>
 						<xsl:otherwise>
@@ -1273,20 +1314,23 @@
 			</xsl:choose>
 		</xsl:for-each>
 	</xsl:template>
-	
-	<xsl:template
-		match="cda:*" mode="reference" priority="-1">
+
+	<xsl:template match="cda:*" mode="reference" priority="-1">
 		<xsl:param name="sectionEntry">false</xsl:param>
 		<xsl:param name="listEntry">false</xsl:param>
 		<xsl:choose>
-			<xsl:when test="$sectionEntry='true'">
+			<xsl:when test="$sectionEntry = 'true'">
 				<entry>
 					<reference value="urn:uuid:{@lcg:uuid}"/>
-				</entry></xsl:when>
-			<xsl:when test="$listEntry='true'">
-				<entry><item>
-					<reference value="urn:uuid:{@lcg:uuid}"/></item>
-				</entry></xsl:when>
+				</entry>
+			</xsl:when>
+			<xsl:when test="$listEntry = 'true'">
+				<entry>
+					<item>
+						<reference value="urn:uuid:{@lcg:uuid}"/>
+					</item>
+				</entry>
+			</xsl:when>
 			<xsl:otherwise>
 				<reference value="urn:uuid:{@lcg:uuid}"/>
 			</xsl:otherwise>
