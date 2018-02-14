@@ -1,0 +1,72 @@
+<project name="phcp" default="dist" basedir=".">
+  <description>
+    simple example build file
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="build-classes" location="${build}/classes"/>
+  <property name="dist" location="dist"/>
+  <property name="lib" location="lib"/>
+  <property name="transforms" location="transforms"/>
+  <property name="validation" location="validation"/>
+  <property name="phcp" value="phcp"/>
+
+    <path id="classpath">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+    </path>
+
+	<pathconvert property="manifest.classpath" pathsep=" ">
+	  <path refid="classpath"/>
+	  <mapper>
+	    <chainedmapper>
+	       <flattenmapper/>
+	       <globmapper from="*.jar" to="lib/*.jar"/>
+	    </chainedmapper>
+	  </mapper>
+	</pathconvert>
+
+	<target name="clean" description="clean up">
+	    <!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}"/>
+	    <delete dir="${dist}"/>
+	</target>
+	
+  <target name="init" depends="clean">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build-classes}"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source">
+    <!-- Compile the java code from ${src} into ${build-classes} -->
+    <javac srcdir="${src}" destdir="${build-classes}" classpathref="classpath"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution">
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/${phcp}"/>
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/${phcp}/cda2fhir.jar" basedir="${build-classes}">
+		<manifest>
+			<attribute name="Main-Class" value="com.lantanagroup.phcpdemo.CDA2FHIR"/>
+			<attribute name="Class-Path" value="${manifest.classpath}"/>
+    	</manifest>
+    </jar>
+    <jar jarfile="${dist}/${phcp}/fhir2cda.jar" basedir="${build-classes}">
+		<manifest>
+			<attribute name="Main-Class" value="com.lantanagroup.phcpdemo.FHIR2CDA"/>
+			<attribute name="Class-Path" value="${manifest.classpath}"/>
+    	</manifest>
+    </jar>
+    <copy todir="${dist}/${phcp}/transforms">
+      <fileset dir="${transforms}"/>
+    </copy>
+    <copy todir="${dist}/${phcp}/lib">
+      <fileset dir="${lib}"/>
+    </copy>
+  </target>
+</project>
