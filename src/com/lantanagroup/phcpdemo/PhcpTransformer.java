@@ -34,7 +34,7 @@ public abstract class PhcpTransformer {
 
 	private TransformerFactory tf = TransformerFactory.newInstance();
 	private Templates compiledXslt;
-	private final FhirContext ctx = FhirContext.forR4();
+	private final FhirContext ctx = FhirContext.forDstu3();
 	private static final String XML_DEC = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 	
 	public PhcpTransformer(File xsltFile) throws TransformerConfigurationException {

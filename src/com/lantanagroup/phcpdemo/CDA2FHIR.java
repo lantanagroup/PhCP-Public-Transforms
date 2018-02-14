@@ -40,6 +40,7 @@ public class CDA2FHIR extends PhcpTransformer {
 	}
 	
 	public void runTransform(InputStream cdaIn, OutputStream fhirOut, boolean fhirJson) throws TransformerException, ParserConfigurationException, SAXException, IOException {
+		System.out.println("Starting CDA to FHIR Transform");
 		ByteArrayInputStream preProcessedIn;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		dbf.setNamespaceAware(true);
@@ -51,11 +52,13 @@ public class CDA2FHIR extends PhcpTransformer {
 		super.runTransform(preProcessedIn, tempOut);
 		String finalOutStr;
 		if (fhirJson) {
+			System.out.println("Converting from XML to JSON");
 			finalOutStr = xml2json(new String(tempOut.toByteArray()));
 		} else {
 			finalOutStr = new String(tempOut.toByteArray());
 		}
 		fhirOut.write(finalOutStr.getBytes());
+		System.out.println("Finished CDA to FHIR Transform");
 	}
 	
 	private void addUuidExtensions(Document doc, Element elem) {
@@ -87,13 +90,7 @@ public class CDA2FHIR extends PhcpTransformer {
 		ByteArrayInputStream bin = new ByteArrayInputStream(Files.readAllBytes(in.toPath()));
 		ByteArrayOutputStream bout = new ByteArrayOutputStream();
 		runTransform(bin,bout,fhirJson);
-		String finalOutStr;
-		if (fhirJson) {
-			finalOutStr = xml2json(new String(bout.toByteArray()));
-		} else {
-			finalOutStr = new String(bout.toByteArray());
-		}
-		Files.write(out.toPath(), finalOutStr.getBytes());
+		Files.write(out.toPath(), bout.toByteArray());
 	}
 	
 	public static void main (String[] args) {
