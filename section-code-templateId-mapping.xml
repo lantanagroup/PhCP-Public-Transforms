@@ -1,8 +1,0 @@
-<mapping>
-==
-	<map 
-		templateURI="urn:hl7ii:2.16.840.1.113883.10.20.37.2.1:2017-08-01" 
-		loincCode="75310-3"
-	/>
-
-</mapping>
