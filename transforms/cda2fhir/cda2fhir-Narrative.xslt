@@ -359,13 +359,13 @@
                                 <xsl:if test="n1:effectiveTime">
                                     <xsl:choose>
                                         <xsl:when test="n1:effectiveTime/@value">
-                                            <xsl:text>&#160;at&#160;</xsl:text>
+                                            <xsl:text> at </xsl:text>
                                             <xsl:call-template name="show-time">
                                                 <xsl:with-param name="datetime" select="n1:effectiveTime"/>
                                             </xsl:call-template>
                                         </xsl:when>
                                         <xsl:when test="n1:effectiveTime/n1:low">
-                                            <xsl:text>&#160;From&#160;</xsl:text>
+                                            <xsl:text> From </xsl:text>
                                             <xsl:call-template name="show-time">
                                                 <xsl:with-param name="datetime" select="n1:effectiveTime/n1:low"/>
                                             </xsl:call-template>
@@ -523,13 +523,13 @@
                                         <xsl:if test="n1:serviceEvent/n1:effectiveTime">
                                             <xsl:choose>
                                                 <xsl:when test="n1:serviceEvent/n1:effectiveTime/@value">
-                                                    <xsl:text>&#160;at&#160;</xsl:text>
+                                                    <xsl:text> at </xsl:text>
                                                     <xsl:call-template name="show-time">
                                                         <xsl:with-param name="datetime" select="n1:serviceEvent/n1:effectiveTime"/>
                                                     </xsl:call-template>
                                                 </xsl:when>
                                                 <xsl:when test="n1:serviceEvent/n1:effectiveTime/n1:low">
-                                                    <xsl:text>&#160;from&#160;</xsl:text>
+                                                    <xsl:text> from </xsl:text>
                                                     <xsl:call-template name="show-time">
                                                         <xsl:with-param name="datetime" select="n1:serviceEvent/n1:effectiveTime/n1:low"/>
                                                     </xsl:call-template>
@@ -596,13 +596,13 @@
                                         <xsl:call-template name="show-id"/>
                                     </xsl:for-each>
                                     <xsl:for-each select="n1:code">
-                                        <xsl:text>&#160;</xsl:text>
+                                        <xsl:text> </xsl:text>
                                         <xsl:call-template name="show-code">
                                             <xsl:with-param name="code" select="."/>
                                         </xsl:call-template>
                                     </xsl:for-each>
                                     <xsl:for-each select="n1:priorityCode">
-                                        <xsl:text>&#160;</xsl:text>
+                                        <xsl:text> </xsl:text>
                                         <xsl:call-template name="show-code">
                                             <xsl:with-param name="code" select="."/>
                                         </xsl:call-template>
@@ -1684,15 +1684,15 @@
                     <xsl:value-of select="$address/n1:city"/>
                 </xsl:if>
                 <xsl:if test="string-length($address/n1:state)>0">
-                    <xsl:text>,&#160;</xsl:text>
+                    <xsl:text>, </xsl:text>
                     <xsl:value-of select="$address/n1:state"/>
                 </xsl:if>
                 <xsl:if test="string-length($address/n1:postalCode)>0">
-                    <xsl:text>&#160;</xsl:text>
+                    <xsl:text> </xsl:text>
                     <xsl:value-of select="$address/n1:postalCode"/>
                 </xsl:if>
                 <xsl:if test="string-length($address/n1:country)>0">
-                    <xsl:text>,&#160;</xsl:text>
+                    <xsl:text>, </xsl:text>
                     <xsl:value-of select="$address/n1:country"/>
                 </xsl:if>
             </xsl:when>
