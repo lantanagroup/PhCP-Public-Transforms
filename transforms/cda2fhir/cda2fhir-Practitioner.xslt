@@ -14,6 +14,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
+    <!--
     <xsl:template
         match="cda:author | cda:legalAuthenticator | cda:performer | cda:participant"
         mode="reference">
@@ -35,6 +36,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    -->
 
     <xsl:template match="cda:author">
         <xsl:call-template name="make-practitioner">

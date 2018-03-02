@@ -705,7 +705,7 @@
 		</xsl:call-template>
 	</xsl:template>
 
-	<xsl:template match="cda:value[@xsi:type = 'PQ']">
+	<xsl:template match="cda:value[@xsi:type = 'PQ'][not(@nullFlavor)]">
 		<xsl:param name="elementName" select="'valueQuantity'"/>
 		<xsl:element name="{$elementName}">
 			<xsl:if test="@value">
@@ -866,9 +866,17 @@
 
 	<xsl:template match="cda:value[@xsi:type = 'ST']">
 		<xsl:param name="elementName" select="'valueString'"/>
+		<xsl:variable name="content">
+			<xsl:choose>
+				<xsl:when test="@nullFlavor"><xsl:value-of select="@nullFlavor"/></xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="."/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
 		<xsl:element name="{$elementName}">
 			<xsl:attribute name="value">
-				<xsl:value-of select="."/>
+				<xsl:value-of select="$content"/>
 			</xsl:attribute>
 		</xsl:element>
 	</xsl:template>
@@ -1236,11 +1244,11 @@
 				<xsl:when test="cda:subject">
 					<reference value="urn:uuid:{cda:subject/@lcg:uuid}"/>
 				</xsl:when>
-				<xsl:when test="ancestor::cda:section/cda:subject">
+				<xsl:when test="ancestor::cda:section[1]/cda:subject">
 					<reference value="urn:uuid:{ancestor::cda:section[1]/cda:subject/@lcg:uuid}"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<reference value="urn:uuid:{/cda:ClinicalDocument/cda:recordTarget/@lcg:uuid}"/>
+					<reference value="urn:uuid:{/cda:ClinicalDocument/cda:recordTarget[1]/@lcg:uuid}"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:element>
@@ -1254,10 +1262,10 @@
 			<xsl:choose>
 				<xsl:when test="cda:author">
 					<!-- TODO: test to see author.id is the same as an ancestor author, if so use that URN -->
-					<reference value="urn:uuid:{cda:author/@lcg:uuid}"/>
+					<reference value="urn:uuid:{cda:author[1]/@lcg:uuid}"/>
 				</xsl:when>
 				<xsl:when test="ancestor::cda:section[1]/cda:author">
-					<reference value="urn:uuid:{ancestor::cda:section/cda:author/@lcg:uuid}"/>
+					<reference value="urn:uuid:{ancestor::cda:section[1]/cda:author/@lcg:uuid}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<reference value="urn:uuid:{/cda:ClinicalDocument/cda:author/@lcg:uuid}"/>
@@ -1316,6 +1324,7 @@
 		</xsl:for-each>
 	</xsl:template>
 
+	<!--  
 	<xsl:template match="cda:*" mode="reference" priority="-1">
 		<xsl:param name="sectionEntry">false</xsl:param>
 		<xsl:param name="listEntry">false</xsl:param>
@@ -1337,5 +1346,6 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
+    -->
+    
 </xsl:stylesheet>

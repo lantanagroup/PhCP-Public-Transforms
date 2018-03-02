@@ -20,6 +20,7 @@
         </xsl:for-each>
    </xsl:template>
     
+    <!--
     <xsl:template
         match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='INT']"
         mode="reference">
@@ -40,9 +41,10 @@
         </xsl:choose>
 
     </xsl:template>
+    -->
     
     
-    <xsl:template match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='INT']">
+    <xsl:template match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='INT'][not(@nullFlavor)]">
         <MedicationRequest>
             <meta>
                 <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"/>
@@ -61,13 +63,22 @@
                     <authoredOn value="{lcg:cdaTS2date(ancestor::cda:*/cda:author[1]/cda:time/@value)}"/>
                 </xsl:when>
             </xsl:choose>
-            <xsl:for-each select="cda:author">
-                <requester>
-                    <agent>
-                        <reference value="urn:uuid:{@lcg:uuid}"/>
-                    </agent>
-                </requester>
-            </xsl:for-each>
+            <xsl:choose>
+                <xsl:when test="cda:author">
+                    <requester>
+                        <agent>
+                            <reference value="urn:uuid:{cda:author[1]/@lcg:uuid}"/>
+                        </agent>
+                    </requester>
+                </xsl:when>
+                <xsl:otherwise>
+                    <requester>
+                        <agent>
+                            <reference value="urn:uuid:{ancestor::cda:*/cda:author[1]/@lcg:uuid}"/>
+                        </agent>
+                    </requester>
+                </xsl:otherwise>
+            </xsl:choose>
             <dosageInstruction>
                 <timing>
                     <repeat>
@@ -81,9 +92,11 @@
                 <xsl:apply-templates select="doseQuantity" mode="medication-request"/>
 
             </dosageInstruction>
-            <dispenseRequest>
-                <numberOfRepeatsAllowed	value="3"/>
-            </dispenseRequest>
+            <xsl:if test="cda:repeatNumber/@value and cda:repeatNumber/@value > 0">
+                <dispenseRequest>
+                    <xsl:apply-templates select="cda:repeatNumber" mode="medication-request"/>
+                </dispenseRequest>
+            </xsl:if>
         </MedicationRequest>
     </xsl:template>
     
@@ -111,6 +124,11 @@
                 <system value="http://hl7.org/fhir/v3/NullFlavor"/>
             </xsl:if>
         </doseQuantity>
+    </xsl:template>
+    
+    
+    <xsl:template match="cda:repeatNumber" mode="medication-request">
+        <numberOfRepeatsAllowed value="{@value}"/>
     </xsl:template>
     
     <xsl:template match="cda:effectiveTime[@operator='A'][@xsi:type='PIVL_TS']" mode="medication-request">

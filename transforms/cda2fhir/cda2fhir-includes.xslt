@@ -11,7 +11,7 @@
    <xsl:include href="cda2fhir-Patient.xslt"/>
    <xsl:include href="cda2fhir-Practitioner.xslt"/>
    <xsl:include href="cda2fhir-Organization.xslt"/>
-   <xsl:include href="cda2fhir-List.xslt"/>
+   <!--xsl:include href="cda2fhir-List.xslt"/-->
    <xsl:include href="cda2fhir-RequestGroup.xslt"/>
    <xsl:include href="cda2fhir-MedicationRequest.xslt"/>
    <xsl:include href="cda2fhir-MedicationDispense.xslt"/>

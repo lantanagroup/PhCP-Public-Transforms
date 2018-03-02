@@ -133,12 +133,16 @@
                         <valueCoding>
                             <system value="{$codeSystemUri}"/>
                             <code value="{$code}"/>
-                            <display value="{@displayName}"/>
+                            <xsl:if test="@displayName">
+                                <display value="{@displayName}"/>
+                            </xsl:if>
                         </valueCoding>
                     </extension>
-                    <extension url="text">
-                        <valueString value="{@displayName}"/>
-                    </extension>
+                    <xsl:if test="@displayName">
+                        <extension url="text">
+                            <valueString value="{@displayName}"/>
+                        </extension>
+                    </xsl:if>
                 </xsl:for-each>
                 <xsl:for-each select="cda:patientRole/cda:patient/sdtc:ethnicGroupCode">
                     <xsl:variable name="code">
@@ -161,7 +165,9 @@
                         <valueCoding>
                             <system value="{$codeSystemUri}"/>
                             <code value="{$code}"/>
-                            <display value="{@displayName}"/>
+                            <xsl:if test="@displayName">
+                                <display value="{@displayName}"/>
+                            </xsl:if>
                         </valueCoding>
                     </extension>
                 </xsl:for-each>

@@ -30,6 +30,7 @@
         </xsl:for-each>
     </xsl:template>
     
+    <!--
     <xsl:template
         match="cda:representedCustodianOrganization | cda:representedOrganization"
         mode="reference">
@@ -51,7 +52,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+    -->
     
     
     <xsl:template match="cda:custodian">

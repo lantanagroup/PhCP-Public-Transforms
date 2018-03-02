@@ -19,7 +19,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
-    
+    <!--  
     <xsl:template
         match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27']]"
         mode="reference">
@@ -39,7 +39,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+    -->
     
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27']]">
         <Observation>
@@ -87,7 +87,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
-    
+    <!-- 
     <xsl:template
         match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.144']]"
         mode="reference">
@@ -107,7 +107,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+    -->
     
     
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.144']]">
@@ -150,7 +150,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
-    
+    <!--  
     <xsl:template
         match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.74']]"
         mode="reference">
@@ -170,7 +170,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+    -->
     
     
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.74']]">
@@ -211,6 +211,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
+    <!--  
     <xsl:template
         match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.128']]"
         mode="reference">
@@ -230,7 +231,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+    -->
     
     
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.128']]">
@@ -264,44 +265,25 @@
         </Observation>
     </xsl:template>
     
-    <!-- ASSESSMENTS SCALE OBSERVATION -->
-    <!--
-    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]" mode="bundle-entry">
+    
+    <!-- RESULT/VITAL-SIGN ORGANIZER/OBSERVATION -->
+    
+    <xsl:template match="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.1' or @root='2.16.840.1.113883.10.20.22.4.26']]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
+        <xsl:for-each select="cda:component/cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' or @root='2.16.840.1.113883.10.20.22.4.27']]">
+            <xsl:call-template name="create-bundle-entry"/>
+        </xsl:for-each>
     </xsl:template>
     
-    <xsl:template
-        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]"
-        mode="reference">
-        <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param>
-        <xsl:choose>
-            <xsl:when test="$sectionEntry='true'">
-                <entry>
-                    <reference value="urn:uuid:{@lcg:uuid}"/>
-                </entry></xsl:when>
-            <xsl:when test="$listEntry='true'">
-                <entry><item>
-                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
-                </entry></xsl:when>
-            <xsl:otherwise>
-                <reference value="urn:uuid:{@lcg:uuid}"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    
-    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]">
+    <xsl:template match="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.1' or @root='2.16.840.1.113883.10.20.22.4.26']]">
         <Observation>
             <xsl:call-template name="add-meta"/>
-            
-            <xsl:for-each select="cda:id">
-                <xsl:apply-templates select="."/>            
-            </xsl:for-each>
+            <xsl:apply-templates select="cda:id"/>
             <status value="final"/>
             <xsl:apply-templates select="cda:code">
                 <xsl:with-param name="elementName">code</xsl:with-param>
             </xsl:apply-templates>
-            
+            <xsl:call-template name="subject-reference"/>
             <xsl:if test="cda:effectiveTime/@value">
                 <effectiveDateTime>
                     <xsl:attribute name="value">
@@ -309,62 +291,70 @@
                     </xsl:attribute>
                 </effectiveDateTime>
             </xsl:if>
-            
-            <xsl:apply-templates select="cda:value"/>
+            <xsl:call-template name="author-reference">
+                <xsl:with-param name="element-name">performer</xsl:with-param>
+            </xsl:call-template>
+            <xsl:for-each select="cda:component/cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' or @root='2.16.840.1.113883.10.20.22.4.27']]">
+                <related>
+                    <type value="has-member"/>
+                    <target>
+                        <xsl:apply-templates select="." mode="reference"/>
+                    </target>
+                </related>
+            </xsl:for-each>
         </Observation>
     </xsl:template>
-    -->
-
-    <!-- ASSESSMENTS SCALE OBSERVATION -->
-    <!--
-    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]" mode="bundle-entry">
-        <xsl:call-template name="create-bundle-entry"/>
-    </xsl:template>
     
-    <xsl:template
-        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]"
-        mode="reference">
-        <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param>
-        <xsl:choose>
-            <xsl:when test="$sectionEntry='true'">
-                <entry>
-                    <reference value="urn:uuid:{@lcg:uuid}"/>
-                </entry></xsl:when>
-            <xsl:when test="$listEntry='true'">
-                <entry><item>
-                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
-                </entry></xsl:when>
-            <xsl:otherwise>
-                <reference value="urn:uuid:{@lcg:uuid}"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
     
-    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.69']]">
-        <Observation>
-            <xsl:call-template name="add-meta"/>
-            
-            <xsl:for-each select="cda:id">
-                <xsl:apply-templates select="."/>            
-            </xsl:for-each>
-            <status value="final"/>
-            <xsl:apply-templates select="cda:code">
-                <xsl:with-param name="elementName">code</xsl:with-param>
-            </xsl:apply-templates>
-            
-            <xsl:if test="cda:effectiveTime/@value">
-                <effectiveDateTime>
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/@value)"/>
-                    </xsl:attribute>
-                </effectiveDateTime>
-            </xsl:if>
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' or @root='2.16.840.1.113883.10.20.22.4.27']]">
+        <xsl:variable name="category">
             <xsl:choose>
-                <xsl:apply-templates select="cda:value"/>
+                <xsl:when test="cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2']">laboratory</xsl:when>
+                <xsl:when test="cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27']">vital-signs</xsl:when>
             </xsl:choose>
+        </xsl:variable>        
+        <xsl:variable name="profile">
+            <xsl:choose>
+                <xsl:when test="cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2']">http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults</xsl:when>
+                <xsl:when test="cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27']">http://hl7.org/fhir/StructureDefinition/vitalsigns</xsl:when>
+            </xsl:choose>
+        </xsl:variable>
+        <Observation>
+            <xsl:call-template name="add-meta"/>
+            <xsl:apply-templates select="cda:id"/>
+            <status value="final"/>
+            <category>
+                <coding>
+                    <system value="http://hl7.org/fhir/observation-category"/>
+                    <code value="{$category}"/>
+                </coding>
+            </category>
+            <xsl:apply-templates select="cda:code">
+                <xsl:with-param name="elementName">code</xsl:with-param>
+            </xsl:apply-templates>
+            <xsl:call-template name="subject-reference"/>
+            <xsl:if test="cda:effectiveTime/@value">
+                <effectiveDateTime>
+                    <xsl:attribute name="value">
+                        <xsl:value-of select="lcg:cdaTS2date(cda:effectiveTime/@value)"/>
+                    </xsl:attribute>
+                </effectiveDateTime>
+            </xsl:if>
+            <xsl:call-template name="author-reference">
+                <xsl:with-param name="element-name">performer</xsl:with-param>
+            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="cda:value[@xsi:type='INT']">
+                    <!-- There is no valueInteger in observations. Assume is a scale instead -->
+                    <xsl:apply-templates select="cda:value" mode="scale"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="cda:value"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            <!-- TODO process entryRelationships -->
         </Observation>
     </xsl:template>
-    -->
+    
 
 </xsl:stylesheet>

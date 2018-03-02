@@ -14,10 +14,10 @@
     <xsl:template
         match="cda:encompassingEncounter"
         mode="bundle-entry">
-        <xsl:if test="cda:location">
+        <xsl:if test="cda:location[not(@nullFlavor)]">
             <xsl:call-template name="create-location-entry"/>
         </xsl:if>
-        <xsl:if test="cda:responsibleParty/cda:assignedEntity">
+        <xsl:if test="cda:responsibleParty[not(@nullFlavor)]/cda:assignedEntity[not(@nullFlavor)]">
             <xsl:call-template name="create-service-performer-entry"/>
         </xsl:if>
         <xsl:call-template name="create-bundle-entry"/>
@@ -48,13 +48,14 @@
     </xsl:template>
     
     <xsl:template
-        match="cda:encompassingEncounter"
+        match="cda:encompassingEncounter[not(@nullFlavor)]"
         mode="reference">
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param>
         <reference value="urn:uuid:{@lcg:uuid}"/>
     </xsl:template>
     
+    <!--  
     <xsl:template
         match="cda:encounter[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.49' or cda:templateId/@root='2.16.840.1.113883.10.20.22.4.40']"
         mode="reference">
@@ -74,10 +75,11 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
+	-->
+    
 
     <xsl:template
-        match="cda:encompassingEncounter | cda:encounter[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.49' or cda:templateId/@root='2.16.840.1.113883.10.20.22.4.40']">
+        match="cda:encompassingEncounter[not(@nullFlavor)] | cda:encounter[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.49' or cda:templateId/@root='2.16.840.1.113883.10.20.22.4.40']">
         <Encounter>
             <xsl:choose>
                 <xsl:when test="@moodCode='EVN'">
@@ -90,11 +92,15 @@
                     <status value="unknown"/>
                 </xsl:otherwise>
             </xsl:choose>
+            <class>
+                <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+                <code value="NI"/>
+            </class>
             <xsl:apply-templates select="cda:code">
                 <xsl:with-param name="elementName">type</xsl:with-param>
             </xsl:apply-templates>
             <xsl:call-template name="subject-reference"/>
-            <xsl:for-each select="cda:performer">
+            <xsl:for-each select="cda:performer[not(@nullFlavor)]">
                 <participant>
                     <type>
                         <coding>
@@ -107,7 +113,7 @@
                     </individual>
                 </participant>
             </xsl:for-each>
-            <xsl:if test="cda:responsibleParty/cda:assignedEntity">
+            <xsl:if test="cda:responsibleParty[not(@nullFlavor)]/cda:assignedEntity[not(@nullFlavor)]">
                 <participant>
                     <xsl:apply-templates select="cda:responsibleParty/cda:assignedEntity/cda:code">
                         <xsl:with-param name="elementName">type</xsl:with-param>
@@ -121,7 +127,7 @@
             <xsl:apply-templates select="/cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent/cda:code">
                 <xsl:with-param name="elementName">reason</xsl:with-param>
             </xsl:apply-templates>
-            <xsl:if test="cda:location">
+            <xsl:if test="cda:location[not(@nullFlavor)]">
                 <location>
                     <location>
                         <reference value="urn:uuid:{cda:location/@lcg:uuid}"/>
@@ -131,13 +137,17 @@
         </Encounter>
     </xsl:template>
     
-    <xsl:template match="cda:location">
+    <xsl:template match="cda:location[not(@nullFlavor)]">
         <Location>
             <xsl:apply-templates select="cda:healthCareFacility/cda:id"/>
+            <xsl:if test="cda:healthCareFacility/cda:location/cda:name">
+                <name value="{cda:healthCareFacility/cda:location/cda:name}"/>
+            </xsl:if>
+            <xsl:apply-templates select="cda:healthCareFacility/cda:location/cda:addr"/>
         </Location>
     </xsl:template>
     
-    <xsl:template match="cda:assignedEntity">
+    <xsl:template match="cda:assignedEntity[not(@nullFlavor)]">
         <Practitioner>
             <xsl:apply-templates select="cda:id"/>
             <xsl:apply-templates select="cda:assignedPerson/cda:name"/>

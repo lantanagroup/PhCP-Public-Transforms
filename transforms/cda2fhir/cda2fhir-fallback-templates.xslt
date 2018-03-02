@@ -11,28 +11,33 @@
     <!-- Generic Observation -->
     
     <xsl:template match="cda:observation" mode="bundle-entry" priority="-1">
-        <xsl:call-template name="create-bundle-entry"/>
+        <xsl:if test="not(@nullFlavor)">
+            <xsl:call-template name="create-bundle-entry"/>
+        </xsl:if>
     </xsl:template>
     
+    <!--
     <xsl:template
         match="cda:observation" mode="reference" priority="-1">
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param>
-        <xsl:choose>
-            <xsl:when test="$sectionEntry='true'">
-                <entry>
+        <xsl:if test="not(@nullFlavor)">
+            <xsl:choose>
+                <xsl:when test="$sectionEntry='true'">
+                    <entry>
+                        <reference value="urn:uuid:{@lcg:uuid}"/>
+                    </entry></xsl:when>
+                <xsl:when test="$listEntry='true'">
+                    <entry><item>
+                        <reference value="urn:uuid:{@lcg:uuid}"/></item>
+                    </entry></xsl:when>
+                <xsl:otherwise>
                     <reference value="urn:uuid:{@lcg:uuid}"/>
-                </entry></xsl:when>
-            <xsl:when test="$listEntry='true'">
-                <entry><item>
-                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
-                </entry></xsl:when>
-            <xsl:otherwise>
-                <reference value="urn:uuid:{@lcg:uuid}"/>
-            </xsl:otherwise>
-        </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
     </xsl:template>
-    
+    -->
     
     
     <xsl:template match="cda:observation" priority="-1">
@@ -83,6 +88,7 @@
         </xsl:element>
     </xsl:template>
 
+	<!--  
     <xsl:template
         match="cda:*"
         mode="reference" priority="-10">
@@ -99,6 +105,33 @@
 			</xsl:for-each>
 		</xsl:comment>
     </xsl:template>
+	-->
+
+    <xsl:template
+        match="cda:*" mode="reference" priority="-1">
+        <xsl:param name="sectionEntry">false</xsl:param>
+        <xsl:param name="listEntry">false</xsl:param>
+        <xsl:if test="not(@nullFlavor)">
+        	<xsl:variable name="templateId" select="cda:templateId[1]/@root"/>
+        	<xsl:if test="$templateId">
+        	    <xsl:comment><xsl:value-of select="$templateId"/></xsl:comment>
+        	</xsl:if>
+            <xsl:choose>
+                <xsl:when test="$sectionEntry='true'">
+                    <entry>
+                        <reference value="urn:uuid:{@lcg:uuid}"/>
+                    </entry></xsl:when>
+                <xsl:when test="$listEntry='true'">
+                    <entry><item>
+                        <reference value="urn:uuid:{@lcg:uuid}"/></item>
+                    </entry></xsl:when>
+                <xsl:otherwise>
+                    <reference value="urn:uuid:{@lcg:uuid}"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
+    
 
     <!-- swallow unmapped entry and entryRelationship children -->
 

@@ -16,6 +16,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
+    <!--  
     <xsl:template
         match="cda:act[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12'][@extension='2014-06-09']]"
         mode="reference">
@@ -35,6 +36,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    -->
     
     <xsl:template match="cda:act[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12'][@extension='2014-06-09']]">
         <Procedure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

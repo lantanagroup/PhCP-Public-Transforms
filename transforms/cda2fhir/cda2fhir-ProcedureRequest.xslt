@@ -18,6 +18,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
+    <!--  
     <xsl:template
         match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.140']] | 
         cda:act[@moodCode='INT'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12'][@extension='2014-06-09']]"
@@ -38,6 +39,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    -->
     
     <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.140']] | 
         cda:act[@moodCode='INT'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12'][@extension='2014-06-09']]">

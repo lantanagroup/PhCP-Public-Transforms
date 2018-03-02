@@ -128,6 +128,7 @@
         <xsl:if test="n1:author">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>Author</xsl:comment>
                     <xsl:for-each select="n1:author/n1:assignedAuthor">
                         <tr>
                             <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -189,6 +190,7 @@
         <xsl:if test="n1:authenticator">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                        <xsl:comment>Authenticator</xsl:comment>
                         <xsl:for-each select="n1:authenticator">
                             <tr>
                                 <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -304,6 +306,7 @@
         <xsl:if test="n1:componentOf">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>encompassingEncounter</xsl:comment>
                     <xsl:for-each select="n1:componentOf/n1:encompassingEncounter">
                         <xsl:if test="n1:id">
                             <xsl:choose>
@@ -500,8 +503,9 @@
         <xsl:if test="n1:documentationOf">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>documentationOf/serviceEvent</xsl:comment>
                     <xsl:for-each select="n1:documentationOf">
-                        <xsl:if test="n1:serviceEvent/@classCode and n1:serviceEvent/n1:code">
+                        <xsl:if test="n1:serviceEvent">
                             <xsl:variable name="displayName">
                                 <xsl:call-template name="show-actClassCode">
                                     <xsl:with-param name="clsCode" select="n1:serviceEvent/@classCode"/>
@@ -517,9 +521,14 @@
                                         </span>
                                     </td>
                                     <td class="td_header_role_value">
-                                        <xsl:call-template name="show-code">
-                                            <xsl:with-param name="code" select="n1:serviceEvent/n1:code"/>
-                                        </xsl:call-template>
+                                        <xsl:choose>
+                                            <xsl:when test="n1:serviceEvent/n1:code">
+                                                <xsl:call-template name="show-code">
+                                                    <xsl:with-param name="code" select="n1:serviceEvent/n1:code"/>
+                                                </xsl:call-template>
+                                            </xsl:when>
+                                            <xsl:otherwise>Service Event</xsl:otherwise>
+                                        </xsl:choose>
                                         <xsl:if test="n1:serviceEvent/n1:effectiveTime">
                                             <xsl:choose>
                                                 <xsl:when test="n1:serviceEvent/n1:effectiveTime/@value">
@@ -583,6 +592,7 @@
         <xsl:if test="n1:infulfillmentOf">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>infulfillmentOf</xsl:comment>
                     <xsl:for-each select="n1:inFulfillmentOf">
                         <tr>
                             <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -620,6 +630,7 @@
         <xsl:if test="n1:informant">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>informant</xsl:comment>
                     <xsl:for-each select="n1:informant">
                         <tr>
                             <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -680,6 +691,7 @@
         <xsl:if test="n1:informationRecipient">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>informationRecipient</xsl:comment>
                     <xsl:for-each select="n1:informationRecipient">
                         <tr>
                             <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -735,6 +747,7 @@
         <xsl:if test="n1:participant">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>participant</xsl:comment>
                     <xsl:for-each select="n1:participant">
                         <tr>
                             <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -919,6 +932,7 @@
         <xsl:if test="n1:relatedDocument">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>relatedDocument</xsl:comment>
                     <xsl:for-each select="n1:relatedDocument">
                         <tr>
                             <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -945,6 +959,7 @@
         <xsl:if test="n1:authorization">
             <table class="header_table" style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
                 <tbody>
+                    <xsl:comment>authorization</xsl:comment>
                     <xsl:for-each select="n1:authorization">
                         <tr>
                             <td class="td_header_role_name" style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">

@@ -20,7 +20,7 @@
         -->
     </xsl:template>
     
-    
+    <!-- 
     <xsl:template
         match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.4']]"
         mode="reference">
@@ -40,6 +40,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    -->
 
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.4']]">
 
@@ -107,13 +108,18 @@
             </xsl:for-each>
             -->
             <xsl:if test="cda:text">
-                <note>
-                    <text value="{normalize-space(cda:text)}"/>
-                </note>
+                <xsl:variable name="text">
+                    <xsl:apply-templates select="cda:text"/>
+                </xsl:variable>
+                <xsl:if test="string-length($text) &gt; 0">
+                  <note>
+                      <text value="{normalize-space(cda:text)}"/>
+                  </note>
+                </xsl:if>
             </xsl:if>
             <xsl:if test="@negationInd='true' and not(cda:value/@code='55607006')">
                 <note>
-                    <text value="This condition was converted from a C-CDA care plan. I it was marked as negated in that file, so marked as refuted in FHIR"/>
+                    <text value="This condition was converted from a C-CDA document. It was marked as negated in that file, so marked as refuted in FHIR"/>
                 </note>
             </xsl:if>
         </Condition>

@@ -32,7 +32,14 @@
 		templateURI="urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09" 
 		profileURI="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement"
 	/>
-	
+	<map 
+		templateURI="urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01" 
+		profileURI="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults"
+	/>
+	<map 
+		templateURI="urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01" 
+		profileURI="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults"
+	/>
 	
 	
 	

@@ -24,6 +24,7 @@
         </xsl:choose>
     </xsl:template>
     
+    <!--
     <xsl:template
         match="cda:observation[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.121']]"
         mode="reference">
@@ -43,6 +44,8 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+	-->
+
 
     <xsl:template
         match="cda:observation[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.121']]">

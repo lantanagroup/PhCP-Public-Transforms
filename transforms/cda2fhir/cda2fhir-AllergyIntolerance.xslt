@@ -18,6 +18,7 @@
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
+    <!--  
     <xsl:template
         match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.7']]"
         mode="reference">
@@ -37,7 +38,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
+	-->
 
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.7']]">
         <AllergyIntolerance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -68,10 +69,9 @@
                     </code>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:apply-templates select="cda:value" mode="allergy"/>
+                    <xsl:apply-templates select="cda:participant[@typeCode='CSM']" mode="allergy"/>
                 </xsl:otherwise>
             </xsl:choose>
-            <xsl:apply-templates select="cda:participant[@typeCode='CSM']" mode="allergy"/>
             <patient>
                 <!-- TODO: find the nearest subject in the CDA, or the record target if none present --> 
                 <reference value="urn:uuid:{//cda:recordTarget/@lcg:uuid}"/>
@@ -112,7 +112,9 @@
     
     <xsl:template match="cda:statusCode" mode="allergy">
         <!-- TODO: actually map the status codes, not always the same between CDA and FHIR --> 
-        <clinicalStatus value="{@code}"/>
+        <xsl:if test="@code">
+            <clinicalStatus value="{@code}"/>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template match="cda:effectiveTime" mode="allergy">
@@ -131,9 +133,10 @@
         </xsl:choose>
     </xsl:template>
     
+    <!--
     <xsl:template match="cda:value" mode="allergy">
         <xsl:comment>Should be no category here</xsl:comment>
-        <code>
+        <type>
             <coding>
                 <system>
                     <xsl:attribute name="value">
@@ -147,15 +150,14 @@
                     <display value="{@displayName}"/>
                 </xsl:if>
             </coding>
-        </code>
+        </type>
     </xsl:template>
-    
+    -->
     <xsl:template match="cda:participant[@typeCode='CSM']" mode="allergy">
-        <xsl:if test="cda:participantRole/cda:playingEntity/code[not(@nullFlavor)]">
+        <xsl:if test="cda:participantRole/cda:playingEntity/cda:code[not(@nullFlavor)]">
             <code>
-                <coding>
-                    <xsl:for-each select="cda:participantRole/cda:playingEntity/code[not(@nullFlavor)]">
-                        <code>
+                    <xsl:for-each select="cda:participantRole/cda:playingEntity/cda:code[not(@nullFlavor)]">
+                        <coding>
                             <system>
                                 <xsl:attribute name="value">
                                     <xsl:call-template name="convertOID">
@@ -167,9 +169,9 @@
                             <xsl:if test="@displayName">
                                 <display value="{@displayName}"/>
                             </xsl:if>
-                        </code>
+                        </coding>
                     </xsl:for-each>
-                </coding>
+                
             </code>
         </xsl:if>
     </xsl:template>

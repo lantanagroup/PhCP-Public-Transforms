@@ -34,7 +34,7 @@
             <xsl:apply-templates select="cda:ClinicalDocument/cda:legalAuthenticator" mode="bundle-entry"/>
             <xsl:message>TODO: Add remaining header resources</xsl:message>
             <xsl:for-each select="//descendant::cda:entry">
-                <xsl:apply-templates select="cda:*" mode="bundle-entry"/>
+                <xsl:apply-templates select="cda:*[not(@nullFlavor)]" mode="bundle-entry"/>
             </xsl:for-each>
         </Bundle>
     </xsl:template>
@@ -47,7 +47,7 @@
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param> 
         <!-- Remove Concern wrappers --> 
-        <xsl:for-each select="cda:entryRelationship/cda:*">
+        <xsl:for-each select="cda:entryRelationship/cda:*[not(@nullFlavor)]">
             <xsl:apply-templates select="." mode="reference">
                 <xsl:with-param name="sectionEntry" select="$sectionEntry"/>
                 <xsl:with-param name="listEntry" select="$listEntry"/>
@@ -62,7 +62,7 @@
         ]" mode="bundle-entry">
         <!-- Remove Concern wrappers --> 
         <xsl:comment>Processing concern wrapper: <xsl:value-of select="cda:templateId[1]/@root"/></xsl:comment>
-        <xsl:for-each select="cda:entryRelationship/cda:*">
+        <xsl:for-each select="cda:entryRelationship/cda:*[not(@nullFlavor)]">
             <xsl:apply-templates select="." mode="bundle-entry"/>
         </xsl:for-each>
     </xsl:template>
@@ -71,7 +71,7 @@
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param> 
         <!-- Remove Encounter Diagnosis wrappers, since maps to Condition.category -->  
-        <xsl:for-each select="cda:entryRelationship/cda:*">
+        <xsl:for-each select="cda:entryRelationship/cda:*[not(@nullFlavor)]">
             <xsl:apply-templates select="." mode="reference">
                 <xsl:with-param name="sectionEntry" select="$sectionEntry"/>
                 <xsl:with-param name="listEntry" select="$listEntry"/>
@@ -82,9 +82,13 @@
     <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.80']]" mode="bundle-entry">
         <!-- Remove Encounter Diagnosis wrappers, since maps to Condition.category --> 
         <xsl:comment>Removed Encounter diagnosis wrapper</xsl:comment>
-        <xsl:for-each select="cda:entryRelationship/cda:*">
+        <xsl:for-each select="cda:entryRelationship/cda:*[not(@nullFlavor)]">
             <xsl:apply-templates select="." mode="bundle-entry"/>
         </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template match="cda:*[@nullFlavor]" mode="bundle-entry">
+        <!-- Suppress -->
     </xsl:template>
     
 </xsl:stylesheet>

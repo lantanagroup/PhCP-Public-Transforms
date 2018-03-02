@@ -20,6 +20,7 @@
        </xsl:for-each>
    </xsl:template>
     
+    <!--  
     <xsl:template
         match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='EVN']"
         mode="reference">
@@ -40,6 +41,7 @@
         </xsl:choose>
 
     </xsl:template>
+    -->
     
     
     <xsl:template match="cda:substanceAdministration[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.16'][@moodCode='EVN']">

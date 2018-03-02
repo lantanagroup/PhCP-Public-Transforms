@@ -6,7 +6,7 @@
     xmlns:lcg="http://www.lantanagroup.com"
     exclude-result-prefixes="lcg xsl cda fhir xs xsi sdtc xhtml" version="2.0">
 
-    <xsl:template match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.146']]" mode="bundle-entry">
+    <xsl:template match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.146' or @root = '2.16.840.1.113883.10.20.22.4.131']][not(@nullFlavor)]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
         <xsl:for-each select="cda:entryRelationship">
             <xsl:apply-templates select="cda:*" mode="bundle-entry">
@@ -15,8 +15,9 @@
         </xsl:for-each>
     </xsl:template>
 
+	<!-- 
     <xsl:template
-        match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.146']]"
+        match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.146' or @root = '2.16.840.1.113883.10.20.22.4.131']][not(@nullFlavor)]"
         mode="reference">
         <xsl:param name="sectionEntry">false</xsl:param>
         <xsl:param name="listEntry">false</xsl:param>
@@ -34,10 +35,10 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
+ 	-->
 
     <xsl:template
-        match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.146']]">
+        match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.146' or @root = '2.16.840.1.113883.10.20.22.4.131']]">
         <xsl:call-template name="create-request-group"/>
     </xsl:template>
     
@@ -47,7 +48,15 @@
             <id value="{@lcg:uuid}"/>
             -->
             <xsl:apply-templates select="cda:id"/>
-            <status value="active"/>
+            <!-- A status of completed indicates that this is a past intervention and a status of active indicates that this is a planned intervention -->
+            <xsl:choose>
+                <xsl:when test="@moodCode='EVN' and cda:templateId/@root='2.16.840.1.113883.10.20.22.4.131'">
+                    <status value="completed"/>
+                </xsl:when>
+                <xsl:when test="@moodCode='INT' and cda:templateId/@root='2.16.840.1.113883.10.20.22.4.146'">
+                    <status value="active"/>
+                </xsl:when>
+            </xsl:choose>
             <intent value="plan"/>
             <xsl:if test="cda:effectiveTime">
                 <xsl:choose>
@@ -66,7 +75,7 @@
                 </xsl:choose>
             </xsl:if>
             <!-- TODO: move Goal to RequestGroup.reason and remove as an action -->
-            <xsl:for-each select="cda:entryRelationship">
+            <xsl:for-each select="cda:entryRelationship[cda:*[not(@nullFlavor)]]">
                 <xsl:choose>
                     <xsl:when test="@typeCode='RSON'">
                         <reasonReference>
