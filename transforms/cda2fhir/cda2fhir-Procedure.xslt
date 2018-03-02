@@ -12,7 +12,11 @@
     exclude-result-prefixes="lcg xsl cda fhir xs xsi sdtc xhtml"
     version="2.0">
     
-    <xsl:template match="cda:act[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12'][@extension='2014-06-09']]" mode="bundle-entry">
+    <xsl:template match="cda:act[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12']]" mode="bundle-entry">
+        <xsl:call-template name="create-bundle-entry"/>
+    </xsl:template>
+    
+    <xsl:template match="cda:procedure[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14']]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
@@ -38,7 +42,7 @@
     </xsl:template>
     -->
     
-    <xsl:template match="cda:act[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12'][@extension='2014-06-09']]">
+    <xsl:template match="cda:act[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.12']]">
         <Procedure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns="http://hl7.org/fhir">
             <meta>
@@ -59,6 +63,26 @@
         </Procedure>
     </xsl:template>
     
+    <xsl:template match="cda:procedure[@moodCode='EVN'][cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14']]">
+        <Procedure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://hl7.org/fhir">
+            <meta>
+                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"/>
+            </meta>
+            <xsl:apply-templates select="cda:id"/>
+            <xsl:apply-templates select="cda:statusCode" mode="procedure"/>
+            <xsl:apply-templates select="cda:code">
+                <xsl:with-param name="elementName">code</xsl:with-param>
+            </xsl:apply-templates>
+            <xsl:call-template name="subject-reference"/>
+            <xsl:call-template name="author-reference">
+                <xsl:with-param name="element-name">asserter</xsl:with-param>
+            </xsl:call-template>
+            <xsl:apply-templates select="cda:effectiveTime" mode="period">
+                <xsl:with-param name="element-name">performedPeriod</xsl:with-param>
+            </xsl:apply-templates>
+        </Procedure>
+    </xsl:template>
     
     <xsl:template match="cda:statusCode" mode="procedure">
         <status>
