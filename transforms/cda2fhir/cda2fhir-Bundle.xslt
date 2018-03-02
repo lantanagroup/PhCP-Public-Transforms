@@ -39,14 +39,15 @@
         </Bundle>
     </xsl:template>
     
+    <!-- Remove Concern wrappers --> 
     <xsl:template match="cda:act[
         cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']
         or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.3']
         or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.30']
+        or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.136']
         ]" mode="reference">  
         <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param> 
-        <!-- Remove Concern wrappers --> 
+        <xsl:param name="listEntry">false</xsl:param>
         <xsl:for-each select="cda:entryRelationship/cda:*[not(@nullFlavor)]">
             <xsl:apply-templates select="." mode="reference">
                 <xsl:with-param name="sectionEntry" select="$sectionEntry"/>
@@ -55,12 +56,13 @@
         </xsl:for-each>
     </xsl:template>
     
+    <!-- Remove Concern wrappers --> 
     <xsl:template match="cda:act[
         cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132']
         or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.3']
         or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.30']
+        or cda:templateId[@root='2.16.840.1.113883.10.20.22.4.136']
         ]" mode="bundle-entry">
-        <!-- Remove Concern wrappers --> 
         <xsl:comment>Processing concern wrapper: <xsl:value-of select="cda:templateId[1]/@root"/></xsl:comment>
         <xsl:for-each select="cda:entryRelationship/cda:*[not(@nullFlavor)]">
             <xsl:apply-templates select="." mode="bundle-entry"/>

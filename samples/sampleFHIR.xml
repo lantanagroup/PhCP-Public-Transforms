@@ -2,11 +2,11 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <identifier>
       <system value="urn:ietf:rfc:3986"/>
-      <value value="urn:uuid:fb148481-dd68-44e9-9752-43cff48d5bb0"/>
+      <value value="urn:uuid:d48d7df0-f827-434f-aec7-9ad4f3c49079"/>
    </identifier>
    <type value="document"/>
    <entry>
-      <fullUrl value="urn:uuid:1b5e041d-9c65-4179-8d79-94acc917ed20"/>
+      <fullUrl value="urn:uuid:9a433b96-8488-44e8-964f-723190d9560f"/>
       <resource>
          <Composition>
             <meta>
@@ -41,13 +41,13 @@
                   </table>
                   <table class="header_table"
                          style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
-                     <tbody>
+                     <tbody><!--documentationOf/serviceEvent-->
                         <tr>
                            <td class="td_header_role_name"
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Care provision</span>
                            </td>
-                           <td class="td_header_role_value">Consultation for transition of care from November 1, 2016  to December 1, 2016 </td>
+                           <td class="td_header_role_value">Consultation for transition of care from November 1, 2016  to December 1, 2016 </td>
                         </tr>
                         <tr>
                            <td class="td_header_role_name"
@@ -60,7 +60,7 @@
                   </table>
                   <table class="header_table"
                          style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
-                     <tbody>
+                     <tbody><!--Author-->
                         <tr>
                            <td class="td_header_role_name"
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -73,14 +73,14 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>
+                           <td class="td_header_role_value">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                   <table class="header_table"
                          style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
-                     <tbody>
+                     <tbody><!--encompassingEncounter-->
                         <tr>
                            <td class="td_header_role_name"
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -100,7 +100,7 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Encounter Date</span>
                            </td>
-                           <td class="td_header_role_value"> From December 1, 2016, 09:20   to December 1, 2016, 10:20  </td>
+                           <td class="td_header_role_value"> From December 1, 2016, 09:20   to December 1, 2016, 10:20  </td>
                         </tr>
                         <tr>
                            <td class="td_header_role_name"
@@ -121,14 +121,14 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">2100 North Ave<br/>Burlington, MA 02368, US<br/>Tel:  +1(555)555-1003<br/>
+                           <td class="td_header_role_value">2100 North Ave<br/>Burlington, MA 02368, US<br/>Tel:  +1(555)555-1003<br/>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                   <table class="header_table"
                          style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
-                     <tbody>
+                     <tbody><!--participant-->
                         <tr>
                            <td class="td_header_role_name"
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -159,7 +159,7 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>
+                           <td class="td_header_role_value">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>
                            </td>
                         </tr>
                         <tr>
@@ -175,7 +175,7 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>
+                           <td class="td_header_role_value">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>
                            </td>
                         </tr>
                      </tbody>
@@ -195,14 +195,14 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1050<br/>
+                           <td class="td_header_role_value">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1050<br/>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                   <table class="header_table"
                          style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
-                     <tbody>
+                     <tbody><!--Authenticator-->
                         <tr>
                            <td class="td_header_role_name"
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -215,14 +215,14 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value"> Primary Home:<br/>2222 Home Street<br/>Beaverton, OR 97867, US<br/>Tel:  +1(555)555-2003<br/>
+                           <td class="td_header_role_value"> Primary Home:<br/>2222 Home Street<br/>Beaverton, OR 97867, US<br/>Tel:  +1(555)555-2003<br/>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                   <table class="header_table"
                          style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
-                     <tbody>
+                     <tbody><!--informant-->
                         <tr>
                            <td class="td_header_role_name"
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -235,14 +235,14 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1003<br/>
+                           <td class="td_header_role_value">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1003<br/>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                   <table class="header_table"
                          style="border: 1pt inset #00008b; line-height: 10pt; width: 100%;">
-                     <tbody>
+                     <tbody><!--informationRecipient-->
                         <tr>
                            <td class="td_header_role_name"
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
@@ -255,7 +255,7 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">100 Better Health Rd.<br/>Ann Arbor, MI 97857, US<br/>Telecom information not available<br/>
+                           <td class="td_header_role_value">100 Better Health Rd.<br/>Ann Arbor, MI 97857, US<br/>Telecom information not available<br/>
                            </td>
                         </tr>
                      </tbody>
@@ -275,7 +275,7 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>
+                           <td class="td_header_role_value">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>
                            </td>
                         </tr>
                      </tbody>
@@ -295,7 +295,7 @@
                                style="width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;">
                               <span class="td_label">Contact info</span>
                            </td>
-                           <td class="td_header_role_value"> Work Place:<br/>1009 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1009<br/>
+                           <td class="td_header_role_value"> Work Place:<br/>1009 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1009<br/>
                            </td>
                         </tr>
                      </tbody>
@@ -304,7 +304,7 @@
             </text>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
-               <value value="urn:uuid:46a4273b-e276-415e-908b-c2e60d9a9447"/>
+               <value value="urn:uuid:f1e5a213-fb85-4a49-be5f-1f336ccddb99"/>
             </identifier>
             <status value="final"/>
             <type>
@@ -315,14 +315,14 @@
                </coding>
             </type>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <encounter>
-               <reference value="urn:uuid:f121e4a6-c075-44c8-96fb-c5c1b7f9eeee"/>
+               <reference value="urn:uuid:e7db4cd9-f4da-4ddd-b6d6-3550fe154014"/>
             </encounter>
             <date value="2016-12-01T11:20:00-08:00"/>
             <author>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </author>
             <title value="Pharmacist Care Plan"/>
             <confidentiality value="N"/>
@@ -330,11 +330,11 @@
                <mode value="legal"/>
                <time value="2016-12-01"/>
                <party>
-                  <reference value="urn:uuid:6c738df0-d220-4a3e-b09e-7d65ed83b302"/>
+                  <reference value="urn:uuid:dbb05246-7455-48e2-820a-18e170ee94a6"/>
                </party>
             </attester>
             <custodian>
-               <reference value="urn:uuid:65f91028-5790-4507-a899-1d803313e977"/>
+               <reference value="urn:uuid:d9c05796-26c6-4a6b-9bc5-f65e7b18857e"/>
             </custodian>
             <relatesTo>
                <code value="transforms"/>
@@ -346,7 +346,7 @@
             <event><!--Add CCDA-on-FHIR-Performer extension after C-CDA on FHIR is published-->
                <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer">
                   <valueReference>
-                     <reference value="urn:uuid:0fadec7c-a8ff-4d04-86fd-a68e106eeb4e"/>
+                     <reference value="urn:uuid:1396bf71-95a0-4dc1-97d3-c69357902fe2"/>
                   </valueReference>
                </extension>
                <period>
@@ -2092,74 +2092,105 @@
                      </table>
                   </div>
                </text>
+               <!--2.16.840.1.113883.10.20.22.4.4-->
                <entry>
-                  <reference value="urn:uuid:d26eb9cd-9803-49b8-8401-3c84eb96822f"/>
+                  <reference value="urn:uuid:6546209f-5cae-4927-af04-769eaef688fb"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.5-->
                <entry>
-                  <reference value="urn:uuid:5e35920e-a77d-4e4c-b2cd-07af72b3256b"/>
+                  <reference value="urn:uuid:00ef2303-6053-4313-a120-47760db4f966"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.4-->
                <entry>
-                  <reference value="urn:uuid:d17402ea-b8fd-485f-ba37-112ae1c9e2ff"/>
+                  <reference value="urn:uuid:28266014-5934-46aa-9181-53cf372e9025"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.7-->
                <entry>
-                  <reference value="urn:uuid:adad5e96-03cb-4d46-8b77-4c29ff04b833"/>
+                  <reference value="urn:uuid:59ebbef3-a7a2-4f6e-9a65-3daf33da5320"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.7-->
                <entry>
-                  <reference value="urn:uuid:6a655e5b-4cae-40cc-b18c-facf7b382a82"/>
+                  <reference value="urn:uuid:5dbfa2ce-311d-43b6-9a4b-3c0b6307a233"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.74-->
                <entry>
-                  <reference value="urn:uuid:64fe0dd4-dde7-4f69-a477-198383798903"/>
+                  <reference value="urn:uuid:e825fe9b-0eab-4de4-aa69-365b4e16b8c2"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.128-->
                <entry>
-                  <reference value="urn:uuid:bc4fd0cc-b821-4571-9e1e-de3f718e54c0"/>
+                  <reference value="urn:uuid:6f98f10f-9ff8-4cbc-885f-0c00f1675db5"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.67-->
                <entry>
-                  <reference value="urn:uuid:18557c7d-7086-441a-b83b-db50256cb325"/>
+                  <reference value="urn:uuid:fe10ba82-1250-4e81-8d3c-ea1339a8497f"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.124-->
                <entry>
-                  <reference value="urn:uuid:0379dfcf-d6a0-4d5c-a2dc-6041de1cab3d"/>
+                  <reference value="urn:uuid:c61b90fc-0646-4ad3-a680-8826d758ced3"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.38-->
                <entry>
-                  <reference value="urn:uuid:66cf6665-92e1-454f-a098-24457bea341e"/>
+                  <reference value="urn:uuid:5feb74c6-79aa-4615-9b6e-31dfb4fc9460"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.85-->
                <entry>
-                  <reference value="urn:uuid:ae66ea69-d613-4a2c-b660-e48e74670118"/>
+                  <reference value="urn:uuid:08827b1a-8035-4bae-aeb8-18e1fa556f5d"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.27-->
                <entry>
-                  <reference value="urn:uuid:0fe42cca-f340-4c37-8594-7c5594ff5c6f"/>
+                  <reference value="urn:uuid:380a9fa5-ce0b-4ada-9e72-ce6df9b8561b"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.72-->
                <entry>
-                  <reference value="urn:uuid:f0d825ca-03a4-4af2-9594-3da6873dc182"/>
+                  <reference value="urn:uuid:32048b1c-869d-40c2-81ad-59d5ceca477e"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.111-->
                <entry>
-                  <reference value="urn:uuid:d1c8b674-5daf-42e3-9eb9-7a5045956760"/>
+                  <reference value="urn:uuid:58b0ddda-5bce-4b7c-9689-82d9de17c033"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.69-->
                <entry>
-                  <reference value="urn:uuid:a1a44969-4963-4c2a-a739-25df22119cfd"/>
+                  <reference value="urn:uuid:be4bfd7c-3fb9-426a-9971-5e9d1f890da4"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.114-->
                <entry>
-                  <reference value="urn:uuid:03f6b034-7a12-45c4-9e2d-1d2315ebfe0c"/>
+                  <reference value="urn:uuid:2f297003-ef5f-4cd3-a475-33ebdf230d3c"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.127-->
                <entry>
-                  <reference value="urn:uuid:dc7c13a1-ccbb-44a6-a235-fb430ac7af46"/>
+                  <reference value="urn:uuid:71881aea-54ab-49f4-ae95-7c3e449aaeb3"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.15.3.8-->
                <entry>
-                  <reference value="urn:uuid:acb135e5-2ce2-4f0a-8978-17d91267d36b"/>
+                  <reference value="urn:uuid:dc3238f5-3905-43ef-9dcc-349cfa5813ab"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.4-->
                <entry>
-                  <reference value="urn:uuid:afca45ed-4e3f-4d39-b483-ebec52ffd408"/>
+                  <reference value="urn:uuid:18d0d5c8-997f-4cdf-9615-1787969edd36"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.45-->
                <entry>
-                  <reference value="urn:uuid:34eb6951-2399-4de5-9c02-c8fb3191dd9a"/>
+                  <reference value="urn:uuid:44ff68ea-a77b-47ef-a7e7-7d748419320e"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.24.3.90-->
                <entry>
-                  <reference value="urn:uuid:402be2b0-9b33-495f-91b2-ebe92c5dfc5d"/>
+                  <reference value="urn:uuid:ea01bbd0-2c01-4117-955c-c389f52484d6"/>
                </entry>
-               <entry xmlns:uuid="http://www.uuid.org">
-                  <reference value="urn:uuid:727fd8bb-ef50-401b-b268-5479a64bbdfa"/>
+               <!--2.16.840.1.113883.10.20.22.4.136-->
+               <entry>
+                  <reference value="urn:uuid:4864ef1c-fa87-4f49-abb7-ebd611325e26"/>
                </entry>
-               <entry xmlns:uuid="http://www.uuid.org">
-                  <reference value="urn:uuid:7c78cd27-1b7e-4284-8e70-0df124ea1153"/>
+               <!--2.16.840.1.113883.10.20.22.4.136-->
+               <entry>
+                  <reference value="urn:uuid:21017a69-ba45-4252-af64-baa17341d153"/>
+               </entry>
+               <!--2.16.840.1.113883.10.20.22.4.136-->
+               <entry>
+                  <reference value="urn:uuid:3712396f-249d-4ace-bfca-0bb50b910c9d"/>
+               </entry>
+               <!--2.16.840.1.113883.10.20.22.4.136-->
+               <entry>
+                  <reference value="urn:uuid:f98dbfda-0f40-4d87-87f3-9988b56cb648"/>
                </entry>
             </section>
             <section>
@@ -2218,11 +2249,13 @@
                      </table>
                   </div>
                </text>
+               <!--2.16.840.1.113883.10.20.22.4.121-->
                <entry>
-                  <reference value="urn:uuid:a96315e2-9e9d-47cc-8bcd-7a1e4673db3c"/>
+                  <reference value="urn:uuid:f3446d83-6fbd-4acf-8c99-33bde548ffa7"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.121-->
                <entry>
-                  <reference value="urn:uuid:0bea547b-cf40-42ab-926f-0f3ccd804bab"/>
+                  <reference value="urn:uuid:0c9bb3af-cf5b-4bbe-b299-8e391a1b1468"/>
                </entry>
             </section>
             <section>
@@ -2811,20 +2844,25 @@
                      </table>
                   </div>
                </text>
+               <!--2.16.840.1.113883.10.20.22.4.131-->
                <entry>
-                  <reference value="urn:uuid:29223c8d-70df-4089-9d96-d9f8ae5ba7d3"/>
+                  <reference value="urn:uuid:dca1412e-e7d5-45bc-8fd0-3dbf2b473329"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.131-->
                <entry>
-                  <reference value="urn:uuid:28ab8000-e227-47da-8332-3064601eed84"/>
+                  <reference value="urn:uuid:dfe2a821-10b6-4263-9ab5-67368c1f326f"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.131-->
                <entry>
-                  <reference value="urn:uuid:97fbc1a7-0368-4d5c-ac1f-d77cbfc0807a"/>
+                  <reference value="urn:uuid:84c88919-925b-4d89-ad0c-0a23c3d25df3"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.146-->
                <entry>
-                  <reference value="urn:uuid:87b45a56-a897-41da-a7f1-08d608d5b87e"/>
+                  <reference value="urn:uuid:628bfeb4-d08b-4ddb-ac8f-7a2553f2179e"/>
                </entry>
+               <!--2.16.840.1.113883.10.20.22.4.131-->
                <entry>
-                  <reference value="urn:uuid:d72bd86a-e85c-4732-8b24-c79833cf3383"/>
+                  <reference value="urn:uuid:b5bff949-c59e-4858-b543-ca8e5fef2d92"/>
                </entry>
             </section>
             <section>
@@ -2901,8 +2939,9 @@
                      </table>
                   </div>
                </text>
+               <!--2.16.840.1.113883.10.20.22.4.144-->
                <entry>
-                  <reference value="urn:uuid:09d17ef9-feff-4071-8cee-69b0ee72f4fb"/>
+                  <reference value="urn:uuid:bf62faf4-61b5-4716-aa0a-0a7265c3395c"/>
                </entry>
             </section>
             <section>
@@ -3004,15 +3043,16 @@
                      </table>
                   </div>
                </text>
+               <!--2.16.840.1.113883.10.20.22.4.60-->
                <entry>
-                  <reference value="urn:uuid:31543d1c-2b05-479c-a194-52a124b6d809"/>
+                  <reference value="urn:uuid:f3d24a66-ef8a-47bc-a944-5b6479976f6d"/>
                </entry>
             </section>
          </Composition>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+      <fullUrl value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
       <resource>
          <Patient>
             <meta>
@@ -3047,11 +3087,7 @@
                   <valueCoding>
                      <system value="http://hl7.org/fhir/v3/NullFlavor"/>
                      <code value="UNK"/>
-                     <display value=""/>
                   </valueCoding>
-               </extension>
-               <extension url="text">
-                  <valueString value=""/>
                </extension>
             </extension>
             <identifier>
@@ -3146,7 +3182,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:81e43a0e-322d-4c78-892f-5301342348c1"/>
+      <fullUrl value="urn:uuid:3890829e-2561-43af-9193-9dd68cbd22b1"/>
       <resource>
          <Location>
             <identifier>
@@ -3157,7 +3193,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:dcafdebd-82a6-4f21-8665-77c334a287b4"/>
+      <fullUrl value="urn:uuid:f3b1c26a-b908-48f1-a2d6-7aacea955374"/>
       <resource>
          <Practitioner>
             <identifier>
@@ -3196,10 +3232,14 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:f121e4a6-c075-44c8-96fb-c5c1b7f9eeee"/>
+      <fullUrl value="urn:uuid:e7db4cd9-f4da-4ddd-b6d6-3550fe154014"/>
       <resource>
          <Encounter>
             <status value="unknown"/>
+            <class>
+               <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+               <code value="NI"/>
+            </class>
             <type>
                <coding>
                   <system value="http://snomed.info/sct"/>
@@ -3213,7 +3253,7 @@
                </coding>
             </type>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <participant>
                <type>
@@ -3224,7 +3264,7 @@
                   </coding>
                </type>
                <individual>
-                  <reference value="urn:uuid:dcafdebd-82a6-4f21-8665-77c334a287b4"/>
+                  <reference value="urn:uuid:f3b1c26a-b908-48f1-a2d6-7aacea955374"/>
                </individual>
             </participant>
             <period>
@@ -3240,14 +3280,14 @@
             </reason>
             <location>
                <location>
-                  <reference value="urn:uuid:81e43a0e-322d-4c78-892f-5301342348c1"/>
+                  <reference value="urn:uuid:3890829e-2561-43af-9193-9dd68cbd22b1"/>
                </location>
             </location>
          </Encounter>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+      <fullUrl value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
       <resource>
          <Practitioner>
             <text>
@@ -3293,7 +3333,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:cba8be22-20dd-4877-9b6d-cea5ed0dd939"/>
+      <fullUrl value="urn:uuid:eda22695-85b2-4305-b971-fd32b6080107"/>
       <resource>
          <Practitioner>
             <text>
@@ -3340,7 +3380,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:e719bab8-d8bf-4ff4-96a8-a81347c200ef"/>
+      <fullUrl value="urn:uuid:8f1848c4-a900-4801-91b2-aaa0fa8cbe9f"/>
       <resource>
          <Practitioner>
             <text>
@@ -3367,7 +3407,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:ed60b15e-d3a0-4f67-a220-7ab20f262a6a"/>
+      <fullUrl value="urn:uuid:94174506-48ea-4302-b0cc-bcffb72f3b7d"/>
       <resource>
          <Practitioner>
             <text>
@@ -3394,7 +3434,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:d2269783-8ac5-4ade-9961-863f2d1500d5"/>
+      <fullUrl value="urn:uuid:7773b620-ffe8-4286-89df-49375fafc6b9"/>
       <resource>
          <Practitioner>
             <text>
@@ -3441,7 +3481,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:38db2a63-f432-4e22-a628-12d7c62b0f24"/>
+      <fullUrl value="urn:uuid:9ded7cb4-06b3-41d8-9600-6a35081db7d9"/>
       <resource>
          <Practitioner>
             <text>
@@ -3488,7 +3528,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:eb88fca2-772d-496a-827e-24d08436af64"/>
+      <fullUrl value="urn:uuid:9a594071-5c05-4c8c-8114-60cd71f0df9c"/>
       <resource>
          <Practitioner>
             <text>
@@ -3515,7 +3555,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:4364fb4e-bb49-48f9-95ea-db33934d5222"/>
+      <fullUrl value="urn:uuid:09f4416e-8625-4020-9b15-2888385db980"/>
       <resource>
          <Practitioner>
             <text>
@@ -3542,7 +3582,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:4476351f-e80c-45de-bb91-d059bdb1eb18"/>
+      <fullUrl value="urn:uuid:f8d8127a-6a57-4aa9-b849-e5d0434375e8"/>
       <resource>
          <Practitioner>
             <text>
@@ -3578,7 +3618,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:4f1b020f-ed67-44b2-a3de-ab6d03a7e0ae"/>
+      <fullUrl value="urn:uuid:b5077467-569c-4ae4-b2aa-15ac302430bd"/>
       <resource>
          <Practitioner>
             <text>
@@ -3624,7 +3664,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:7d5d61bf-7843-4fbc-ba3f-6b72e8df83e7"/>
+      <fullUrl value="urn:uuid:ecb3568a-cbd7-4454-b7fd-14dc0acee1af"/>
       <resource>
          <Practitioner>
             <text>
@@ -3670,7 +3710,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:c45849d0-5be5-427c-8cc9-eda0037b4698"/>
+      <fullUrl value="urn:uuid:682db776-2bdf-4b1d-a363-f20b91a93329"/>
       <resource>
          <Practitioner>
             <text>
@@ -3727,7 +3767,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:19ca86bf-7a91-401e-84d4-ddbf22bae13c"/>
+      <fullUrl value="urn:uuid:e5da4d3d-0112-4f33-9bbd-73e86aa7a32e"/>
       <resource>
          <Practitioner>
             <text>
@@ -3784,7 +3824,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:31ca3058-8f83-4d34-a053-877f007a5cc3"/>
+      <fullUrl value="urn:uuid:baa668cb-e56e-4187-8e34-98ecb67c2eac"/>
       <resource>
          <Practitioner>
             <text>
@@ -3830,7 +3870,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:2ed80f32-aa83-4256-9165-d5fb7cbb3f20"/>
+      <fullUrl value="urn:uuid:79fcda80-ba93-4e27-b515-87165c3e1cc0"/>
       <resource>
          <Practitioner>
             <text>
@@ -3864,7 +3904,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:8ed22aa9-1e94-480b-8f91-db3bd46196e0"/>
+      <fullUrl value="urn:uuid:1c7548d7-7a9e-4734-a1c0-e7d89ebb956d"/>
       <resource>
          <Practitioner>
             <text>
@@ -3882,7 +3922,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:0fadec7c-a8ff-4d04-86fd-a68e106eeb4e"/>
+      <fullUrl value="urn:uuid:1396bf71-95a0-4dc1-97d3-c69357902fe2"/>
       <resource>
          <Practitioner>
             <text>
@@ -3920,7 +3960,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:1bd046a1-e4e9-450d-ba1e-be723a2ab060"/>
+      <fullUrl value="urn:uuid:18e48df1-c675-49a4-9d9f-4b1ed0beae9e"/>
       <resource>
          <Practitioner>
             <text>
@@ -3942,7 +3982,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:09903324-8a60-4925-8910-c94ae1db70ec"/>
+      <fullUrl value="urn:uuid:8b5a9b69-a289-4b6e-93ba-bfb9f3565c4c"/>
       <resource>
          <Practitioner>
             <text>
@@ -3960,7 +4000,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:e643cfb8-fca0-42d4-b61b-4bbac02fa2e4"/>
+      <fullUrl value="urn:uuid:1b20ff74-3b44-4aaa-bba2-94ba77e004ec"/>
       <resource>
          <Practitioner>
             <text>
@@ -3998,7 +4038,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:7012c352-1834-48b4-b10f-34bafebbc9a2"/>
+      <fullUrl value="urn:uuid:f4006768-b215-44c1-8f07-7cb67687599e"/>
       <resource>
          <Practitioner>
             <text>
@@ -4036,7 +4076,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:af6465ec-8d23-4cf4-890d-708cfed8727b"/>
+      <fullUrl value="urn:uuid:fcdddf8f-18b0-4c53-a393-4bec537c422b"/>
       <resource>
          <Practitioner>
             <text>
@@ -4067,7 +4107,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:ed93e393-d84a-4ad1-a9e3-469bc112a853"/>
+      <fullUrl value="urn:uuid:7e3c084f-10ca-4f43-b68f-6e5ea449e884"/>
       <resource>
          <Practitioner>
             <text>
@@ -4103,7 +4143,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:8d57fb69-40d1-4334-a815-873af575bf84"/>
+      <fullUrl value="urn:uuid:5e084dc1-4855-4ece-b312-0673f5198c1f"/>
       <resource>
          <Practitioner>
             <text>
@@ -4149,12 +4189,12 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:3eb46074-f9bf-4e52-ba82-e1a308ba0204"/>
+      <fullUrl value="urn:uuid:21e67bac-ef54-4738-b428-774a67aa9400"/>
       <resource>
          <Organization>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
-               <value value="urn:uuid:3eb46074-f9bf-4e52-ba82-e1a308ba0204"/>
+               <value value="urn:uuid:21e67bac-ef54-4738-b428-774a67aa9400"/>
             </identifier>
             <type>
                <coding>
@@ -4167,7 +4207,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:57086983-64aa-4aa3-8621-6b7b0f632b57"/>
+      <fullUrl value="urn:uuid:d7822225-6e34-4845-aac3-92ff48d362b0"/>
       <resource>
          <Organization>
             <identifier>
@@ -4196,7 +4236,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:aa6c6505-4359-4caf-a880-1659317c6f99"/>
+      <fullUrl value="urn:uuid:acf5fce7-11fb-4139-9446-1a43a1ce7953"/>
       <resource>
          <Organization>
             <identifier>
@@ -4225,12 +4265,12 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:d6746081-cbd1-4211-9a75-4c674b2ca0e9"/>
+      <fullUrl value="urn:uuid:c79c3ec8-aea4-4b45-a747-849fbf1f6b1c"/>
       <resource>
          <Organization>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
-               <value value="urn:uuid:d6746081-cbd1-4211-9a75-4c674b2ca0e9"/>
+               <value value="urn:uuid:c79c3ec8-aea4-4b45-a747-849fbf1f6b1c"/>
             </identifier>
             <type>
                <coding>
@@ -4243,12 +4283,12 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:8f98c0ef-215a-4b2f-8209-0158828b039a"/>
+      <fullUrl value="urn:uuid:88d95259-9a02-45f0-9439-786d5e68816b"/>
       <resource>
          <Organization>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
-               <value value="urn:uuid:8f98c0ef-215a-4b2f-8209-0158828b039a"/>
+               <value value="urn:uuid:88d95259-9a02-45f0-9439-786d5e68816b"/>
             </identifier>
             <type>
                <coding>
@@ -4261,12 +4301,12 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:89eef20c-e4fc-4551-8352-f0f4338b857b"/>
+      <fullUrl value="urn:uuid:89cd652d-8064-4b33-a4c3-b504cb05bdf9"/>
       <resource>
          <Organization>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
-               <value value="urn:uuid:89eef20c-e4fc-4551-8352-f0f4338b857b"/>
+               <value value="urn:uuid:89cd652d-8064-4b33-a4c3-b504cb05bdf9"/>
             </identifier>
             <name value="Good Health Insurance"/>
             <telecom>
@@ -4278,7 +4318,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:65f91028-5790-4507-a899-1d803313e977"/>
+      <fullUrl value="urn:uuid:d9c05796-26c6-4a6b-9bc5-f65e7b18857e"/>
       <resource>
          <Organization>
             <identifier>
@@ -4303,7 +4343,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:6c738df0-d220-4a3e-b09e-7d65ed83b302"/>
+      <fullUrl value="urn:uuid:dbb05246-7455-48e2-820a-18e170ee94a6"/>
       <resource>
          <Practitioner>
             <text>
@@ -4341,7 +4381,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:d26eb9cd-9803-49b8-8401-3c84eb96822f"/>
+      <fullUrl value="urn:uuid:6546209f-5cae-4927-af04-769eaef688fb"/>
       <resource>
          <Condition>
             <meta>
@@ -4374,18 +4414,18 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <onsetDateTime value="2016-08-19"/>
             <asserter>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </asserter>
          </Condition>
       </resource>
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:5e35920e-a77d-4e4c-b2cd-07af72b3256b"/>
+      <fullUrl value="urn:uuid:00ef2303-6053-4313-a120-47760db4f966"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4401,10 +4441,10 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4418,7 +4458,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:d17402ea-b8fd-485f-ba37-112ae1c9e2ff"/>
+      <fullUrl value="urn:uuid:28266014-5934-46aa-9181-53cf372e9025"/>
       <resource>
          <Condition>
             <meta>
@@ -4453,15 +4493,15 @@
                <text value="Non-adherence because patient forgets to take medication"/>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <onsetDateTime value="2016-08-19"/>
             <asserter>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </asserter>
             <evidence><!--Referenced CDA ID root: 2.16.840.1.113883.19-->
                <detail>
-                  <reference value="urn:uuid:1675ab16-dcbc-487c-9179-ab9eed2087ab"/>
+                  <reference value="urn:uuid:87acbc3f-8ac2-4649-8a33-f7cf7256e51b"/>
                </detail>
             </evidence>
             <note>
@@ -4472,7 +4512,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:adad5e96-03cb-4d46-8b77-4c29ff04b833"/>
+      <fullUrl value="urn:uuid:59ebbef3-a7a2-4f6e-9a65-3daf33da5320"/>
       <resource>
          <AllergyIntolerance>
             <meta>
@@ -4487,16 +4527,15 @@
             <verificationStatus value="confirmed"/>
             <type value="allergy"/>
             <!--Should be no category here-->
-            <!--Should be no category here-->
             <code>
                <coding>
-                  <system value="http://snomed.info/sct"/>
-                  <code value="419199007"/>
-                  <display value="Allergy to Substance"/>
+                  <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                  <code value="70618"/>
+                  <display value="Penicillin"/>
                </coding>
             </code>
             <patient>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </patient>
             <onsetDateTime value="2016-08-20"/>
             <reaction>
@@ -4514,7 +4553,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:6a655e5b-4cae-40cc-b18c-facf7b382a82"/>
+      <fullUrl value="urn:uuid:5dbfa2ce-311d-43b6-9a4b-3c0b6307a233"/>
       <resource>
          <AllergyIntolerance>
             <meta>
@@ -4537,7 +4576,7 @@
                </coding>
             </code>
             <patient>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </patient>
             <onsetDateTime value="2016-12-01"/>
             <!--Negated manifestation not currently supported-->
@@ -4546,7 +4585,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:64fe0dd4-dde7-4f69-a477-198383798903"/>
+      <fullUrl value="urn:uuid:e825fe9b-0eab-4de4-aa69-365b4e16b8c2"/>
       <resource>
          <Observation>
             <identifier>
@@ -4567,11 +4606,11 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2016-08-01"/>
             <performer>
-               <reference value="urn:uuid:cba8be22-20dd-4877-9b6d-cea5ed0dd939"/>
+               <reference value="urn:uuid:eda22695-85b2-4305-b971-fd32b6080107"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4585,7 +4624,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:bc4fd0cc-b821-4571-9e1e-de3f718e54c0"/>
+      <fullUrl value="urn:uuid:6f98f10f-9ff8-4cbc-885f-0c00f1675db5"/>
       <resource>
          <Observation>
             <identifier>
@@ -4601,11 +4640,11 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2001-03-11"/>
             <performer>
-               <reference value="urn:uuid:e719bab8-d8bf-4ff4-96a8-a81347c200ef"/>
+               <reference value="urn:uuid:8f1848c4-a900-4801-91b2-aaa0fa8cbe9f"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4619,7 +4658,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:18557c7d-7086-441a-b83b-db50256cb325"/>
+      <fullUrl value="urn:uuid:fe10ba82-1250-4e81-8d3c-ea1339a8497f"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4635,11 +4674,11 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2016-03-11"/>
             <performer>
-               <reference value="urn:uuid:ed60b15e-d3a0-4f67-a220-7ab20f262a6a"/>
+               <reference value="urn:uuid:94174506-48ea-4302-b0cc-bcffb72f3b7d"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4653,7 +4692,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:0379dfcf-d6a0-4d5c-a2dc-6041de1cab3d"/>
+      <fullUrl value="urn:uuid:c61b90fc-0646-4ad3-a680-8826d758ced3"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4670,11 +4709,11 @@
                <text value="Nutritional Status"/>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2016-05-12"/>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4688,7 +4727,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:66cf6665-92e1-454f-a098-24457bea341e"/>
+      <fullUrl value="urn:uuid:5feb74c6-79aa-4615-9b6e-31dfb4fc9460"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4709,10 +4748,10 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <reference value="urn:uuid:eb88fca2-772d-496a-827e-24d08436af64"/>
+               <reference value="urn:uuid:9a594071-5c05-4c8c-8114-60cd71f0df9c"/>
             </performer>
             <valueQuantity>
                <value value="12"/>
@@ -4722,7 +4761,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:ae66ea69-d613-4a2c-b660-e48e74670118"/>
+      <fullUrl value="urn:uuid:08827b1a-8035-4bae-aeb8-18e1fa556f5d"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4738,10 +4777,10 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4755,7 +4794,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:0fe42cca-f340-4c37-8594-7c5594ff5c6f"/>
+      <fullUrl value="urn:uuid:380a9fa5-ce0b-4ada-9e72-ce6df9b8561b"/>
       <resource>
          <Observation>
             <meta>
@@ -4771,9 +4810,7 @@
                <coding>
                   <system value="http://hl7.org/fhir/observation-category"/>
                   <code value="vital-signs"/>
-                  <display value="Vital Signs"/>
                </coding>
-               <text value="Vital Signs"/>
             </category>
             <code>
                <coding>
@@ -4783,28 +4820,22 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2016-09-01"/>
             <performer>
-               <reference value="urn:uuid:4364fb4e-bb49-48f9-95ea-db33934d5222"/>
+               <reference value="urn:uuid:09f4416e-8625-4020-9b15-2888385db980"/>
             </performer>
             <valueQuantity>
                <value value="88"/>
                <unit value="kg"/>
             </valueQuantity>
-            <interpretation>
-               <coding>
-                  <system value="urn:oid:2.16.840.1.113883.5.83"/>
-                  <code value="N"/>
-               </coding>
-            </interpretation>
          </Observation>
       </resource>
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:f0d825ca-03a4-4af2-9594-3da6873dc182"/>
+      <fullUrl value="urn:uuid:32048b1c-869d-40c2-81ad-59d5ceca477e"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <status value="final"/>
@@ -4815,11 +4846,11 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2016-03-12"/>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4833,7 +4864,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:d1c8b674-5daf-42e3-9eb9-7a5045956760"/>
+      <fullUrl value="urn:uuid:58b0ddda-5bce-4b7c-9689-82d9de17c033"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4849,11 +4880,11 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2016-03-12"/>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueString value="Does not accept blood transfusions, or&#xA;                                        donates, or stores blood for transfusion."/>
          </Observation>
@@ -4861,7 +4892,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:a1a44969-4963-4c2a-a739-25df22119cfd"/>
+      <fullUrl value="urn:uuid:be4bfd7c-3fb9-426a-9971-5e9d1f890da4"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4877,11 +4908,11 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2016-02-14"/>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueQuantity>
                <value value="7"/>
@@ -4893,7 +4924,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:03f6b034-7a12-45c4-9e2d-1d2315ebfe0c"/>
+      <fullUrl value="urn:uuid:2f297003-ef5f-4cd3-a475-33ebdf230d3c"/>
       <resource>
          <Condition>
             <meta><!--CDA templateId: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01-->
@@ -4925,18 +4956,18 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <onsetDateTime value="2016-02-14"/>
             <asserter>
-               <reference value="urn:uuid:4476351f-e80c-45de-bb91-d059bdb1eb18"/>
+               <reference value="urn:uuid:f8d8127a-6a57-4aa9-b849-e5d0434375e8"/>
             </asserter>
          </Condition>
       </resource>
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:dc7c13a1-ccbb-44a6-a235-fb430ac7af46"/>
+      <fullUrl value="urn:uuid:71881aea-54ab-49f4-ae95-7c3e449aaeb3"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4952,10 +4983,10 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -4968,7 +4999,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:acb135e5-2ce2-4f0a-8978-17d91267d36b"/>
+      <fullUrl value="urn:uuid:dc3238f5-3905-43ef-9dcc-349cfa5813ab"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -4983,10 +5014,10 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -5001,7 +5032,7 @@
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <!--Removed Encounter diagnosis wrapper-->
    <entry>
-      <fullUrl value="urn:uuid:afca45ed-4e3f-4d39-b483-ebec52ffd408"/>
+      <fullUrl value="urn:uuid:18d0d5c8-997f-4cdf-9615-1787969edd36"/>
       <resource>
          <Condition>
             <meta>
@@ -5040,18 +5071,18 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <onsetDateTime value="2016-08-19"/>
             <asserter>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </asserter>
          </Condition>
       </resource>
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:34eb6951-2399-4de5-9c02-c8fb3191dd9a"/>
+      <fullUrl value="urn:uuid:44ff68ea-a77b-47ef-a7e7-7d748419320e"/>
       <resource>
          <FamilyMemberHistory>
             <identifier>
@@ -5060,7 +5091,7 @@
             </identifier>
             <status value="completed"/>
             <patient>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </patient>
             <relationship>
                <coding>
@@ -5098,7 +5129,7 @@
    </entry>
    <!--Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132-->
    <entry>
-      <fullUrl value="urn:uuid:402be2b0-9b33-495f-91b2-ebe92c5dfc5d"/>
+      <fullUrl value="urn:uuid:ea01bbd0-2c01-4117-955c-c389f52484d6"/>
       <resource>
          <Observation><!--Processing as generic observation-->
             <identifier>
@@ -5114,10 +5145,10 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -5130,7 +5161,7 @@
       </resource>
    </entry>
    <entry xmlns:uuid="http://www.uuid.org">
-      <fullUrl value="urn:uuid:727fd8bb-ef50-401b-b268-5479a64bbdfa"/>
+      <fullUrl value="urn:uuid:bb12a75c-092e-400c-9766-14d3d1890f29"/>
       <resource>
          <RiskAssessment>
             <status value="final"/>
@@ -5142,19 +5173,19 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
-            <condition>
-               <reference value="urn:uuid:4ca4f824-176b-43ae-ba2f-d581f303f3ca"/>
+            <condition><!--2.16.840.1.113883.10.20.22.4.4-->
+               <reference value="urn:uuid:b5578cae-eec6-4501-8568-2b9b7f46a2ad"/>
             </condition>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
          </RiskAssessment>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:4ca4f824-176b-43ae-ba2f-d581f303f3ca"/>
+      <fullUrl value="urn:uuid:b5578cae-eec6-4501-8568-2b9b7f46a2ad"/>
       <resource>
          <Condition>
             <meta>
@@ -5187,17 +5218,17 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <onsetDateTime value="2016-12-01"/>
             <asserter>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </asserter>
          </Condition>
       </resource>
    </entry>
    <entry xmlns:uuid="http://www.uuid.org">
-      <fullUrl value="urn:uuid:7c78cd27-1b7e-4284-8e70-0df124ea1153"/>
+      <fullUrl value="urn:uuid:c9036c85-8924-4d95-8318-6092f5a1cd28"/>
       <resource>
          <RiskAssessment>
             <status value="final"/>
@@ -5209,19 +5240,19 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
-            <condition>
-               <reference value="urn:uuid:40a1a134-617b-4d1c-b37d-cfdd82e84e98"/>
+            <condition><!--2.16.840.1.113883.10.20.22.4.4-->
+               <reference value="urn:uuid:7994c710-bdfc-4131-86f9-b93d7595779c"/>
             </condition>
             <performer>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </performer>
          </RiskAssessment>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:40a1a134-617b-4d1c-b37d-cfdd82e84e98"/>
+      <fullUrl value="urn:uuid:7994c710-bdfc-4131-86f9-b93d7595779c"/>
       <resource>
          <Condition>
             <meta>
@@ -5254,17 +5285,17 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <onsetDateTime value="2016-12-01T10:45:00-05:00"/>
             <asserter>
-               <reference value="urn:uuid:5978f941-dccc-41dc-b925-3e540341477e"/>
+               <reference value="urn:uuid:e7686b4d-fb4b-4dbb-afac-f991246a1de6"/>
             </asserter>
          </Condition>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:a96315e2-9e9d-47cc-8bcd-7a1e4673db3c"/>
+      <fullUrl value="urn:uuid:f3446d83-6fbd-4acf-8c99-33bde548ffa7"/>
       <resource>
          <Goal>
             <identifier>
@@ -5280,23 +5311,23 @@
                </coding>
             </description>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <expressedBy>
-               <reference value="urn:uuid:4f1b020f-ed67-44b2-a3de-ab6d03a7e0ae"/>
+               <reference value="urn:uuid:b5077467-569c-4ae4-b2aa-15ac302430bd"/>
             </expressedBy>
-            <addresses>
-               <reference value="urn:uuid:d26eb9cd-9803-49b8-8401-3c84eb96822f"/>
+            <addresses><!--2.16.840.1.113883.10.20.22.4.4-->
+               <reference value="urn:uuid:6546209f-5cae-4927-af04-769eaef688fb"/>
             </addresses>
             <!--Found linked outcome observation-->
-            <outcomeReference>
-               <reference value="urn:uuid:09d17ef9-feff-4071-8cee-69b0ee72f4fb"/>
+            <outcomeReference><!--2.16.840.1.113883.10.20.22.4.144-->
+               <reference value="urn:uuid:bf62faf4-61b5-4716-aa0a-0a7265c3395c"/>
             </outcomeReference>
          </Goal>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:0bea547b-cf40-42ab-926f-0f3ccd804bab"/>
+      <fullUrl value="urn:uuid:0c9bb3af-cf5b-4bbe-b299-8e391a1b1468"/>
       <resource>
          <Goal>
             <identifier>
@@ -5312,51 +5343,39 @@
                </coding>
             </description>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <statusDate value="2016-12-01"/>
             <expressedBy>
-               <reference value="urn:uuid:7d5d61bf-7843-4fbc-ba3f-6b72e8df83e7"/>
+               <reference value="urn:uuid:ecb3568a-cbd7-4454-b7fd-14dc0acee1af"/>
             </expressedBy>
-            <addresses>
-               <reference value="urn:uuid:4ca4f824-176b-43ae-ba2f-d581f303f3ca"/>
+            <addresses><!--2.16.840.1.113883.10.20.22.4.4-->
+               <reference value="urn:uuid:b5578cae-eec6-4501-8568-2b9b7f46a2ad"/>
             </addresses>
          </Goal>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:29223c8d-70df-4089-9d96-d9f8ae5ba7d3"/>
+      <fullUrl value="urn:uuid:dca1412e-e7d5-45bc-8fd0-3dbf2b473329"/>
       <resource>
-         <List>
+         <RequestGroup>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
                <value value="urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57086"/>
             </identifier>
-            <status value="current"/>
-            <mode value="snapshot"/>
-            <code>
-               <coding>
-                  <system value="http://snomed.info/sct"/>
-                  <code value="362956003"/>
-                  <display value="Procedure/intervention"/>
-               </coding>
-            </code>
-            <date value="2016-11-25"/>
-            <entry>
-               <item>
-                  <reference value="urn:uuid:1675ab16-dcbc-487c-9179-ab9eed2087ab"/>
-               </item>
-            </entry>
-            <entry>
-               <item>
-                  <reference value="urn:uuid:fef744c2-4fc0-4fde-a1ed-1ba9fbb7ff15"/>
-               </item>
-            </entry>
-         </List>
+            <status value="completed"/>
+            <intent value="plan"/>
+            <authoredOn value="2016-11-25"/>
+            <action>
+               <resource><!--2.16.840.1.113883.10.20.37.3.10-->
+                  <reference value="urn:uuid:87acbc3f-8ac2-4649-8a33-f7cf7256e51b"/>
+               </resource>
+            </action>
+         </RequestGroup>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:1675ab16-dcbc-487c-9179-ab9eed2087ab"/>
+      <fullUrl value="urn:uuid:87acbc3f-8ac2-4649-8a33-f7cf7256e51b"/>
       <resource>
          <MedicationRequest>
             <meta>
@@ -5381,12 +5400,12 @@
                </coding>
             </medicationCodeableConcept>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <authoredOn value="2016-12-01"/>
             <requester>
                <agent>
-                  <reference value="urn:uuid:c45849d0-5be5-427c-8cc9-eda0037b4698"/>
+                  <reference value="urn:uuid:682db776-2bdf-4b1d-a363-f20b91a93329"/>
                </agent>
             </requester>
             <dosageInstruction>
@@ -5409,13 +5428,13 @@
                </route>
             </dosageInstruction>
             <dispenseRequest>
-               <numberOfRepeatsAllowed value="3"/>
+               <numberOfRepeatsAllowed value="1"/>
             </dispenseRequest>
          </MedicationRequest>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:fef744c2-4fc0-4fde-a1ed-1ba9fbb7ff15"/>
+      <fullUrl value="urn:uuid:d25f766c-c50d-460c-be34-b6cccefc88c0"/>
       <resource>
          <MedicationDispense>
             <identifier>
@@ -5437,18 +5456,18 @@
                <text value="oxyCODONE Hydrochloride 10 MG Oral Tablet"/>
             </medicationCodeableConcept>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <actor>
-                  <reference value="urn:uuid:1bd046a1-e4e9-450d-ba1e-be723a2ab060"/>
+               <actor><!--2.16.840.1.113883.10.20.37.4.1-->
+                  <reference value="urn:uuid:18e48df1-c675-49a4-9d9f-4b1ed0beae9e"/>
                </actor>
                <onBehalfOf>
-                  <reference value="urn:uuid:57086983-64aa-4aa3-8621-6b7b0f632b57"/>
+                  <reference value="urn:uuid:d7822225-6e34-4845-aac3-92ff48d362b0"/>
                </onBehalfOf>
             </performer>
-            <authorizingPrescription>
-               <reference value="urn:uuid:1675ab16-dcbc-487c-9179-ab9eed2087ab"/>
+            <authorizingPrescription><!--2.16.840.1.113883.10.20.37.3.10-->
+               <reference value="urn:uuid:87acbc3f-8ac2-4649-8a33-f7cf7256e51b"/>
             </authorizingPrescription>
             <quantity>
                <value value="24"/>
@@ -5462,38 +5481,26 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:28ab8000-e227-47da-8332-3064601eed84"/>
+      <fullUrl value="urn:uuid:dfe2a821-10b6-4263-9ab5-67368c1f326f"/>
       <resource>
-         <List>
+         <RequestGroup>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
                <value value="urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57088"/>
             </identifier>
-            <status value="current"/>
-            <mode value="snapshot"/>
-            <code>
-               <coding>
-                  <system value="http://snomed.info/sct"/>
-                  <code value="362956003"/>
-                  <display value="Procedure/intervention"/>
-               </coding>
-            </code>
-            <date value="2016-11-25"/>
-            <entry>
-               <item>
-                  <reference value="urn:uuid:a00c15a0-ce81-412b-abeb-e092d291d671"/>
-               </item>
-            </entry>
-            <entry>
-               <item>
-                  <reference value="urn:uuid:50593393-fd77-4cfe-aeb3-e0be3d05d79d"/>
-               </item>
-            </entry>
-         </List>
+            <status value="completed"/>
+            <intent value="plan"/>
+            <authoredOn value="2016-11-25"/>
+            <action>
+               <resource><!--2.16.840.1.113883.10.20.37.3.10-->
+                  <reference value="urn:uuid:9e3dc3a0-7928-44f5-9362-33336a2f26a0"/>
+               </resource>
+            </action>
+         </RequestGroup>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:a00c15a0-ce81-412b-abeb-e092d291d671"/>
+      <fullUrl value="urn:uuid:9e3dc3a0-7928-44f5-9362-33336a2f26a0"/>
       <resource>
          <MedicationRequest>
             <meta>
@@ -5518,12 +5525,12 @@
                </coding>
             </medicationCodeableConcept>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <authoredOn value="2016-12-01"/>
             <requester>
                <agent>
-                  <reference value="urn:uuid:19ca86bf-7a91-401e-84d4-ddbf22bae13c"/>
+                  <reference value="urn:uuid:e5da4d3d-0112-4f33-9bbd-73e86aa7a32e"/>
                </agent>
             </requester>
             <dosageInstruction>
@@ -5545,14 +5552,11 @@
                   </coding>
                </route>
             </dosageInstruction>
-            <dispenseRequest>
-               <numberOfRepeatsAllowed value="3"/>
-            </dispenseRequest>
          </MedicationRequest>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:50593393-fd77-4cfe-aeb3-e0be3d05d79d"/>
+      <fullUrl value="urn:uuid:57785ac1-cdc4-45ce-8d31-af62afa9c034"/>
       <resource>
          <MedicationDispense>
             <identifier>
@@ -5573,18 +5577,18 @@
                </coding>
             </medicationCodeableConcept>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performer>
-               <actor>
-                  <reference value="urn:uuid:09903324-8a60-4925-8910-c94ae1db70ec"/>
+               <actor><!--2.16.840.1.113883.10.20.37.4.1-->
+                  <reference value="urn:uuid:8b5a9b69-a289-4b6e-93ba-bfb9f3565c4c"/>
                </actor>
                <onBehalfOf>
-                  <reference value="urn:uuid:aa6c6505-4359-4caf-a880-1659317c6f99"/>
+                  <reference value="urn:uuid:acf5fce7-11fb-4139-9446-1a43a1ce7953"/>
                </onBehalfOf>
             </performer>
-            <authorizingPrescription>
-               <reference value="urn:uuid:a00c15a0-ce81-412b-abeb-e092d291d671"/>
+            <authorizingPrescription><!--2.16.840.1.113883.10.20.37.3.10-->
+               <reference value="urn:uuid:9e3dc3a0-7928-44f5-9362-33336a2f26a0"/>
             </authorizingPrescription>
             <quantity>
                <value value="0"/>
@@ -5597,39 +5601,31 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:97fbc1a7-0368-4d5c-ac1f-d77cbfc0807a"/>
+      <fullUrl value="urn:uuid:84c88919-925b-4d89-ad0c-0a23c3d25df3"/>
       <resource>
-         <List>
+         <RequestGroup>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
                <value value="urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57085"/>
             </identifier>
-            <status value="current"/>
-            <mode value="snapshot"/>
-            <code>
-               <coding>
-                  <system value="http://snomed.info/sct"/>
-                  <code value="362956003"/>
-                  <display value="Procedure/intervention"/>
-               </coding>
-            </code>
-            <date value="2016-11-25"/>
-            <entry>
-               <item>
-                  <reference value="urn:uuid:1219a628-213b-4c60-a3ad-5ebe8291d1f0"/>
-               </item>
-            </entry>
-            <!--Found reference-->
-            <entry>
-               <item>
-                  <reference value="urn:uuid:d17402ea-b8fd-485f-ba37-112ae1c9e2ff"/>
-               </item>
-            </entry>
-         </List>
+            <status value="completed"/>
+            <intent value="plan"/>
+            <authoredOn value="2016-11-25"/>
+            <action>
+               <resource><!--2.16.840.1.113883.10.20.22.4.12-->
+                  <reference value="urn:uuid:ac1ce34f-2c12-4522-b9a5-240fa3df49ed"/>
+               </resource>
+            </action>
+            <action>
+               <resource><!--Found reference-->
+                  <reference value="urn:uuid:28266014-5934-46aa-9181-53cf372e9025"/>
+               </resource>
+            </action>
+         </RequestGroup>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:1219a628-213b-4c60-a3ad-5ebe8291d1f0"/>
+      <fullUrl value="urn:uuid:ac1ce34f-2c12-4522-b9a5-240fa3df49ed"/>
       <resource>
          <Procedure>
             <meta>
@@ -5648,7 +5644,7 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <performedPeriod>
                <start value="2016-01-22"/>
@@ -5659,7 +5655,7 @@
    </entry>
    <!--No template match for 2.16.840.1.113883.10.20.22.4.122-->
    <entry>
-      <fullUrl value="urn:uuid:87b45a56-a897-41da-a7f1-08d608d5b87e"/>
+      <fullUrl value="urn:uuid:628bfeb4-d08b-4ddb-ac8f-7a2553f2179e"/>
       <resource>
          <RequestGroup>
             <identifier>
@@ -5669,26 +5665,26 @@
             <status value="active"/>
             <intent value="plan"/>
             <reasonReference><!--Found reference-->
-               <reference value="urn:uuid:0bea547b-cf40-42ab-926f-0f3ccd804bab"/>
+               <reference value="urn:uuid:0c9bb3af-cf5b-4bbe-b299-8e391a1b1468"/>
             </reasonReference>
             <action>
-               <resource>
-                  <reference value="urn:uuid:7bfd0c68-3c8f-4805-9014-55d8bac35b0a"/>
+               <resource><!--2.16.840.1.113883.10.20.22.4.140-->
+                  <reference value="urn:uuid:52d03277-8184-4c1e-b3c6-3d3ff0f8147b"/>
                </resource>
             </action>
             <action>
-               <resource>
-                  <reference value="urn:uuid:cdd090d1-b8c4-4fc7-aa58-ed1a6eb1297a"/>
+               <resource><!--2.16.840.1.113883.10.20.22.4.40-->
+                  <reference value="urn:uuid:d82ddcc8-bfc2-434e-a36d-1f5fa68553e9"/>
                </resource>
             </action>
             <action>
-               <resource>
-                  <reference value="urn:uuid:34a6e3ea-4e72-4bf6-b52b-a951e27723ac"/>
+               <resource><!--2.16.840.1.113883.10.20.22.4.40-->
+                  <reference value="urn:uuid:cc4e7e50-7b7a-4283-a5cb-24bbeb0df772"/>
                </resource>
             </action>
             <action>
-               <resource>
-                  <reference value="urn:uuid:23b2f2f7-8f9b-4a0f-a371-1ab1df91743b"/>
+               <resource><!--2.16.840.1.113883.10.20.22.4.141-->
+                  <reference value="urn:uuid:fbd54ec5-c568-48ff-8caf-a56f71b84071"/>
                </resource>
             </action>
          </RequestGroup>
@@ -5696,7 +5692,7 @@
    </entry>
    <!--No template match for 2.16.840.1.113883.10.20.22.4.122-->
    <entry>
-      <fullUrl value="urn:uuid:7bfd0c68-3c8f-4805-9014-55d8bac35b0a"/>
+      <fullUrl value="urn:uuid:52d03277-8184-4c1e-b3c6-3d3ff0f8147b"/>
       <resource>
          <ProcedureRequest>
             <identifier>
@@ -5713,22 +5709,26 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <occurrenceDateTime value="2016-12-01"/>
             <requester>
                <agent>
-                  <reference value="urn:uuid:31ca3058-8f83-4d34-a053-877f007a5cc3"/>
+                  <reference value="urn:uuid:baa668cb-e56e-4187-8e34-98ecb67c2eac"/>
                </agent>
             </requester>
          </ProcedureRequest>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:cdd090d1-b8c4-4fc7-aa58-ed1a6eb1297a"/>
+      <fullUrl value="urn:uuid:d82ddcc8-bfc2-434e-a36d-1f5fa68553e9"/>
       <resource>
          <Encounter>
             <status value="unknown"/>
+            <class>
+               <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+               <code value="NI"/>
+            </class>
             <type>
                <coding>
                   <system value="urn:oid:2.16.840.1.113883.6.12"/>
@@ -5742,7 +5742,7 @@
                </coding>
             </type>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <participant>
                <type>
@@ -5752,7 +5752,7 @@
                   </coding>
                </type>
                <individual>
-                  <reference value="urn:uuid:e643cfb8-fca0-42d4-b61b-4bbac02fa2e4"/>
+                  <reference value="urn:uuid:1b20ff74-3b44-4aaa-bba2-94ba77e004ec"/>
                </individual>
             </participant>
             <period>
@@ -5770,10 +5770,14 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:34a6e3ea-4e72-4bf6-b52b-a951e27723ac"/>
+      <fullUrl value="urn:uuid:cc4e7e50-7b7a-4283-a5cb-24bbeb0df772"/>
       <resource>
          <Encounter>
             <status value="unknown"/>
+            <class>
+               <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+               <code value="NI"/>
+            </class>
             <type>
                <coding>
                   <system value="urn:oid:2.16.840.1.113883.6.12"/>
@@ -5787,7 +5791,7 @@
                </coding>
             </type>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <participant>
                <type>
@@ -5797,7 +5801,7 @@
                   </coding>
                </type>
                <individual>
-                  <reference value="urn:uuid:7012c352-1834-48b4-b10f-34bafebbc9a2"/>
+                  <reference value="urn:uuid:f4006768-b215-44c1-8f07-7cb67687599e"/>
                </individual>
             </participant>
             <period>
@@ -5815,7 +5819,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:23b2f2f7-8f9b-4a0f-a371-1ab1df91743b"/>
+      <fullUrl value="urn:uuid:fbd54ec5-c568-48ff-8caf-a56f71b84071"/>
       <resource>
          <Communication>
             <identifier>
@@ -5824,14 +5828,14 @@
             </identifier>
             <status value="completed"/>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <recipient>
-               <reference value="urn:uuid:8d57fb69-40d1-4334-a815-873af575bf84"/>
+               <reference value="urn:uuid:5e084dc1-4855-4ece-b312-0673f5198c1f"/>
             </recipient>
             <sent value="2016-12-01"/>
             <sender>
-               <reference value="urn:uuid:2ed80f32-aa83-4256-9165-d5fb7cbb3f20"/>
+               <reference value="urn:uuid:79fcda80-ba93-4e27-b515-87165c3e1cc0"/>
             </sender>
             <reasonCode>
                <coding>
@@ -5844,33 +5848,26 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:d72bd86a-e85c-4732-8b24-c79833cf3383"/>
+      <fullUrl value="urn:uuid:b5bff949-c59e-4858-b543-ca8e5fef2d92"/>
       <resource>
-         <List>
+         <RequestGroup>
             <identifier>
                <system value="urn:ietf:rfc:3986"/>
                <value value="urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57088"/>
             </identifier>
-            <status value="current"/>
-            <mode value="snapshot"/>
-            <code>
-               <coding>
-                  <system value="http://snomed.info/sct"/>
-                  <code value="362956003"/>
-                  <display value="Procedure/intervention"/>
-               </coding>
-            </code>
-            <date value="2016-11-25"/>
-            <entry>
-               <item>
-                  <reference value="urn:uuid:03d8c2f4-319e-46a9-9404-d18568ca79b9"/>
-               </item>
-            </entry>
-         </List>
+            <status value="completed"/>
+            <intent value="plan"/>
+            <authoredOn value="2016-11-25"/>
+            <action>
+               <resource><!--2.16.840.1.113883.10.20.22.4.16-->
+                  <reference value="urn:uuid:3cb5ab70-67a0-411a-91df-ec4d7593e2ed"/>
+               </resource>
+            </action>
+         </RequestGroup>
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:03d8c2f4-319e-46a9-9404-d18568ca79b9"/>
+      <fullUrl value="urn:uuid:3cb5ab70-67a0-411a-91df-ec4d7593e2ed"/>
       <resource>
          <MedicationStatement>
             <meta>
@@ -5890,7 +5887,7 @@
                </coding>
             </medicationCodeableConcept>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <taken value="unk"/>
             <dosage>
@@ -5906,7 +5903,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:09d17ef9-feff-4071-8cee-69b0ee72f4fb"/>
+      <fullUrl value="urn:uuid:bf62faf4-61b5-4716-aa0a-0a7265c3395c"/>
       <resource>
          <Observation>
             <identifier>
@@ -5922,11 +5919,11 @@
                </coding>
             </code>
             <subject>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subject>
             <effectiveDateTime value="2017-06-04"/>
             <performer>
-               <reference value="urn:uuid:8ed22aa9-1e94-480b-8f91-db3bd46196e0"/>
+               <reference value="urn:uuid:1c7548d7-7a9e-4734-a1c0-e7d89ebb956d"/>
             </performer>
             <valueCodeableConcept>
                <coding>
@@ -5939,7 +5936,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:31543d1c-2b05-479c-a194-52a124b6d809"/>
+      <fullUrl value="urn:uuid:a30faf19-9b57-4642-b37e-2438d4881edd"/>
       <resource>
          <Coverage>
             <identifier>
@@ -5959,11 +5956,11 @@
                </coding>
             </type>
             <subscriber>
-               <reference value="urn:uuid:8d46e66e-1d74-4310-b81b-7f096ae9f106"/>
+               <reference value="urn:uuid:366a2ae8-7c2a-4594-bce2-42c178c0f0e2"/>
             </subscriber>
             <subscriberId value="urn:hl7ii:14d4a520-7aae-11db-9fe1-0800200c9a66:1138345"/>
             <payor>
-               <reference value="urn:uuid:cf788757-3296-476e-a045-adc7f40023e8"/>
+               <reference value="urn:uuid:c41ed3ee-f461-46dd-bdc6-ed2a7a82fc0c"/>
             </payor>
             <grouping>
                <group value="urn:hl7ii:2.16.840.1.113883.19:1138345"/>
@@ -5972,7 +5969,7 @@
       </resource>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:cf788757-3296-476e-a045-adc7f40023e8"/>
+      <fullUrl value="urn:uuid:c41ed3ee-f461-46dd-bdc6-ed2a7a82fc0c"/>
       <resource>
          <Organization>
             <identifier>

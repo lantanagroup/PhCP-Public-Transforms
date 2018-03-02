@@ -9,16 +9,11 @@
     
     <xsl:import href="c-to-fhir-utility.xslt"/>
     
-
+    <!--
     <xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.136']]" mode="bundle-entry">
         <xsl:variable name="risk-concern-wrapper" select="."/>
-        <!--
-        <xsl:call-template name="create-bundle-entry"/>
-        -->
-
         <xsl:for-each select="cda:entryRelationship[cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.4']]]">
            
-            <!-- Add a RiskAssessment with a reference to the item in the entryRelationship -->
             <entry>
                 <fullUrl value="urn:uuid:{@lcg:uuid}"/>
                 <resource>
@@ -30,8 +25,7 @@
             <xsl:apply-templates select="cda:*" mode="bundle-entry"/>
         </xsl:for-each>
     </xsl:template>
-    
-    <!--  
+      
     <xsl:template
         match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.136']]"
         mode="reference">

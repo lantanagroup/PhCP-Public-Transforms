@@ -2,12 +2,12 @@
   "resourceType": "Bundle",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:003cc9f7-016b-4909-b6df-be7a1957fbfc"
+    "value": "urn:uuid:4db36f26-55c5-487a-b00b-a0c60f50c919"
   },
   "type": "document",
   "entry": [
     {
-      "fullUrl": "urn:uuid:ea36724c-f6ea-4bc5-8940-a4045390de6e",
+      "fullUrl": "urn:uuid:b3f3ce5f-c22c-4ffa-9c44-45a1d91bd264",
       "resource": {
         "resourceType": "Composition",
         "meta": {
@@ -19,11 +19,11 @@
         "language": "en-US",
         "text": {
           "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Document Id</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> db734647-fc99-424c-a864-7e3cda82e703</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Document Created:</span>\n                           </td>\n                           <td class=\"td_header_role_value\">December 1, 2016, 11:20, PST </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Care provision</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Consultation for transition of care from November 1, 2016  to December 1, 2016 </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Performer </span>\n                           </td>\n                           <td class=\"td_header_role_value\">Claude Pharmacist, CPh</td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Author</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Registered Pharmacist, RPh, The Pharmacy Alliance Health Group</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Id</span>\n                           </td>\n                           <td class=\"td_header_role_value\">9937012 2.16.840.1.113883.19</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Type</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Consultation</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Date</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> From December 1, 2016, 09:20   to December 1, 2016, 10:20  </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Location</span>\n                           </td>\n                           <td class=\"td_header_role_value\">id: NPI-Example 2.16.840.1.113883.4.6</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Responsible party</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Michael Coletta, M.D. of Mass Pharmacy</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">2100 North Ave<br/>Burlington, MA 02368, US<br/>Tel:  +1(555)555-1003<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Assigned entity</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Review of Care Plan<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Assigned entity {$code/@code='SELF'?}</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Review of Care Plan<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Emergency contact</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Mrs. Martha Jones<br/>\n                              <br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Care giver</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Mrs. Martha Jones<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Entered by</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Ellen Enter</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1050<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Signed </span>\n                           </td>\n                           <td class=\"td_header_role_value\">Eve Everywoman at December 1, 2016 </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> Primary Home:<br/>2222 Home Street<br/>Beaverton, OR 97867, US<br/>Tel:  +1(555)555-2003<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Informant</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Harold Pharma, CPh</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1003<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Information recipient:</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Pharmacist Coordinator, CPh</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">100 Better Health Rd.<br/>Ann Arbor, MI 97857, US<br/>Telecom information not available<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Legal authenticator</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Pharmacist Registered, RPh of Greater Area Pharmacy signed at December 1, 2016 </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Document maintained by</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Greater Area Pharmacy HIE</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> Work Place:<br/>1009 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1009<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n               </div>"
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Document Id</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> db734647-fc99-424c-a864-7e3cda82e703</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Document Created:</span>\n                           </td>\n                           <td class=\"td_header_role_value\">December 1, 2016, 11:20, PST </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>  <!-- documentationOf/serviceEvent -->\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Care provision</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Consultation for transition of care from November 1, 2016  to December 1, 2016 </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Performer </span>\n                           </td>\n                           <td class=\"td_header_role_value\">Claude Pharmacist, CPh</td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>  <!-- Author -->\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Author</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Registered Pharmacist, RPh, The Pharmacy Alliance Health Group</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>  <!-- encompassingEncounter -->\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Id</span>\n                           </td>\n                           <td class=\"td_header_role_value\">9937012 2.16.840.1.113883.19</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Type</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Consultation</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Date</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> From December 1, 2016, 09:20   to December 1, 2016, 10:20  </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Encounter Location</span>\n                           </td>\n                           <td class=\"td_header_role_value\">id: NPI-Example 2.16.840.1.113883.4.6</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Responsible party</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Michael Coletta, M.D. of Mass Pharmacy</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">2100 North Ave<br/>Burlington, MA 02368, US<br/>Tel:  +1(555)555-1003<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>  <!-- participant -->\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Assigned entity</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Review of Care Plan<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Assigned entity {$code/@code='SELF'?}</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Review of Care Plan<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Emergency contact</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Mrs. Martha Jones<br/>\n                              <br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Care giver</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Mrs. Martha Jones<br/>\n                           </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">17 Daws Rd.<br/>Ann Arbor, MI 97857, US<br/>Tel:  (999)555-1212<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Entered by</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Ellen Enter</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1050<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>  <!-- Authenticator -->\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Signed </span>\n                           </td>\n                           <td class=\"td_header_role_value\">Eve Everywoman at December 1, 2016 </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> Primary Home:<br/>2222 Home Street<br/>Beaverton, OR 97867, US<br/>Tel:  +1(555)555-2003<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>  <!-- informant -->\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Informant</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Harold Pharma, CPh</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1007 Pharmacy Drive<br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1003<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>  <!-- informationRecipient -->\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Information recipient:</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Pharmacist Coordinator, CPh</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">100 Better Health Rd.<br/>Ann Arbor, MI 97857, US<br/>Telecom information not available<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Legal authenticator</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Pharmacist Registered, RPh of Greater Area Pharmacy signed at December 1, 2016 </td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\">1004 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1004<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n                  <table style=\"border: 1pt inset #00008b; line-height: 10pt; width: 100%;\" class=\"header_table\">\n                     <tbody>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Document maintained by</span>\n                           </td>\n                           <td class=\"td_header_role_value\">Greater Area Pharmacy HIE</td>\n                        </tr>\n                        <tr>\n                           <td style=\"width: 20%; background-color: #3399ff; padding: 0.1cm 0.2cm; vertical-align: top; background-color: #ffffcc;\" class=\"td_header_role_name\">\n                              <span class=\"td_label\">Contact info</span>\n                           </td>\n                           <td class=\"td_header_role_value\"> Work Place:<br/>1009 Pharmacy Drive <br/>Portland, OR 99123, US<br/>Tel:  +1(555)555-1009<br/>\n                           </td>\n                        </tr>\n                     </tbody>\n                  </table>\n               </div>"
         },
         "identifier": {
           "system": "urn:ietf:rfc:3986",
-          "value": "urn:uuid:dc66c28b-bf5f-42b6-82da-4da9476ac35c"
+          "value": "urn:uuid:b22aba3f-5917-4dbf-8136-b5ef29e218d6"
         },
         "status": "final",
         "type": {
@@ -36,15 +36,15 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "encounter": {
-          "reference": "urn:uuid:17392cad-94f0-4318-9668-67feeed2a7e2"
+          "reference": "urn:uuid:5a03931a-829f-4f92-ac53-516837759a71"
         },
         "date": "2016-12-01T11:20:00-08:00",
         "author": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "title": "Pharmacist Care Plan",
@@ -56,12 +56,12 @@
             ],
             "time": "2016-12-01",
             "party": {
-              "reference": "urn:uuid:c38ef5b9-03a5-4e74-b124-3bb20fe26b73"
+              "reference": "urn:uuid:cac10afe-ca34-45fd-977d-31545bc61d3b"
             }
           }
         ],
         "custodian": {
-          "reference": "urn:uuid:2220996c-e814-4af4-9649-a42746be34af"
+          "reference": "urn:uuid:6bc5915f-133d-4f17-aae2-b3f4d7edebf0"
         },
         "relatesTo": [
           {
@@ -81,7 +81,7 @@
                 ],
                 "url": "http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer",
                 "valueReference": {
-                  "reference": "urn:uuid:d23bdaea-2a7e-47f7-90e4-af3ba1ecd0ec"
+                  "reference": "urn:uuid:0a00926c-e2a9-48b7-b2be-e9c55309885a"
                 }
               }
             ],
@@ -109,73 +109,154 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:71db2a96-422d-429f-aa1b-aa2382e099ec"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.4"
+                ],
+                "reference": "urn:uuid:40dcccff-818f-4d84-b699-622a64ae8ab2"
               },
               {
-                "reference": "urn:uuid:0d960539-7ca5-4a24-bd57-3f0c449e07eb"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.5"
+                ],
+                "reference": "urn:uuid:86ec1eaa-5fc1-4b89-8bd2-5345bcc6bab1"
               },
               {
-                "reference": "urn:uuid:5062e4fe-a647-45ed-8628-c6c1e5b1f357"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.4"
+                ],
+                "reference": "urn:uuid:12b2ce4a-c2d4-4fe1-8e27-cc48d018e544"
               },
               {
-                "reference": "urn:uuid:910cb42a-b623-4b73-be45-e7950be55fcc"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.7"
+                ],
+                "reference": "urn:uuid:4020975c-183e-40fc-9ab6-dedac299b9b4"
               },
               {
-                "reference": "urn:uuid:9c125a64-ef2b-4833-8ce4-54701cbc73fa"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.7"
+                ],
+                "reference": "urn:uuid:ba098372-a28b-4d0c-a72c-14c98a588d76"
               },
               {
-                "reference": "urn:uuid:8535b902-ac06-40c0-8087-7fdaec3aeb4e"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.74"
+                ],
+                "reference": "urn:uuid:b1a24d3c-3f57-43b9-9c5b-3a858df58e2b"
               },
               {
-                "reference": "urn:uuid:9cdca847-396d-4fd8-904b-f7b6297fd949"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.128"
+                ],
+                "reference": "urn:uuid:8748e63c-1802-47f2-bbaf-a2c957b77a3b"
               },
               {
-                "reference": "urn:uuid:20284681-7323-431d-a6e3-383e617973af"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.67"
+                ],
+                "reference": "urn:uuid:eee1f729-bbb3-431d-86e2-e4b3397ec056"
               },
               {
-                "reference": "urn:uuid:3379c3f8-bdad-421b-9811-790e067bcea3"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.124"
+                ],
+                "reference": "urn:uuid:52b885de-deee-4f70-b8fe-16d3469f2a73"
               },
               {
-                "reference": "urn:uuid:306b21a6-37d8-4ba0-b1ed-851a0942344e"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.38"
+                ],
+                "reference": "urn:uuid:35327fd2-4ff4-44fb-906c-b0efd4002595"
               },
               {
-                "reference": "urn:uuid:28b15e59-66b6-4fd2-b51b-15809f719a79"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.85"
+                ],
+                "reference": "urn:uuid:61dbb69b-b0b0-46f8-902a-6ef4afa4e9bf"
               },
               {
-                "reference": "urn:uuid:17a211a4-5fc3-4f1a-b8a3-52828d29f82c"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.27"
+                ],
+                "reference": "urn:uuid:ecc6dc7c-750f-4121-b228-9619786c34c1"
               },
               {
-                "reference": "urn:uuid:c4d4442b-8b53-4d54-bc51-4c1668d39b8c"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.72"
+                ],
+                "reference": "urn:uuid:f455550e-1dce-4e60-8918-0b75ecfd360f"
               },
               {
-                "reference": "urn:uuid:9f5b7dea-4fc4-45d9-a0dc-285d0eea2f1c"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.111"
+                ],
+                "reference": "urn:uuid:991d53e1-0562-466f-8c6a-5101996cd18c"
               },
               {
-                "reference": "urn:uuid:33de449b-577f-4810-8511-a6f52dec8377"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.69"
+                ],
+                "reference": "urn:uuid:bdbfbb98-c3c4-483f-bfa5-caaa159155ad"
               },
               {
-                "reference": "urn:uuid:5ad9e8e1-c9c2-4061-b7d3-238512c91f05"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.114"
+                ],
+                "reference": "urn:uuid:c48934c5-7ba6-48fe-8a91-0ba6dd863690"
               },
               {
-                "reference": "urn:uuid:d5b6adba-0b45-4e20-ac02-93a63f5f5be4"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.127"
+                ],
+                "reference": "urn:uuid:54264c62-c48d-41b6-a2fd-0adc2c2d114e"
               },
               {
-                "reference": "urn:uuid:6c8967b1-dae0-48f3-ae4d-3c9e078e0d46"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.15.3.8"
+                ],
+                "reference": "urn:uuid:3ee4e548-5082-474d-af8d-65322269f1cf"
               },
               {
-                "reference": "urn:uuid:b2542767-3bcf-4f09-8269-87138e3d0f97"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.4"
+                ],
+                "reference": "urn:uuid:a2302f27-53ff-4755-924a-f6db70221d99"
               },
               {
-                "reference": "urn:uuid:d6ed1fd2-b3fc-4088-8604-e3cf4146f586"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.45"
+                ],
+                "reference": "urn:uuid:1c09529e-b68d-41a0-8d70-f52107c2666b"
               },
               {
-                "reference": "urn:uuid:a8e28b8c-df30-4edc-995d-043786b3786d"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.24.3.90"
+                ],
+                "reference": "urn:uuid:8c40894f-3727-4e18-9757-7ce0ba26cab3"
               },
               {
-                "reference": "urn:uuid:efcaa516-700c-4903-915d-e29266e9d0e3"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.136"
+                ],
+                "reference": "urn:uuid:fd9d0096-aaf6-4062-bc67-8401a9c18cb1"
               },
               {
-                "reference": "urn:uuid:e784ee5a-4240-43df-8f00-b7a9c3ea96ca"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.136"
+                ],
+                "reference": "urn:uuid:4afa06b2-ed8a-4952-8bd9-453920c123ae"
+              },
+              {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.136"
+                ],
+                "reference": "urn:uuid:2dee4524-974d-4b8c-8b0a-70bcd59d27cb"
+              },
+              {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.136"
+                ],
+                "reference": "urn:uuid:48cb6ba5-229f-4e3c-9860-89835a72a7ba"
               }
             ]
           },
@@ -196,10 +277,16 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:8969339f-6d13-4a4b-a2cb-80d3db1b6989"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.121"
+                ],
+                "reference": "urn:uuid:2eaf2124-c603-4ef0-bece-a24c40e713b0"
               },
               {
-                "reference": "urn:uuid:bd0c921f-18cb-4d69-b97e-365c6a6be8db"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.121"
+                ],
+                "reference": "urn:uuid:e227a4ae-f1c2-4457-9278-2a3153a30aac"
               }
             ]
           },
@@ -220,19 +307,34 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:fc63054c-6f94-4e27-90bb-dec24f4b63fe"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.131"
+                ],
+                "reference": "urn:uuid:e6364b2d-a55e-48d9-94ed-b4c8835c8612"
               },
               {
-                "reference": "urn:uuid:c1650323-d2c6-428a-949f-afda4c00c20f"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.131"
+                ],
+                "reference": "urn:uuid:0374a6d1-3b40-4d6f-9426-b41a2a675356"
               },
               {
-                "reference": "urn:uuid:7398ef7d-8ee1-49d1-9d1a-53ec73ded6d9"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.131"
+                ],
+                "reference": "urn:uuid:ce4964af-e0bb-4342-874b-ba417f6be9fa"
               },
               {
-                "reference": "urn:uuid:d0d2822b-27a9-493d-b611-fd7af291faec"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.146"
+                ],
+                "reference": "urn:uuid:4ef68a53-2fc9-4925-bc6f-a41f854478a8"
               },
               {
-                "reference": "urn:uuid:7dd42718-31ac-4e04-adf1-f546830112b1"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.131"
+                ],
+                "reference": "urn:uuid:92c81916-78bd-4341-9eba-b617a6f7f8dc"
               }
             ]
           },
@@ -253,7 +355,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:1a14cbc9-7880-42c3-b49d-364e4c81f87e"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.144"
+                ],
+                "reference": "urn:uuid:6362175a-47e0-4042-9fd3-28c18542809c"
               }
             ]
           },
@@ -274,7 +379,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:f7cbcd0a-d180-4516-a323-f4960c5fb49a"
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.60"
+                ],
+                "reference": "urn:uuid:1e4de9f5-f570-43f3-9fee-1c0daaf3b8ab"
               }
             ]
           }
@@ -282,7 +390,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536",
+      "fullUrl": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081",
       "resource": {
         "resourceType": "Patient",
         "meta": {
@@ -316,9 +424,6 @@
                   "system": "http://hl7.org/fhir/v3/NullFlavor",
                   "code": "UNK"
                 }
-              },
-              {
-                "url": "text"
               }
             ]
           }
@@ -442,7 +547,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1c832b9e-373e-415f-9516-1c68108b0050",
+      "fullUrl": "urn:uuid:7ea3b6bd-1195-45bf-8f3b-069ec5a46eb3",
       "resource": {
         "resourceType": "Location",
         "identifier": [
@@ -454,7 +559,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4c92bb4f-cff7-4469-b78f-64d14d022004",
+      "fullUrl": "urn:uuid:0f0789fe-14b1-4ad3-80eb-1a2d6e6126b2",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -506,10 +611,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:17392cad-94f0-4318-9668-67feeed2a7e2",
+      "fullUrl": "urn:uuid:5a03931a-829f-4f92-ac53-516837759a71",
       "resource": {
         "resourceType": "Encounter",
         "status": "unknown",
+        "class": {
+          "system": "http://hl7.org/fhir/v3/NullFlavor",
+          "code": "NI"
+        },
         "type": [
           {
             "coding": [
@@ -527,7 +636,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "participant": [
           {
@@ -543,7 +652,7 @@
               }
             ],
             "individual": {
-              "reference": "urn:uuid:4c92bb4f-cff7-4469-b78f-64d14d022004"
+              "reference": "urn:uuid:0f0789fe-14b1-4ad3-80eb-1a2d6e6126b2"
             }
           }
         ],
@@ -565,14 +674,14 @@
         "location": [
           {
             "location": {
-              "reference": "urn:uuid:1c832b9e-373e-415f-9516-1c68108b0050"
+              "reference": "urn:uuid:7ea3b6bd-1195-45bf-8f3b-069ec5a46eb3"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0",
+      "fullUrl": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -631,7 +740,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5f4b558d-ae77-43d4-a838-ae3318d89c12",
+      "fullUrl": "urn:uuid:0052ddf9-fcb5-47eb-8f23-794d85106fa4",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -689,7 +798,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:65abb414-a755-4f6d-bfef-749331d96461",
+      "fullUrl": "urn:uuid:2ab8df64-cf3a-44b3-b3f5-646dd1a2cdb7",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -718,7 +827,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:79c0dc4a-f44b-4910-87ef-db1ee1d7a829",
+      "fullUrl": "urn:uuid:74da3969-8908-4b92-93fe-121e7518b73e",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -747,7 +856,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d380aac6-1727-4049-91f2-2d5366b0ff0a",
+      "fullUrl": "urn:uuid:2fc5e3ec-f1e0-464f-8a90-e42c4a3bbdb3",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -807,7 +916,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5e1636bd-8e6d-4e37-9838-ef2e697bef05",
+      "fullUrl": "urn:uuid:20feeed8-0151-4fa2-b851-aa3df6b6efb9",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -867,7 +976,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e7d8e6d7-8e57-49f0-8047-0e701c818fde",
+      "fullUrl": "urn:uuid:ee491619-d806-48f7-9ac9-25b28108d619",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -896,7 +1005,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:685a220f-261e-4fe2-801c-de6f52eac88e",
+      "fullUrl": "urn:uuid:30a7cb53-6cbd-46cf-881f-dcad852db880",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -925,7 +1034,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f61f2c2f-e2f9-422a-94e1-29a80195d1e0",
+      "fullUrl": "urn:uuid:4fdda469-c4e3-465b-89dc-89f70c0a6dfb",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -968,7 +1077,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:529931c5-1dfa-40f8-a8f0-5a89a24414b3",
+      "fullUrl": "urn:uuid:f6177a1c-eed9-4cf9-a5c2-1824189f597a",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1027,7 +1136,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dc9f9e93-1f04-435a-abbb-7bf3afbaca24",
+      "fullUrl": "urn:uuid:9c1279c1-05bb-48c4-abe1-abc57b2519f0",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1086,7 +1195,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:46194e17-20c9-401e-9c8e-775d9871f25b",
+      "fullUrl": "urn:uuid:03308293-9994-4e7c-a595-7b4f01cb547a",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1156,7 +1265,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c2402683-b425-469c-bdec-9821823bae7c",
+      "fullUrl": "urn:uuid:ab17a7ed-5c3b-4c5d-b7b4-62f6546ea6ec",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1226,7 +1335,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:59d7334b-9047-47ad-bba0-3ccb60878aee",
+      "fullUrl": "urn:uuid:30225628-c636-4c7a-88fc-8e98fb830de7",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1285,7 +1394,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:883a948a-0187-4340-bf73-119977c57509",
+      "fullUrl": "urn:uuid:26937250-2633-45c6-a7e2-5350fa8edae7",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1326,7 +1435,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2898748d-32b7-4f72-87ad-f1558f17dba4",
+      "fullUrl": "urn:uuid:587a5ef0-65c6-47b8-b7be-8327314a2a47",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1342,7 +1451,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d23bdaea-2a7e-47f7-90e4-af3ba1ecd0ec",
+      "fullUrl": "urn:uuid:0a00926c-e2a9-48b7-b2be-e9c55309885a",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1389,7 +1498,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c13a3539-79b7-4c34-9ea2-c9472099bea8",
+      "fullUrl": "urn:uuid:55a52c1c-ef39-426d-9dfa-2e7cf38980ad",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1409,7 +1518,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0052bac5-16f0-4e84-9346-af052586729c",
+      "fullUrl": "urn:uuid:3c93f636-83aa-4557-8f93-d5e8e48e7a2a",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1425,7 +1534,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:db92fb3a-032d-44eb-ae72-f391545cda8c",
+      "fullUrl": "urn:uuid:0657b346-04d6-4720-83e3-45966e3d404a",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1472,7 +1581,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:59c87c76-fa45-4853-b6df-3ae56a9b641a",
+      "fullUrl": "urn:uuid:7a8854e2-d14a-4acc-89e9-1967379434d8",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1519,7 +1628,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:34629256-48e9-409f-85fc-77200f3c6195",
+      "fullUrl": "urn:uuid:63323c77-fe10-4cf9-9a98-233bc5f291ad",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1554,7 +1663,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:077299c7-423c-43e2-bc73-a44f2c141a68",
+      "fullUrl": "urn:uuid:aa320c14-efbb-4f62-8484-437141573f99",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1597,7 +1706,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:398d4f25-8041-4fc2-90ce-57f664f38952",
+      "fullUrl": "urn:uuid:b27b6355-ad85-4c6b-b742-0a90f0fcc7a1",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1656,13 +1765,13 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7176ab82-c29e-490c-8121-e851b40b7c6a",
+      "fullUrl": "urn:uuid:081d1ceb-ffb7-462e-b854-0ef605b4e684",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:uuid:7176ab82-c29e-490c-8121-e851b40b7c6a"
+            "value": "urn:uuid:081d1ceb-ffb7-462e-b854-0ef605b4e684"
           }
         ],
         "type": [
@@ -1679,7 +1788,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:72ec2976-f452-48e2-b7fa-93cf920e7577",
+      "fullUrl": "urn:uuid:83fd1e4d-e206-4558-9c76-900a6e985d40",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
@@ -1715,7 +1824,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dc0f4921-fd43-4a88-bb71-5e3b610d9382",
+      "fullUrl": "urn:uuid:516f5835-1b54-458c-9663-1debeba121c9",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
@@ -1751,13 +1860,13 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:48c9855a-4d2d-4571-b2da-e115349a675c",
+      "fullUrl": "urn:uuid:e219cbf2-cce1-4754-a0ed-c8a45c314858",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:uuid:48c9855a-4d2d-4571-b2da-e115349a675c"
+            "value": "urn:uuid:e219cbf2-cce1-4754-a0ed-c8a45c314858"
           }
         ],
         "type": [
@@ -1774,13 +1883,13 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:6a2b9949-9f85-4e0e-8cb4-43e0afc871ae",
+      "fullUrl": "urn:uuid:b0d3677e-086e-49f0-99ad-2806576aeff4",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:uuid:6a2b9949-9f85-4e0e-8cb4-43e0afc871ae"
+            "value": "urn:uuid:b0d3677e-086e-49f0-99ad-2806576aeff4"
           }
         ],
         "type": [
@@ -1797,13 +1906,13 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d57728c1-3b96-48b8-9062-486ffb2107d5",
+      "fullUrl": "urn:uuid:03d8d9ca-c0db-4778-9ec5-d288c69b0484",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:uuid:d57728c1-3b96-48b8-9062-486ffb2107d5"
+            "value": "urn:uuid:03d8d9ca-c0db-4778-9ec5-d288c69b0484"
           }
         ],
         "name": "Good Health Insurance",
@@ -1817,7 +1926,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2220996c-e814-4af4-9649-a42746be34af",
+      "fullUrl": "urn:uuid:6bc5915f-133d-4f17-aae2-b3f4d7edebf0",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
@@ -1849,7 +1958,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c38ef5b9-03a5-4e74-b124-3bb20fe26b73",
+      "fullUrl": "urn:uuid:cac10afe-ca34-45fd-977d-31545bc61d3b",
       "resource": {
         "resourceType": "Practitioner",
         "text": {
@@ -1898,7 +2007,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:71db2a96-422d-429f-aa1b-aa2382e099ec",
+      "fullUrl": "urn:uuid:40dcccff-818f-4d84-b699-622a64ae8ab2",
       "resource": {
         "resourceType": "Condition",
         "meta": {
@@ -1940,11 +2049,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-08-19",
         "asserter": {
-          "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+          "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
         }
       }
     },
@@ -1952,7 +2061,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:0d960539-7ca5-4a24-bd57-3f0c449e07eb",
+      "fullUrl": "urn:uuid:86ec1eaa-5fc1-4b89-8bd2-5345bcc6bab1",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -1975,11 +2084,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueCodeableConcept": {
@@ -1997,7 +2106,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:5062e4fe-a647-45ed-8628-c6c1e5b1f357",
+      "fullUrl": "urn:uuid:12b2ce4a-c2d4-4fe1-8e27-cc48d018e544",
       "resource": {
         "resourceType": "Condition",
         "meta": {
@@ -2040,11 +2149,11 @@
           "text": "Non-adherence because patient forgets to take medication"
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-08-19",
         "asserter": {
-          "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+          "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
         },
         "evidence": [
           {
@@ -2053,7 +2162,7 @@
                 "fhir_comments": [
                   "Referenced CDA ID root: 2.16.840.1.113883.19"
                 ],
-                "reference": "urn:uuid:427cdd9e-6640-498c-b66e-59148cb44254"
+                "reference": "urn:uuid:e8d810db-1051-4b21-910f-06de49618c17"
               }
             ]
           }
@@ -2069,7 +2178,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:910cb42a-b623-4b73-be45-e7950be55fcc",
+      "fullUrl": "urn:uuid:4020975c-183e-40fc-9ab6-dedac299b9b4",
       "resource": {
         "resourceType": "AllergyIntolerance",
         "meta": {
@@ -2088,19 +2197,18 @@
         "type": "allergy",
         "code": {
           "fhir_comments": [
-            "Should be no category here",
             "Should be no category here"
           ],
           "coding": [
             {
-              "system": "http://snomed.info/sct",
-              "code": "419199007",
-              "display": "Allergy to Substance"
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "70618",
+              "display": "Penicillin"
             }
           ]
         },
         "patient": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-08-20",
         "reaction": [
@@ -2125,7 +2233,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:9c125a64-ef2b-4833-8ce4-54701cbc73fa",
+      "fullUrl": "urn:uuid:ba098372-a28b-4d0c-a72c-14c98a588d76",
       "resource": {
         "resourceType": "AllergyIntolerance",
         "meta": {
@@ -2158,7 +2266,7 @@
           ]
         },
         "patient": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-12-01",
         "_onsetDateTime": {
@@ -2172,7 +2280,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:8535b902-ac06-40c0-8087-7fdaec3aeb4e",
+      "fullUrl": "urn:uuid:b1a24d3c-3f57-43b9-9c5b-3a858df58e2b",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2197,12 +2305,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2016-08-01",
         "performer": [
           {
-            "reference": "urn:uuid:5f4b558d-ae77-43d4-a838-ae3318d89c12"
+            "reference": "urn:uuid:0052ddf9-fcb5-47eb-8f23-794d85106fa4"
           }
         ],
         "valueCodeableConcept": {
@@ -2220,7 +2328,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:9cdca847-396d-4fd8-904b-f7b6297fd949",
+      "fullUrl": "urn:uuid:8748e63c-1802-47f2-bbaf-a2c957b77a3b",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2240,12 +2348,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2001-03-11",
         "performer": [
           {
-            "reference": "urn:uuid:65abb414-a755-4f6d-bfef-749331d96461"
+            "reference": "urn:uuid:2ab8df64-cf3a-44b3-b3f5-646dd1a2cdb7"
           }
         ],
         "valueCodeableConcept": {
@@ -2263,7 +2371,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:20284681-7323-431d-a6e3-383e617973af",
+      "fullUrl": "urn:uuid:eee1f729-bbb3-431d-86e2-e4b3397ec056",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2286,12 +2394,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2016-03-11",
         "performer": [
           {
-            "reference": "urn:uuid:79c0dc4a-f44b-4910-87ef-db1ee1d7a829"
+            "reference": "urn:uuid:74da3969-8908-4b92-93fe-121e7518b73e"
           }
         ],
         "valueCodeableConcept": {
@@ -2309,7 +2417,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:3379c3f8-bdad-421b-9811-790e067bcea3",
+      "fullUrl": "urn:uuid:52b885de-deee-4f70-b8fe-16d3469f2a73",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2333,12 +2441,12 @@
           "text": "Nutritional Status"
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2016-05-12",
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueCodeableConcept": {
@@ -2356,7 +2464,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:306b21a6-37d8-4ba0-b1ed-851a0942344e",
+      "fullUrl": "urn:uuid:35327fd2-4ff4-44fb-906c-b0efd4002595",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2384,11 +2492,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
-            "reference": "urn:uuid:e7d8e6d7-8e57-49f0-8047-0e701c818fde"
+            "reference": "urn:uuid:ee491619-d806-48f7-9ac9-25b28108d619"
           }
         ],
         "valueQuantity": {
@@ -2400,7 +2508,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:28b15e59-66b6-4fd2-b51b-15809f719a79",
+      "fullUrl": "urn:uuid:61dbb69b-b0b0-46f8-902a-6ef4afa4e9bf",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2423,11 +2531,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueCodeableConcept": {
@@ -2445,7 +2553,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:17a211a4-5fc3-4f1a-b8a3-52828d29f82c",
+      "fullUrl": "urn:uuid:ecc6dc7c-750f-4121-b228-9619786c34c1",
       "resource": {
         "resourceType": "Observation",
         "meta": {
@@ -2465,11 +2573,9 @@
             "coding": [
               {
                 "system": "http://hl7.org/fhir/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
+                "code": "vital-signs"
               }
-            ],
-            "text": "Vital Signs"
+            ]
           }
         ],
         "code": {
@@ -2482,25 +2588,17 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2016-09-01",
         "performer": [
           {
-            "reference": "urn:uuid:685a220f-261e-4fe2-801c-de6f52eac88e"
+            "reference": "urn:uuid:30a7cb53-6cbd-46cf-881f-dcad852db880"
           }
         ],
         "valueQuantity": {
           "value": 88,
           "unit": "kg"
-        },
-        "interpretation": {
-          "coding": [
-            {
-              "system": "urn:oid:2.16.840.1.113883.5.83",
-              "code": "N"
-            }
-          ]
         }
       }
     },
@@ -2508,7 +2606,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:c4d4442b-8b53-4d54-bc51-4c1668d39b8c",
+      "fullUrl": "urn:uuid:f455550e-1dce-4e60-8918-0b75ecfd360f",
       "resource": {
         "resourceType": "Observation",
         "status": "final",
@@ -2526,12 +2624,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2016-03-12",
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueCodeableConcept": {
@@ -2549,7 +2647,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:9f5b7dea-4fc4-45d9-a0dc-285d0eea2f1c",
+      "fullUrl": "urn:uuid:991d53e1-0562-466f-8c6a-5101996cd18c",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2572,12 +2670,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2016-03-12",
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueString": "Does not accept blood transfusions, or\n                                        donates, or stores blood for transfusion."
@@ -2587,7 +2685,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:33de449b-577f-4810-8511-a6f52dec8377",
+      "fullUrl": "urn:uuid:bdbfbb98-c3c4-483f-bfa5-caaa159155ad",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2610,12 +2708,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2016-02-14",
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueQuantity": {
@@ -2629,7 +2727,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:5ad9e8e1-c9c2-4061-b7d3-238512c91f05",
+      "fullUrl": "urn:uuid:c48934c5-7ba6-48fe-8a91-0ba6dd863690",
       "resource": {
         "resourceType": "Condition",
         "meta": {
@@ -2670,11 +2768,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-02-14",
         "asserter": {
-          "reference": "urn:uuid:f61f2c2f-e2f9-422a-94e1-29a80195d1e0"
+          "reference": "urn:uuid:4fdda469-c4e3-465b-89dc-89f70c0a6dfb"
         }
       }
     },
@@ -2682,7 +2780,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:d5b6adba-0b45-4e20-ac02-93a63f5f5be4",
+      "fullUrl": "urn:uuid:54264c62-c48d-41b6-a2fd-0adc2c2d114e",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2705,11 +2803,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueCodeableConcept": {
@@ -2726,7 +2824,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:6c8967b1-dae0-48f3-ae4d-3c9e078e0d46",
+      "fullUrl": "urn:uuid:3ee4e548-5082-474d-af8d-65322269f1cf",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2748,11 +2846,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueCodeableConcept": {
@@ -2771,7 +2869,7 @@
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132",
         "Removed Encounter diagnosis wrapper"
       ],
-      "fullUrl": "urn:uuid:b2542767-3bcf-4f09-8269-87138e3d0f97",
+      "fullUrl": "urn:uuid:a2302f27-53ff-4755-924a-f6db70221d99",
       "resource": {
         "resourceType": "Condition",
         "meta": {
@@ -2821,11 +2919,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-08-19",
         "asserter": {
-          "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+          "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
         }
       }
     },
@@ -2833,7 +2931,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:d6ed1fd2-b3fc-4088-8604-e3cf4146f586",
+      "fullUrl": "urn:uuid:1c09529e-b68d-41a0-8d70-f52107c2666b",
       "resource": {
         "resourceType": "FamilyMemberHistory",
         "identifier": [
@@ -2844,7 +2942,7 @@
         ],
         "status": "completed",
         "patient": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "relationship": {
           "coding": [
@@ -2891,7 +2989,7 @@
       "fhir_comments": [
         "Processing concern wrapper: 2.16.840.1.113883.10.20.22.4.132"
       ],
-      "fullUrl": "urn:uuid:a8e28b8c-df30-4edc-995d-043786b3786d",
+      "fullUrl": "urn:uuid:8c40894f-3727-4e18-9757-7ce0ba26cab3",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -2914,11 +3012,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
-            "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+            "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
           }
         ],
         "valueCodeableConcept": {
@@ -2933,7 +3031,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:efcaa516-700c-4903-915d-e29266e9d0e3",
+      "fullUrl": "urn:uuid:504c4b3a-e96f-4a94-afc8-5e91b58ca803",
       "resource": {
         "resourceType": "RiskAssessment",
         "status": "final",
@@ -2947,18 +3045,23 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "condition": {
-          "reference": "urn:uuid:e6706d78-ac8a-4cce-a5c9-0fd3493c354a"
+          "reference": "urn:uuid:a230ba67-406d-4b56-9450-445ea69f0898",
+          "_reference": {
+            "fhir_comments": [
+              "2.16.840.1.113883.10.20.22.4.4"
+            ]
+          }
         },
         "performer": {
-          "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+          "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:e6706d78-ac8a-4cce-a5c9-0fd3493c354a",
+      "fullUrl": "urn:uuid:a230ba67-406d-4b56-9450-445ea69f0898",
       "resource": {
         "resourceType": "Condition",
         "meta": {
@@ -3000,16 +3103,16 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-12-01",
         "asserter": {
-          "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+          "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:e784ee5a-4240-43df-8f00-b7a9c3ea96ca",
+      "fullUrl": "urn:uuid:1899d05f-9715-499b-b1c3-371b1f464025",
       "resource": {
         "resourceType": "RiskAssessment",
         "status": "final",
@@ -3023,18 +3126,23 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "condition": {
-          "reference": "urn:uuid:a7416392-4074-45d5-bf74-6f36b3297970"
+          "reference": "urn:uuid:53e4ab79-5396-42d5-af99-1da5db88afdc",
+          "_reference": {
+            "fhir_comments": [
+              "2.16.840.1.113883.10.20.22.4.4"
+            ]
+          }
         },
         "performer": {
-          "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+          "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:a7416392-4074-45d5-bf74-6f36b3297970",
+      "fullUrl": "urn:uuid:53e4ab79-5396-42d5-af99-1da5db88afdc",
       "resource": {
         "resourceType": "Condition",
         "meta": {
@@ -3076,16 +3184,16 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "onsetDateTime": "2016-12-01T10:45:00-05:00",
         "asserter": {
-          "reference": "urn:uuid:73dc0706-95d0-43b7-854b-3458710db5f0"
+          "reference": "urn:uuid:2eb0cbbb-d3f7-486d-b451-9dce24278bd1"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:8969339f-6d13-4a4b-a2cb-80d3db1b6989",
+      "fullUrl": "urn:uuid:2eaf2124-c603-4ef0-bece-a24c40e713b0",
       "resource": {
         "resourceType": "Goal",
         "identifier": [
@@ -3105,14 +3213,19 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "expressedBy": {
-          "reference": "urn:uuid:529931c5-1dfa-40f8-a8f0-5a89a24414b3"
+          "reference": "urn:uuid:f6177a1c-eed9-4cf9-a5c2-1824189f597a"
         },
         "addresses": [
           {
-            "reference": "urn:uuid:71db2a96-422d-429f-aa1b-aa2382e099ec"
+            "reference": "urn:uuid:40dcccff-818f-4d84-b699-622a64ae8ab2",
+            "_reference": {
+              "fhir_comments": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ]
+            }
           }
         ],
         "outcomeReference": [
@@ -3120,13 +3233,18 @@
             "fhir_comments": [
               "Found linked outcome observation"
             ],
-            "reference": "urn:uuid:1a14cbc9-7880-42c3-b49d-364e4c81f87e"
+            "reference": "urn:uuid:6362175a-47e0-4042-9fd3-28c18542809c",
+            "_reference": {
+              "fhir_comments": [
+                "2.16.840.1.113883.10.20.22.4.144"
+              ]
+            }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:bd0c921f-18cb-4d69-b97e-365c6a6be8db",
+      "fullUrl": "urn:uuid:e227a4ae-f1c2-4457-9278-2a3153a30aac",
       "resource": {
         "resourceType": "Goal",
         "identifier": [
@@ -3146,57 +3264,53 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "statusDate": "2016-12-01",
         "expressedBy": {
-          "reference": "urn:uuid:dc9f9e93-1f04-435a-abbb-7bf3afbaca24"
+          "reference": "urn:uuid:9c1279c1-05bb-48c4-abe1-abc57b2519f0"
         },
         "addresses": [
           {
-            "reference": "urn:uuid:e6706d78-ac8a-4cce-a5c9-0fd3493c354a"
+            "reference": "urn:uuid:a230ba67-406d-4b56-9450-445ea69f0898",
+            "_reference": {
+              "fhir_comments": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ]
+            }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:fc63054c-6f94-4e27-90bb-dec24f4b63fe",
+      "fullUrl": "urn:uuid:e6364b2d-a55e-48d9-94ed-b4c8835c8612",
       "resource": {
-        "resourceType": "List",
+        "resourceType": "RequestGroup",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
             "value": "urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57086"
           }
         ],
-        "status": "current",
-        "mode": "snapshot",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "362956003",
-              "display": "Procedure/intervention"
-            }
-          ]
-        },
-        "date": "2016-11-25",
-        "entry": [
+        "status": "completed",
+        "intent": "plan",
+        "authoredOn": "2016-11-25",
+        "action": [
           {
-            "item": {
-              "reference": "urn:uuid:427cdd9e-6640-498c-b66e-59148cb44254"
-            }
-          },
-          {
-            "item": {
-              "reference": "urn:uuid:fe65cd5f-3c20-40b1-ab19-777b8ddda54e"
+            "resource": {
+              "reference": "urn:uuid:e8d810db-1051-4b21-910f-06de49618c17",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.37.3.10"
+                ]
+              }
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:427cdd9e-6640-498c-b66e-59148cb44254",
+      "fullUrl": "urn:uuid:e8d810db-1051-4b21-910f-06de49618c17",
       "resource": {
         "resourceType": "MedicationRequest",
         "meta": {
@@ -3227,12 +3341,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "authoredOn": "2016-12-01",
         "requester": {
           "agent": {
-            "reference": "urn:uuid:46194e17-20c9-401e-9c8e-775d9871f25b"
+            "reference": "urn:uuid:03308293-9994-4e7c-a595-7b4f01cb547a"
           }
         },
         "dosageInstruction": [
@@ -3259,12 +3373,12 @@
           }
         ],
         "dispenseRequest": {
-          "numberOfRepeatsAllowed": 3
+          "numberOfRepeatsAllowed": 1
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:fe65cd5f-3c20-40b1-ab19-777b8ddda54e",
+      "fullUrl": "urn:uuid:7db03e68-c2c6-4985-9e48-47ae1a5ffed0",
       "resource": {
         "resourceType": "MedicationDispense",
         "identifier": [
@@ -3290,21 +3404,31 @@
           "text": "oxyCODONE Hydrochloride 10 MG Oral Tablet"
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
             "actor": {
-              "reference": "urn:uuid:c13a3539-79b7-4c34-9ea2-c9472099bea8"
+              "reference": "urn:uuid:55a52c1c-ef39-426d-9dfa-2e7cf38980ad",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.37.4.1"
+                ]
+              }
             },
             "onBehalfOf": {
-              "reference": "urn:uuid:72ec2976-f452-48e2-b7fa-93cf920e7577"
+              "reference": "urn:uuid:83fd1e4d-e206-4558-9c76-900a6e985d40"
             }
           }
         ],
         "authorizingPrescription": [
           {
-            "reference": "urn:uuid:427cdd9e-6640-498c-b66e-59148cb44254"
+            "reference": "urn:uuid:e8d810db-1051-4b21-910f-06de49618c17",
+            "_reference": {
+              "fhir_comments": [
+                "2.16.840.1.113883.10.20.37.3.10"
+              ]
+            }
           }
         ],
         "quantity": {
@@ -3318,43 +3442,34 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c1650323-d2c6-428a-949f-afda4c00c20f",
+      "fullUrl": "urn:uuid:0374a6d1-3b40-4d6f-9426-b41a2a675356",
       "resource": {
-        "resourceType": "List",
+        "resourceType": "RequestGroup",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
             "value": "urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57088"
           }
         ],
-        "status": "current",
-        "mode": "snapshot",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "362956003",
-              "display": "Procedure/intervention"
-            }
-          ]
-        },
-        "date": "2016-11-25",
-        "entry": [
+        "status": "completed",
+        "intent": "plan",
+        "authoredOn": "2016-11-25",
+        "action": [
           {
-            "item": {
-              "reference": "urn:uuid:4878f455-3d95-46b1-9ae4-2a5dd8d989b4"
-            }
-          },
-          {
-            "item": {
-              "reference": "urn:uuid:430d22cb-0292-487f-b640-335ecf370e78"
+            "resource": {
+              "reference": "urn:uuid:d22a7e81-65ee-4f00-9bc9-cd528fe400ef",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.37.3.10"
+                ]
+              }
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:4878f455-3d95-46b1-9ae4-2a5dd8d989b4",
+      "fullUrl": "urn:uuid:d22a7e81-65ee-4f00-9bc9-cd528fe400ef",
       "resource": {
         "resourceType": "MedicationRequest",
         "meta": {
@@ -3385,12 +3500,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "authoredOn": "2016-12-01",
         "requester": {
           "agent": {
-            "reference": "urn:uuid:c2402683-b425-469c-bdec-9821823bae7c"
+            "reference": "urn:uuid:ab17a7ed-5c3b-4c5d-b7b4-62f6546ea6ec"
           }
         },
         "dosageInstruction": [
@@ -3415,14 +3530,11 @@
               ]
             }
           }
-        ],
-        "dispenseRequest": {
-          "numberOfRepeatsAllowed": 3
-        }
+        ]
       }
     },
     {
-      "fullUrl": "urn:uuid:430d22cb-0292-487f-b640-335ecf370e78",
+      "fullUrl": "urn:uuid:fa3ccdb6-1504-4066-9161-aa77828c7883",
       "resource": {
         "resourceType": "MedicationDispense",
         "identifier": [
@@ -3447,21 +3559,31 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performer": [
           {
             "actor": {
-              "reference": "urn:uuid:0052bac5-16f0-4e84-9346-af052586729c"
+              "reference": "urn:uuid:3c93f636-83aa-4557-8f93-d5e8e48e7a2a",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.37.4.1"
+                ]
+              }
             },
             "onBehalfOf": {
-              "reference": "urn:uuid:dc0f4921-fd43-4a88-bb71-5e3b610d9382"
+              "reference": "urn:uuid:516f5835-1b54-458c-9663-1debeba121c9"
             }
           }
         ],
         "authorizingPrescription": [
           {
-            "reference": "urn:uuid:4878f455-3d95-46b1-9ae4-2a5dd8d989b4"
+            "reference": "urn:uuid:d22a7e81-65ee-4f00-9bc9-cd528fe400ef",
+            "_reference": {
+              "fhir_comments": [
+                "2.16.840.1.113883.10.20.37.3.10"
+              ]
+            }
           }
         ],
         "quantity": {
@@ -3474,46 +3596,44 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7398ef7d-8ee1-49d1-9d1a-53ec73ded6d9",
+      "fullUrl": "urn:uuid:ce4964af-e0bb-4342-874b-ba417f6be9fa",
       "resource": {
-        "resourceType": "List",
+        "resourceType": "RequestGroup",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
             "value": "urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57085"
           }
         ],
-        "status": "current",
-        "mode": "snapshot",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "362956003",
-              "display": "Procedure/intervention"
-            }
-          ]
-        },
-        "date": "2016-11-25",
-        "entry": [
+        "status": "completed",
+        "intent": "plan",
+        "authoredOn": "2016-11-25",
+        "action": [
           {
-            "item": {
-              "reference": "urn:uuid:22fcf8dc-d5aa-4753-a749-9bd81c6971d7"
+            "resource": {
+              "reference": "urn:uuid:e7f53af5-9efd-433f-bc7c-6bbedba56fac",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.12"
+                ]
+              }
             }
           },
           {
-            "fhir_comments": [
-              "Found reference"
-            ],
-            "item": {
-              "reference": "urn:uuid:5062e4fe-a647-45ed-8628-c6c1e5b1f357"
+            "resource": {
+              "reference": "urn:uuid:12b2ce4a-c2d4-4fe1-8e27-cc48d018e544",
+              "_reference": {
+                "fhir_comments": [
+                  "Found reference"
+                ]
+              }
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:22fcf8dc-d5aa-4753-a749-9bd81c6971d7",
+      "fullUrl": "urn:uuid:e7f53af5-9efd-433f-bc7c-6bbedba56fac",
       "resource": {
         "resourceType": "Procedure",
         "meta": {
@@ -3538,7 +3658,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "performedPeriod": {
           "start": "2016-01-22",
@@ -3550,7 +3670,7 @@
       "fhir_comments": [
         "No template match for 2.16.840.1.113883.10.20.22.4.122"
       ],
-      "fullUrl": "urn:uuid:d0d2822b-27a9-493d-b611-fd7af291faec",
+      "fullUrl": "urn:uuid:4ef68a53-2fc9-4925-bc6f-a41f854478a8",
       "resource": {
         "resourceType": "RequestGroup",
         "identifier": [
@@ -3562,7 +3682,7 @@
         "status": "active",
         "intent": "plan",
         "reasonReference": {
-          "reference": "urn:uuid:bd0c921f-18cb-4d69-b97e-365c6a6be8db",
+          "reference": "urn:uuid:e227a4ae-f1c2-4457-9278-2a3153a30aac",
           "_reference": {
             "fhir_comments": [
               "Found reference"
@@ -3572,22 +3692,42 @@
         "action": [
           {
             "resource": {
-              "reference": "urn:uuid:f4b9f3da-0db3-4c6e-a71f-ff739852dd30"
+              "reference": "urn:uuid:deed61a3-1614-4acc-9d33-65601aa7162e",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.140"
+                ]
+              }
             }
           },
           {
             "resource": {
-              "reference": "urn:uuid:c3f55e54-8b2a-46e0-af69-f0cf85908a29"
+              "reference": "urn:uuid:7665b1de-49a4-437e-9ed6-f4218da31ed1",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.40"
+                ]
+              }
             }
           },
           {
             "resource": {
-              "reference": "urn:uuid:b9559555-79e7-4a30-93cd-ba885169048b"
+              "reference": "urn:uuid:4e350611-d6bf-4a9b-b307-f591cb2eb86e",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.40"
+                ]
+              }
             }
           },
           {
             "resource": {
-              "reference": "urn:uuid:1b99ebfd-f886-4d06-beb4-d2278c70c9f2"
+              "reference": "urn:uuid:ee367523-acc5-49dd-a801-d4b16db16db4",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.141"
+                ]
+              }
             }
           }
         ]
@@ -3597,7 +3737,7 @@
       "fhir_comments": [
         "No template match for 2.16.840.1.113883.10.20.22.4.122"
       ],
-      "fullUrl": "urn:uuid:f4b9f3da-0db3-4c6e-a71f-ff739852dd30",
+      "fullUrl": "urn:uuid:deed61a3-1614-4acc-9d33-65601aa7162e",
       "resource": {
         "resourceType": "ProcedureRequest",
         "identifier": [
@@ -3618,21 +3758,25 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "occurrenceDateTime": "2016-12-01",
         "requester": {
           "agent": {
-            "reference": "urn:uuid:59d7334b-9047-47ad-bba0-3ccb60878aee"
+            "reference": "urn:uuid:30225628-c636-4c7a-88fc-8e98fb830de7"
           }
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:c3f55e54-8b2a-46e0-af69-f0cf85908a29",
+      "fullUrl": "urn:uuid:7665b1de-49a4-437e-9ed6-f4218da31ed1",
       "resource": {
         "resourceType": "Encounter",
         "status": "unknown",
+        "class": {
+          "system": "http://hl7.org/fhir/v3/NullFlavor",
+          "code": "NI"
+        },
         "type": [
           {
             "coding": [
@@ -3650,7 +3794,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "participant": [
           {
@@ -3665,7 +3809,7 @@
               }
             ],
             "individual": {
-              "reference": "urn:uuid:db92fb3a-032d-44eb-ae72-f391545cda8c"
+              "reference": "urn:uuid:0657b346-04d6-4720-83e3-45966e3d404a"
             }
           }
         ],
@@ -3687,10 +3831,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b9559555-79e7-4a30-93cd-ba885169048b",
+      "fullUrl": "urn:uuid:4e350611-d6bf-4a9b-b307-f591cb2eb86e",
       "resource": {
         "resourceType": "Encounter",
         "status": "unknown",
+        "class": {
+          "system": "http://hl7.org/fhir/v3/NullFlavor",
+          "code": "NI"
+        },
         "type": [
           {
             "coding": [
@@ -3708,7 +3856,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "participant": [
           {
@@ -3723,7 +3871,7 @@
               }
             ],
             "individual": {
-              "reference": "urn:uuid:59c87c76-fa45-4853-b6df-3ae56a9b641a"
+              "reference": "urn:uuid:7a8854e2-d14a-4acc-89e9-1967379434d8"
             }
           }
         ],
@@ -3745,7 +3893,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1b99ebfd-f886-4d06-beb4-d2278c70c9f2",
+      "fullUrl": "urn:uuid:ee367523-acc5-49dd-a801-d4b16db16db4",
       "resource": {
         "resourceType": "Communication",
         "identifier": [
@@ -3756,16 +3904,16 @@
         ],
         "status": "completed",
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "recipient": [
           {
-            "reference": "urn:uuid:398d4f25-8041-4fc2-90ce-57f664f38952"
+            "reference": "urn:uuid:b27b6355-ad85-4c6b-b742-0a90f0fcc7a1"
           }
         ],
         "sent": "2016-12-01",
         "sender": {
-          "reference": "urn:uuid:883a948a-0187-4340-bf73-119977c57509"
+          "reference": "urn:uuid:26937250-2633-45c6-a7e2-5350fa8edae7"
         },
         "reasonCode": [
           {
@@ -3781,38 +3929,34 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7dd42718-31ac-4e04-adf1-f546830112b1",
+      "fullUrl": "urn:uuid:92c81916-78bd-4341-9eba-b617a6f7f8dc",
       "resource": {
-        "resourceType": "List",
+        "resourceType": "RequestGroup",
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
             "value": "urn:uuid:1040f76d-d877-4f0a-8564-c0b508c57088"
           }
         ],
-        "status": "current",
-        "mode": "snapshot",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "362956003",
-              "display": "Procedure/intervention"
-            }
-          ]
-        },
-        "date": "2016-11-25",
-        "entry": [
+        "status": "completed",
+        "intent": "plan",
+        "authoredOn": "2016-11-25",
+        "action": [
           {
-            "item": {
-              "reference": "urn:uuid:0588221e-9c01-4f02-b959-8fff549b4e93"
+            "resource": {
+              "reference": "urn:uuid:b4bd05e2-f298-47ff-bfa4-926a81c30c63",
+              "_reference": {
+                "fhir_comments": [
+                  "2.16.840.1.113883.10.20.22.4.16"
+                ]
+              }
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:0588221e-9c01-4f02-b959-8fff549b4e93",
+      "fullUrl": "urn:uuid:b4bd05e2-f298-47ff-bfa4-926a81c30c63",
       "resource": {
         "resourceType": "MedicationStatement",
         "meta": {
@@ -3837,7 +3981,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "taken": "unk",
         "dosage": [
@@ -3854,7 +3998,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1a14cbc9-7880-42c3-b49d-364e4c81f87e",
+      "fullUrl": "urn:uuid:6362175a-47e0-4042-9fd3-28c18542809c",
       "resource": {
         "resourceType": "Observation",
         "identifier": [
@@ -3874,12 +4018,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "effectiveDateTime": "2017-06-04",
         "performer": [
           {
-            "reference": "urn:uuid:2898748d-32b7-4f72-87ad-f1558f17dba4"
+            "reference": "urn:uuid:587a5ef0-65c6-47b8-b7be-8327314a2a47"
           }
         ],
         "valueCodeableConcept": {
@@ -3894,7 +4038,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f7cbcd0a-d180-4516-a323-f4960c5fb49a",
+      "fullUrl": "urn:uuid:27e35ec6-f888-4557-bc3f-c1edf27e102e",
       "resource": {
         "resourceType": "Coverage",
         "identifier": [
@@ -3918,12 +4062,12 @@
           ]
         },
         "subscriber": {
-          "reference": "urn:uuid:9ec9ff8e-5e30-424f-8723-f7e821766536"
+          "reference": "urn:uuid:0c2af907-37ed-4f32-af2d-c1b95123f081"
         },
         "subscriberId": "urn:hl7ii:14d4a520-7aae-11db-9fe1-0800200c9a66:1138345",
         "payor": [
           {
-            "reference": "urn:uuid:7545944f-04eb-4089-85ff-ab1e3b24225f"
+            "reference": "urn:uuid:bf668d7d-1da7-42c8-993f-3509e9cf324d"
           }
         ],
         "grouping": {
@@ -3932,7 +4076,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7545944f-04eb-4089-85ff-ab1e3b24225f",
+      "fullUrl": "urn:uuid:bf668d7d-1da7-42c8-993f-3509e9cf324d",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
