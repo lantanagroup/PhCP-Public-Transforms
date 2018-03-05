@@ -14,7 +14,7 @@
     
     
     
-    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.7']]" mode="bundle-entry">
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.7' or @root='2.16.840.1.113883.10.20.24.3.90']]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
@@ -40,7 +40,7 @@
     </xsl:template>
 	-->
 
-    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.7']]">
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.7' or @root='2.16.840.1.113883.10.20.24.3.90']]">
         <AllergyIntolerance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns="http://hl7.org/fhir">
             
@@ -77,14 +77,9 @@
                 <reference value="urn:uuid:{//cda:recordTarget/@lcg:uuid}"/>
             </patient>
             <xsl:apply-templates select="cda:effectiveTime" mode="allergy"/>
-            <xsl:choose>
-                <xsl:when test="cda:author">
-                    <!-- TODO -->
-                </xsl:when>
-                <xsl:otherwise>
-                    <!-- TODO: navigate up the ancestry and find the nearest author -->
-                </xsl:otherwise>
-            </xsl:choose>
+            <xsl:call-template name="author-reference">
+                <xsl:with-param name="element-name">asserter</xsl:with-param>
+            </xsl:call-template>
             <xsl:choose>
                 <xsl:when test="@negationInd='true'">
                     <xsl:comment>Negated manifestation not currently supported</xsl:comment>

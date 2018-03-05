@@ -54,12 +54,22 @@
                 <xsl:with-param name="elementName">code</xsl:with-param>
             </xsl:apply-templates>
             <xsl:call-template name="subject-reference"/>
+            <!-- TODO: uncomment the author-reference for FHIR R4 -->
             <!--
-            <performedDateTime value="{lcg:cdaTS2date(cda:effectiveTime/@value)}"/>
+            <xsl:call-template name="author-reference">
+                <xsl:with-param name="element-name">asserter</xsl:with-param>
+            </xsl:call-template>
             -->
             <xsl:apply-templates select="cda:effectiveTime" mode="period">
                 <xsl:with-param name="element-name">performedPeriod</xsl:with-param>
             </xsl:apply-templates>
+            <xsl:if test="cda:performer">
+                <performer>
+                    <xsl:call-template name="performer-reference">
+                        <xsl:with-param name="element-name">actor</xsl:with-param>
+                    </xsl:call-template>
+                </performer>
+            </xsl:if>
         </Procedure>
     </xsl:template>
     
@@ -75,12 +85,22 @@
                 <xsl:with-param name="elementName">code</xsl:with-param>
             </xsl:apply-templates>
             <xsl:call-template name="subject-reference"/>
+            <!-- TODO: uncomment the author-reference for FHIR R4 -->
+            <!--
             <xsl:call-template name="author-reference">
                 <xsl:with-param name="element-name">asserter</xsl:with-param>
             </xsl:call-template>
+            -->
             <xsl:apply-templates select="cda:effectiveTime" mode="period">
                 <xsl:with-param name="element-name">performedPeriod</xsl:with-param>
             </xsl:apply-templates>
+            <xsl:if test="cda:performer">
+                <performer>
+                    <xsl:call-template name="performer-reference">
+                        <xsl:with-param name="element-name">actor</xsl:with-param>
+                    </xsl:call-template>
+                </performer>
+            </xsl:if>
         </Procedure>
     </xsl:template>
     

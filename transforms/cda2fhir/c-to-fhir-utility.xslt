@@ -23,6 +23,9 @@
 		</entry>
 	</xsl:template>
 
+	<xsl:template match="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.122']]" mode="bundle-entry">
+		<!-- Don't create entries for entry references -->
+	</xsl:template>
 
 	<xsl:template match="cda:*[cda:templateId]" mode="bundle-entry" priority="-1">
 		<!-- Suppress any unknown clinical statements -->
@@ -442,15 +445,6 @@
 		<xsl:choose>
 			<xsl:when test="@nullFlavor">
 				<xsl:comment>Omitting null telecom</xsl:comment>
-				<!-- Removing the following, in FHIR just leave out nulled elements like this -->
-				<!--
-				<telecom>
-					<system value="phone"/>
-					<value>
-						<xsl:attribute name="value">Unknown</xsl:attribute>
-					</value>
-				</telecom>
-				-->
 			</xsl:when>
 			<xsl:otherwise>
 				<telecom>
@@ -701,7 +695,9 @@
 	<xsl:template match="cda:interpretationCode">
 		<xsl:call-template name="newCreateCodableConcept">
 			<xsl:with-param name="elementName" select="'interpretation'"/>
+			<!--
 			<xsl:with-param name="codeSystem" select="'urn:oid:2.16.840.1.113883.1.11.78'"/>
+			-->
 		</xsl:call-template>
 	</xsl:template>
 
@@ -740,7 +736,6 @@
 	<xsl:template name="newCreateCodableConcept">
 		<xsl:param name="elementName"/>
 		<xsl:param name="includeCoding" select="true()"/>
-		<xsl:param name="codeSystem"/>
 		<xsl:variable name="originalTextReference">
 			<xsl:value-of select="substring(cda:originalText/cda:reference/@value, 2)"/>
 		</xsl:variable>
@@ -890,56 +885,6 @@
 			</xsl:attribute>
 		</xsl:element>
 	</xsl:template>
-
-	<!-- generic -->
-	<!-- This does not support translation elements. Try newCreateCodableConcept instead -->
-	<!-- Consider this deprecated for CD and CE datatypes, eventually refactor everything to use newCreateCodableConcept or a version of it that is applicable for II datatypes, then remove createCodableConcept -->
-	<!--
-	<xsl:template name="createCodableConcept">
-		<xsl:param name="source-element"/>
-		<xsl:param name="codeSystem"/>
-		<xsl:param name="code"/>
-		<xsl:param name="displayName"/>
-		<xsl:param name="originalText"/>
-		<xsl:param name="label"/>
-		<xsl:param name="elementName"/>
-		<xsl:param name="includeCoding" select="true()"/>
-		<xsl:param name="isValue" select="false()"/>
-		<xsl:variable name="content">
-			<xsl:call-template name="createCodableConceptContent">
-				<xsl:with-param name="codeSystem" select="$codeSystem"/>
-				<xsl:with-param name="code" select="$code"/>
-				<xsl:with-param name="displayName" select="$displayName"/>
-				<xsl:with-param name="label" select="$label"/>
-				<xsl:with-param name="isValue" select="$isValue"/>
-			</xsl:call-template>
-		</xsl:variable>
-		<xsl:if test="$source-element">
-			<xsl:comment><xsl:value-of select="local-name($source-element)"/></xsl:comment>
-			<xsl:comment><xsl:value-of select="$source-element/@nullFlavor"/></xsl:comment>
-		</xsl:if>
-
-		<xsl:element name="{$elementName}">
-			<xsl:choose>
-				<xsl:when test="$includeCoding">
-					<coding>
-						<xsl:copy-of select="$content"/>
-					</coding>
-					<xsl:if test="string-length($originalText) &gt; 0">
-						<xsl:element name="text">
-							<xsl:attribute name="value">
-								<xsl:value-of select="$originalText"/>
-							</xsl:attribute>
-						</xsl:element>
-					</xsl:if>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:copy-of select="$content"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:element>
-	</xsl:template>
-	-->
 
 	<xsl:template name="createCodableConceptContent">
 		<xsl:param name="codeSystem"/>
@@ -1273,6 +1218,28 @@
 			</xsl:choose>
 		</xsl:element>
 	</xsl:template>
+
+
+	<xsl:template name="performer-reference">
+		<xsl:param name="element-name">actor</xsl:param>
+		
+		<!-- TODO: handle multiple authors. May not be legal for all resources.  -->
+		<xsl:element name="{$element-name}">
+			<xsl:choose>
+				<xsl:when test="cda:performer">
+					<!-- TODO: test to see author.id is the same as an ancestor author, if so use that URN -->
+					<reference value="urn:uuid:{cda:performer[1]/@lcg:uuid}"/>
+				</xsl:when>
+				<xsl:when test="ancestor::cda:section[1]/cda:performer">
+					<reference value="urn:uuid:{ancestor::cda:section[1]/cda:performer/@lcg:uuid}"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<reference value="urn:uuid:{/cda:ClinicalDocument/cda:performer/@lcg:uuid}"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:element>
+	</xsl:template>
+	
 
 	<xsl:template match="cda:act[cda:templateId[@root = '2.16.840.1.113883.10.20.22.4.122']]"
 		mode="reference">

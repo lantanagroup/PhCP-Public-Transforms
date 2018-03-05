@@ -29,8 +29,8 @@
    <xsl:include href="cda2fhir-Narrative.xslt"/>
    <xsl:include href="cda2fhir-Procedure.xslt"/>
    <xsl:include href="cda2fhir-FamilyMemberHistory.xslt"/>
+   <xsl:include href="cda2fhir-Immunization.xslt"/>
    <!-- CarePlan resource not needed for ONC-HIP use case. Revisit later. -->
-   
    <xsl:include href="cda2fhir-CarePlan.xslt"/>
    <xsl:include href="c-to-fhir-utility.xslt"/>
    <xsl:include href="cda2fhir-fallback-templates.xslt"/>

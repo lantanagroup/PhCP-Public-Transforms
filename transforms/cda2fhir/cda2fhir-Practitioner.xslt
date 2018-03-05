@@ -80,9 +80,18 @@
         <xsl:param name="telecom"></xsl:param>
         <xsl:param name="address"></xsl:param>
         <Practitioner>
-            <!--
-            <id value="{@lcg:uuid}"/>
-            -->
+            <xsl:comment>
+                <xsl:value-of select="local-name(parent::cda:*)"/>
+                <xsl:for-each select="parent::cda:*/cda:id">
+                    <xsl:text>[cda:id</xsl:text>
+                    <xsl:if test="@root"><xsl:text>[@root="</xsl:text><xsl:value-of select="@root"/><xsl:text>"]</xsl:text></xsl:if>
+                    <xsl:text>]</xsl:text>
+                </xsl:for-each>
+                <xsl:text>/</xsl:text>
+                <xsl:value-of select="local-name(.)"/></xsl:comment>
+            <meta>
+                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"/>
+            </meta>
             <text>
                 <status value="generated"/>
                 <!-- Not sure how you'd like the ID info generated in the html output. I can output them in the way the rest of it is done but wanted to double check. -->
@@ -98,40 +107,6 @@
             </text>
             <xsl:apply-templates select="$id"/>
             <xsl:apply-templates select="$name"/>
-            <!--
-            <xsl:for-each select="$name">
-                <name>
-                    <xsl:for-each select="cda:family">
-                        <family>
-                            <xsl:attribute name="value">
-                                <xsl:value-of select="."/>
-                            </xsl:attribute>
-                        </family>
-                    </xsl:for-each>
-                    <xsl:for-each select="cda:given">
-                        <given>
-                            <xsl:attribute name="value">
-                                <xsl:value-of select="."/>
-                            </xsl:attribute>
-                        </given>
-                    </xsl:for-each>
-                    <xsl:for-each select="cda:prefix">
-                        <prefix>
-                            <xsl:attribute name="value">
-                                <xsl:value-of select="."/>
-                            </xsl:attribute>
-                        </prefix>
-                    </xsl:for-each>
-                    <xsl:for-each select="cda:suffix">
-                        <suffix>
-                            <xsl:attribute name="value">
-                                <xsl:value-of select="."/>
-                            </xsl:attribute>
-                        </suffix>
-                    </xsl:for-each>
-                </name>
-            </xsl:for-each>
-            -->
             <xsl:apply-templates select="$telecom"/>
             <xsl:apply-templates select="$address"/>
             <!-- Qualification -->

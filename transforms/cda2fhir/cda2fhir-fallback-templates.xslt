@@ -13,6 +13,9 @@
     <xsl:template match="cda:observation" mode="bundle-entry" priority="-1">
         <xsl:if test="not(@nullFlavor)">
             <xsl:call-template name="create-bundle-entry"/>
+            <xsl:for-each select="cda:entryRelationship/cda:observation">
+                <xsl:call-template name="create-bundle-entry"/>
+            </xsl:for-each>
         </xsl:if>
     </xsl:template>
     
@@ -69,6 +72,13 @@
                     <xsl:apply-templates select="cda:value"/>
                 </xsl:otherwise>
             </xsl:choose>
+            <xsl:for-each select="cda:entryRelationship/cda:observation">
+                <related>
+                    <target>
+                        <xsl:apply-templates select="." mode="reference"/>
+                    </target>
+                </related>
+            </xsl:for-each>
             <!-- TODO process entryRelationships -->
         </Observation>
     </xsl:template>
@@ -132,6 +142,9 @@
         </xsl:if>
     </xsl:template>
     
+    <xsl:template match="cda:statusCode" priority="-1">
+        <status value="{@code}"/>
+    </xsl:template>
 
     <!-- swallow unmapped entry and entryRelationship children -->
 

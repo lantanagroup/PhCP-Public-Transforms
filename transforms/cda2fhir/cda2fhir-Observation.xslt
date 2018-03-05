@@ -14,39 +14,13 @@
     
     
     <!-- VITAL SIGN OBSERVATION -->
-    
+    <!--
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27']]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
-    <!--  
-    <xsl:template
-        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27']]"
-        mode="reference">
-        <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param>
-        <xsl:choose>
-            <xsl:when test="$sectionEntry='true'">
-                <entry>
-                    <reference value="urn:uuid:{@lcg:uuid}"/>
-                </entry></xsl:when>
-            <xsl:when test="$listEntry='true'">
-                <entry><item>
-                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
-                </entry></xsl:when>
-            <xsl:otherwise>
-                <reference value="urn:uuid:{@lcg:uuid}"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    -->
-    
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27']]">
         <Observation>
-            <!--
-            <id value="{@lcg:uuid}"/>
-            -->
-            
             <xsl:call-template name="add-meta"/>
             <xsl:apply-templates select="cda:id"/>
             <status value="final"/>
@@ -78,44 +52,18 @@
             </xsl:apply-templates>
         </Observation>
     </xsl:template>
-    
+    -->
   
   
     <!-- OUTCOME OBSERVATION -->
-    
+    <!--
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.144']]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
-    <!-- 
-    <xsl:template
-        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.144']]"
-        mode="reference">
-        <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param>
-        <xsl:choose>
-            <xsl:when test="$sectionEntry='true'">
-                <entry>
-                    <reference value="urn:uuid:{@lcg:uuid}"/>
-                </entry></xsl:when>
-            <xsl:when test="$listEntry='true'">
-                <entry><item>
-                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
-                </entry></xsl:when>
-            <xsl:otherwise>
-                <reference value="urn:uuid:{@lcg:uuid}"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    -->
-    
     
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.144']]">
         <Observation>
-            <!--
-            <id value="{@lcg:uuid}"/>
-            -->
-            
             <xsl:call-template name="add-meta"/>
             <xsl:apply-templates select="cda:id"/>
             <status value="final"/>
@@ -123,7 +71,6 @@
                 <xsl:with-param name="elementName">code</xsl:with-param>
             </xsl:apply-templates>
             <subject>
-                <!-- TODO: check for overridden subject at section or entry level --> 
                 <reference value="urn:uuid:{//cda:recordTarget/@lcg:uuid}"/>
             </subject>
 
@@ -138,47 +85,20 @@
                 <xsl:with-param name="element-name">performer</xsl:with-param>
             </xsl:call-template>
             <xsl:apply-templates select="cda:value"/>
-            <!-- TODO process entryRelationships -->
         </Observation>
-    </xsl:template>
-    
-    
-    
-    <!-- Mental Status Observation  -->
-    
-    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.74']]" mode="bundle-entry">
-        <xsl:call-template name="create-bundle-entry"/>
-    </xsl:template>
-    
-    <!--  
-    <xsl:template
-        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.74']]"
-        mode="reference">
-        <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param>
-        <xsl:choose>
-            <xsl:when test="$sectionEntry='true'">
-                <entry>
-                    <reference value="urn:uuid:{@lcg:uuid}"/>
-                </entry></xsl:when>
-            <xsl:when test="$listEntry='true'">
-                <entry><item>
-                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
-                </entry></xsl:when>
-            <xsl:otherwise>
-                <reference value="urn:uuid:{@lcg:uuid}"/>
-            </xsl:otherwise>
-        </xsl:choose>
     </xsl:template>
     -->
     
     
+    <!-- Mental Status Observation  -->
+    <!--
+    <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.74']]" mode="bundle-entry">
+        <xsl:call-template name="create-bundle-entry"/>
+    </xsl:template>
+    
+    
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.74']]">
         <Observation>
-            <!--
-            <id value="{@lcg:uuid}"/>
-            -->
-            
             <xsl:call-template name="add-meta"/>
             <xsl:apply-templates select="cda:id"/>
             <status value="final"/>
@@ -186,7 +106,6 @@
                 <xsl:with-param name="elementName">code</xsl:with-param>
             </xsl:apply-templates>
             <subject>
-                <!-- TODO: check for overridden subject at section or entry level --> 
                 <reference value="urn:uuid:{//cda:recordTarget/@lcg:uuid}"/>
             </subject>
             <xsl:if test="cda:effectiveTime/cda:low/@value">
@@ -200,46 +119,20 @@
                 <xsl:with-param name="element-name">performer</xsl:with-param>
             </xsl:call-template>
             <xsl:apply-templates select="cda:value"/>
-            <!-- TODO process entryRelationships -->
         </Observation>
     </xsl:template>
-    
+    -->
     
     <!-- Self Care Activities  -->
-    
+    <!--
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.128']]" mode="bundle-entry">
         <xsl:call-template name="create-bundle-entry"/>
     </xsl:template>
     
-    <!--  
-    <xsl:template
-        match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.128']]"
-        mode="reference">
-        <xsl:param name="sectionEntry">false</xsl:param>
-        <xsl:param name="listEntry">false</xsl:param>
-        <xsl:choose>
-            <xsl:when test="$sectionEntry='true'">
-                <entry>
-                    <reference value="urn:uuid:{@lcg:uuid}"/>
-                </entry></xsl:when>
-            <xsl:when test="$listEntry='true'">
-                <entry><item>
-                    <reference value="urn:uuid:{@lcg:uuid}"/></item>
-                </entry></xsl:when>
-            <xsl:otherwise>
-                <reference value="urn:uuid:{@lcg:uuid}"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    -->
     
     
     <xsl:template match="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.128']]">
         <Observation>
-            <!--
-            <id value="{@lcg:uuid}"/>
-            -->
-            
             <xsl:call-template name="add-meta"/>
             <xsl:apply-templates select="cda:id"/>
             <status value="final"/>
@@ -247,7 +140,6 @@
                 <xsl:with-param name="elementName">code</xsl:with-param>
             </xsl:apply-templates>
             <subject>
-                <!-- TODO: check for overridden subject at section or entry level --> 
                 <reference value="urn:uuid:{//cda:recordTarget/@lcg:uuid}"/>
             </subject>
             <xsl:if test="cda:effectiveTime/@value">
@@ -261,10 +153,9 @@
                 <xsl:with-param name="element-name">performer</xsl:with-param>
             </xsl:call-template>
             <xsl:apply-templates select="cda:value"/>
-            <!-- TODO process entryRelationships -->
         </Observation>
     </xsl:template>
-    
+    -->
     
     <!-- RESULT/VITAL-SIGN ORGANIZER/OBSERVATION -->
     
